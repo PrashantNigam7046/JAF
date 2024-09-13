@@ -60,7 +60,7 @@ const ApplicationFormPage = () => {
                         circleFontSize="16px"
                     />
                     <div className='single-step-box'>
-                        <span>1</span>
+                        <span>{stepIndex+1}</span>
                     </div>
                 </Col>
                 {/* <Col className='single-step-box' xl={1} md={1} sm={1} xs={1}>

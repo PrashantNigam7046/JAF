@@ -215,6 +215,11 @@ body{
     border-color: #1e7e34;
     box-shadow: 0 4px 6px 0px #00000075;
 }
+.AddButton:disabled {
+    background-color: #858585;
+    border-color: #858585;
+    cursor: not-allowed;
+}
 .msg-to-user {
     margin: 10px 0;
     display: inline-block;

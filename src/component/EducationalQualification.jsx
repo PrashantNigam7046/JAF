@@ -5,6 +5,14 @@ import Form from 'react-bootstrap/Form';
 import { IoMdAddCircleOutline, IoIosCloseCircle    } from "react-icons/io";
 
 const EducationalQualification = () => {
+    // const [eduaction, seteducation] = React.useState([{ id: 1 }]);
+
+    // const addQualification = () => {
+    //     seteducation([...eduaction, { id: eduaction.length + 1 }]);
+    // }
+
+    // onClick={() => removeMember(member.id)}
+
     return (
         <>
 
@@ -15,21 +23,17 @@ const EducationalQualification = () => {
                     <Form>
                         <Row>
                             <Col md={4}>
-                                <FloatingLabel controlId="floatingSelect" label="Highest Qualification">
+                                <FloatingLabel controlId="floatingSelect" label="Highest Qualification" className="mb-3">
                                     <Form.Control type="text" placeholder="" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={4}>
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Name of Board/University "
-                                    className="mb-3"
-                                >
+                                <FloatingLabel controlId="floatingInput" label="Name of Board/University" className="mb-3">
                                     <Form.Control type="text" placeholder="Last Name" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={4}>
-                                <FloatingLabel controlId="floatingSelect" label="Division/ % of Marks ">
+                                <FloatingLabel controlId="floatingSelect" label="Division/ % of Marks " className="mb-3">
                                     <Form.Control type="text" placeholder="" />
                                 </FloatingLabel>          
                             </Col>
@@ -43,7 +47,7 @@ const EducationalQualification = () => {
                 </Card.Body>
             </Card>
             
-            <Button variant="primary" className='AddButton'> <IoMdAddCircleOutline /> Add Qualification</Button>
+            <Button variant="primary" onClick={addQualification} className='AddButton'> <IoMdAddCircleOutline /> Add Qualification</Button>
             
         </>
     );
