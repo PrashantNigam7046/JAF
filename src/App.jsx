@@ -4,9 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/LoginPage';
 import HeaderComponent from './component/HeaderComponent';
 import FooterComponent from './component/FooterComponent';
-
+import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
+
 
 function App() {
   return (

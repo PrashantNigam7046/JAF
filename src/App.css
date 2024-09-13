@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    background: linear-gradient(to right top, #ffffff, #f8faff, #edf5ff, #dff2ff, #cfeffb);
+  }
+  

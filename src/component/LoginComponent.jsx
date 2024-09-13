@@ -3,8 +3,24 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css"
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
+import { loginUser } from '../services/apiService';
+
 
 const LoginComponent = () => {
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        let name = "sample";
+        let email = "prashan@gmauil.com";
+        let mobileNumber ="9999999999";
+        try {
+          const response = await loginUser({ name, email, mobileNumber });
+          localStorage.setItem('authToken', response.data.data.token);
+        } catch (err) {
+          console.error('Login error:', err);
+        } 
+      };
+
 
     return (
         <>
@@ -26,14 +42,14 @@ const LoginComponent = () => {
                         </FloatingLabel>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3" controlId="formBasicPhone">
                         <FloatingLabel controlId="floatingPassword" label="Phone number">
                             <Form.Control type="number" placeholder="Phone number" />
                         </FloatingLabel>
                     </Form.Group>
 
                     <div className="d-grid">
-                        <Button size="lg" variant="primary" type="submit" className='Btn_Continue'>
+                        <Button size="lg" variant="primary" type="submit" className='Btn_Continue' onClick={handleSubmit}>
                             Continue
                         </Button>
                     </div>

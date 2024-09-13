@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 420px;
     padding: 15px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .FormDiv{
@@ -19,18 +19,19 @@
 
 
 .Middle_screen {
-    /* height: calc(100vh - 80px);
-      margin-top: 79px;*/
-    height: calc(100vh - 155px) !important; 
-    /* height: calc(100vh - 76px) !important;  */
-    /* margin-top: 79px; */
-  
-      /* display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      flex-direction: column; */
+    /* height: calc(100vh - 155px) !important;  */
   }
+  .Middle_screen {
+    height: calc(100vh - 155px) !important;
+    height: 100%;
+}
+.Middle_screen_inner {
+    min-height: calc(100vh - 297px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
   .Middle_screen_inner h1 {
     font-size: 54px;
     line-height: 81px;
@@ -90,6 +91,9 @@
     line-height: 25px;
 }
 
+.form-floating input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
 
 @media only screen and (min-device-width : 481px) and (max-device-width : 767px) {
     .Middle_screen_inner h1 {
