@@ -5,7 +5,7 @@ import "../assets/styles/footerheader.css"
 
 const FooterComponent = () => {
     return (<>
-    <div className="footer">
+    <div className="footer fixed-bottom sticky-bottom">
         <Container fluid>
             <Row>
                 <Col><div className="footer-color-line bg-red"></div></Col>

@@ -1,11 +1,6 @@
-*{
-  margin: 0;
-  padding: 0;
-}
 
 .root_screen{
   min-height: 100vh;
   height: 100%;
-  background: linear-gradient(114.78deg, #FFF5EF 0.35%, #BEEDFF 100%);
   /* background-image: linear-gradient(to right top, #ffffff, #f8faff, #edf5ff, #dff2ff, #cfeffb); */
 }
