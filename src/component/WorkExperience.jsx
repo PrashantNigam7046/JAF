@@ -16,21 +16,17 @@ const WorkExperience = () => {
                 <Form>
                     <Row>
                         <Col md={4}>
-                            <FloatingLabel controlId="floatingSelect" label="Name of the Organization ">
+                            <FloatingLabel controlId="floatingSelect" label="Name of the Organization" className="mb-3">
                                 <Form.Control type="text" placeholder="" />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Designation"
-                                className="mb-3"
-                            >
+                            <FloatingLabel controlId="floatingInput" label="Designation" className="mb-3">
                                 <Form.Control type="text" placeholder="Last Name" />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId="floatingSelect" label="Period">
+                            <FloatingLabel controlId="floatingSelect" label="Period" className="mb-3">
                                 <Form.Control type="number" placeholder="" />
                             </FloatingLabel>          
                         </Col>

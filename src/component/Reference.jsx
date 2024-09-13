@@ -16,7 +16,7 @@ const Reference = () => {
                 <Form>
                     <Row>
                         <Col md={4}>
-                            <FloatingLabel controlId="floatingSelect" label="Name">
+                            <FloatingLabel controlId="floatingSelect" label="Name" className="mb-3">
                                 <Form.Control type="text" placeholder="" />
                             </FloatingLabel>
                         </Col>
@@ -26,7 +26,7 @@ const Reference = () => {
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId="floatingSelect" label="Mobile No  ">
+                            <FloatingLabel controlId="floatingSelect" label="Mobile No " className="mb-3">
                                 <Form.Control type="number" placeholder="" />
                             </FloatingLabel>          
                         </Col>
