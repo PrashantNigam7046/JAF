@@ -210,9 +210,11 @@ body{
     font-size: 30px;
     margin-right: 5px;
 }
-.AddButton:hover{
-    background-color: #218838;
-    border-color: #1e7e34;
+.AddButton:hover,
+.AddButton:focus,
+.AddButton:active{
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
     box-shadow: 0 4px 6px 0px #00000075;
 }
 .AddButton:disabled {
@@ -226,35 +228,4 @@ body{
 }
 
 
-
-
-/* date input css */
-.form-floating .form-control, 
-.form-floating .form-control-plaintext {
-    padding: 1rem .75rem;
-}
-
-.form-floating .form-control, 
-.form-floating .form-control-plaintext, 
-.form-floating .form-select {
-    height: calc(3.5rem + calc(var(--bs-border-width)* 2));
-    min-height: calc(3.5rem + calc(var(--bs-border-width)* 2));
-    line-height: 1.25;
-}
-
-.form-floating .form-control-plaintext~label, 
-.form-floating .form-control:focus~label, 
-.form-floating .form-control:not(:placeholder-shown)~label, 
-.form-floating .form-select~label {
-    color: rgba(var(--bs-body-color-rgb), .65);
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
-}
-.form-floating .rdt.rdtOpen~label{
-    color: rgba(var(--bs-body-color-rgb), .65);
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
-}
-.form-floating .rdt.rdtOpen .form-control{
-    padding-top: 1.625rem;
-    padding-bottom: .625rem;
-}
 

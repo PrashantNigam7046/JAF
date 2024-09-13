@@ -1,8 +1,6 @@
 import React from 'react';
-import { FormGroup, FloatingLabel, Row, Col, Button } from "react-bootstrap";
-import Card from 'react-bootstrap/Card'
-import Form from 'react-bootstrap/Form';
-import { IoMdAddCircleOutline, IoIosCloseCircle    } from "react-icons/io";
+import { FormGroup, FloatingLabel, Row, Col, Button, Card, Form } from "react-bootstrap";
+import { IoMdAddCircleOutline, IoIosCloseCircle } from 'react-icons/io';
 
 const WorkExperience = () => {
     return (

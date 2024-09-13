@@ -24,7 +24,8 @@ const JAFComponent = () => {
                 <Form>
                 <Row>
                     <Col md={4}>
-                        <FloatingLabel controlId="floatingSelect" label="Post Applied for">
+                        <FloatingLabel controlId="floatingSelect" 
+                        label={<><span className="label-text">Post Applied for</span> <span className="required">*</span></>}>
                             <Form.Select aria-label="Floating label select example">
                                 <option>Select</option>
                                 <option value="1">One</option>

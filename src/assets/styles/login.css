@@ -95,6 +95,9 @@
     -webkit-appearance: none;
 }
 
+
+
+
 @media only screen and (min-device-width : 481px) and (max-device-width : 767px) {
     .Middle_screen_inner h1 {
         font-size: 40px;
