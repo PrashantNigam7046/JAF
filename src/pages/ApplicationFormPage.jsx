@@ -3,7 +3,7 @@ import {Container, Row, Col, Button } from 'react-bootstrap';
 import Stepper from 'react-stepper-horizontal';
 import JAFComponent from '../component/JAFComponent';
 import "../assets/styles/formsteps.css";
-import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { FaLongArrowAltRight, FaLongArrowAltLeft, FaCheckCircle  } from "react-icons/fa";
 import FamilyDetail from'../component/FamilyDetail';
 import EducationalQualification from'../component/EducationalQualification';
 import WorkExperience from'../component/WorkExperience';
@@ -12,6 +12,7 @@ import Reference from'../component/Reference';
 const ApplicationFormPage = () => {
 
 
+ 
     const steps = [
         { title: '' },
         { title: '' },
@@ -21,26 +22,39 @@ const ApplicationFormPage = () => {
       ];
 
       const [stepIndex, setStepIndex] = React.useState(0);
-
+      const [btnShowSubmit, setBtnShowSubmit] = React.useState(false)
       const stepContent = [
         <div key="step1" className='Application-section'>
           {/* jaf component */}
           <JAFComponent />
         </div>,
-        <div key="step2">
+        <div key="step2" className='Application-section'>
           <FamilyDetail />
         </div>,
-        <div key="step3">
+        <div key="step3" className='Application-section'>
           <EducationalQualification />
         </div>,
-        <div key="step4">
+        <div key="step4" className='Application-section'>
           <WorkExperience />
         </div>,
-        <div key="step5">
+        <div key="step5" className='Application-section'>
           <Reference />
         </div>,
       ];
 
+      const handleNext = () => {
+         setStepIndex(stepIndex + 1)    
+         if(stepIndex === 3) {
+            setBtnShowSubmit(true)
+         }else setBtnShowSubmit(false)
+         
+        } 
+        const handlePrevBtn = () => {
+            setStepIndex(stepIndex - 1)
+            if(stepIndex === 4) {
+                setBtnShowSubmit(false)
+             }
+        }
     return (
         <>
 
@@ -87,20 +101,21 @@ const ApplicationFormPage = () => {
                 <Col>
                     <Button className='btn-previous'
                         variant="secondary"
-                        onClick={() => setStepIndex(stepIndex - 1)}
+                        onClick={handlePrevBtn}
                         disabled={stepIndex === 0}
                     >
                         <FaLongArrowAltLeft /> Previous
                     </Button>
                 </Col>
                 <Col className="text-end d-flex justify-content-end">
-                    <Button className='btn-next'
-                        variant="primary"
-                        onClick={() => setStepIndex(stepIndex + 1)}
-                        disabled={stepIndex === steps.length - 1}
-                    >
-                        Next <FaLongArrowAltRight />
-                    </Button>
+                   {btnShowSubmit ?
+                        <Button className='final-submit-button' variant="primary" > Submit <FaCheckCircle /> </Button> 
+                        
+                        : 
+
+                        <Button className='btn-next' variant="primary" onClick={handleNext} disabled={stepIndex === steps.length - 1} > Next <FaLongArrowAltRight />
+                        </Button>
+                   }
                 </Col>
             </Row>
         </Container>

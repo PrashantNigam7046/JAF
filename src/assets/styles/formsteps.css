@@ -207,12 +207,14 @@ body{
     transition: all ease .2s;
 }
 .AddButton svg {
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 5px;
 }
-.AddButton:hover{
-    background-color: #218838;
-    border-color: #1e7e34;
+.AddButton:hover,
+.AddButton:focus,
+.AddButton:active{
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
     box-shadow: 0 4px 6px 0px #00000075;
 }
 .AddButton:disabled {
@@ -224,37 +226,40 @@ body{
     margin: 10px 0;
     display: inline-block;
 }
-
-
-
-
-/* date input css */
-.form-floating .form-control, 
-.form-floating .form-control-plaintext {
-    padding: 1rem .75rem;
+.final-submit-button {
+    border-radius: 100px !important;
+    background-image: linear-gradient(to right, #28a745, #259d41, #23923c, #208838, #1e7e34) !important;
+    border-color: #28a745 !important;
+    transition: all ease .2s;
+}
+.final-submit-button svg {
+    margin-left: 5px;
+}
+.final-submit-button:hover {
+    background-image: linear-gradient(to left, #28a745, #259d41, #23923c, #208838, #1e7e34) !important;
 }
 
-.form-floating .form-control, 
-.form-floating .form-control-plaintext, 
-.form-floating .form-select {
-    height: calc(3.5rem + calc(var(--bs-border-width)* 2));
-    min-height: calc(3.5rem + calc(var(--bs-border-width)* 2));
-    line-height: 1.25;
+
+@media only screen and (max-device-width : 767px) {
+    .Form-section-space{
+        text-align: center;
+    }
+    .jaf-card .form-floating {
+        margin: 7px 0 !important;
+    }
+    .jaf-card div:last-of-type .form-floating{
+
+    }
+    .Application-section .AddButton {
+        margin: 0 auto;
+    }
+    #floatingTextarea {
+        height: 150px;
+    }
 }
 
-.form-floating .form-control-plaintext~label, 
-.form-floating .form-control:focus~label, 
-.form-floating .form-control:not(:placeholder-shown)~label, 
-.form-floating .form-select~label {
-    color: rgba(var(--bs-body-color-rgb), .65);
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+@media only screen and (max-device-width : 479px){
+    .Form-next-prev{
+        bottom: 101px;
+    }
 }
-.form-floating .rdt.rdtOpen~label{
-    color: rgba(var(--bs-body-color-rgb), .65);
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
-}
-.form-floating .rdt.rdtOpen .form-control{
-    padding-top: 1.625rem;
-    padding-bottom: .625rem;
-}
-

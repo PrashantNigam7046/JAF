@@ -4,3 +4,44 @@
   height: 100%;
   /* background-image: linear-gradient(to right top, #ffffff, #f8faff, #edf5ff, #dff2ff, #cfeffb); */
 }
+
+
+
+label .required {
+  color: red;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 0px;
+}
+
+/* date input css */
+.form-floating .form-control, 
+.form-floating .form-control-plaintext {
+  padding: 1rem .75rem;
+}
+
+.form-floating .form-control, 
+.form-floating .form-control-plaintext, 
+.form-floating .form-select {
+  height: calc(3.5rem + calc(var(--bs-border-width)* 2));
+  min-height: calc(3.5rem + calc(var(--bs-border-width)* 2));
+  line-height: 1.25;
+}
+
+.form-floating .form-control-plaintext~label, 
+.form-floating .form-control:focus~label, 
+.form-floating .form-control:not(:placeholder-shown)~label, 
+.form-floating .form-select~label {
+  color: rgba(var(--bs-body-color-rgb), .65);
+  color: rgb(82 82 82);
+  transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+}
+.form-floating .rdt.rdtOpen~label{
+  color: rgba(var(--bs-body-color-rgb), .65);
+  color: rgb(82 82 82);
+  transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+}
+.form-floating .rdt.rdtOpen .form-control{
+  padding-top: 1.625rem;
+  padding-bottom: .625rem;
+}

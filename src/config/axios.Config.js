@@ -13,7 +13,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-  baseURL: "https://x59z2wtc-5555.inc1.devtunnels.ms/jaf/api/v1", 
+  baseURL: " https://demoserver.radicalminds.in:3010/api/v1/", 
   headers: {
     'Content-Type': 'application/json',
   }
