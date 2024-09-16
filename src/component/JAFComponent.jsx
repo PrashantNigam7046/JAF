@@ -35,12 +35,19 @@ const JAFComponent = () => {
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
-                        <FloatingLabel
+                        {/* <FloatingLabel
                             controlId="floatingInput"
                             label="Current Address"
                             className="mb-3"
                         >
                             <Form.Control type="text" placeholder="Current Address" />
+                        </FloatingLabel> */}
+                        <FloatingLabel
+                            controlId="floatingTextarea"
+                            label="Current Address"
+                            className="mb-3"
+                        >
+                            <Form.Control as="textarea" placeholder="Current Address" />
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>

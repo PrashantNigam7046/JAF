@@ -207,7 +207,7 @@ body{
     transition: all ease .2s;
 }
 .AddButton svg {
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 5px;
 }
 .AddButton:hover,
@@ -226,6 +226,40 @@ body{
     margin: 10px 0;
     display: inline-block;
 }
+.final-submit-button {
+    border-radius: 100px !important;
+    background-image: linear-gradient(to right, #28a745, #259d41, #23923c, #208838, #1e7e34) !important;
+    border-color: #28a745 !important;
+    transition: all ease .2s;
+}
+.final-submit-button svg {
+    margin-left: 5px;
+}
+.final-submit-button:hover {
+    background-image: linear-gradient(to left, #28a745, #259d41, #23923c, #208838, #1e7e34) !important;
+}
 
 
+@media only screen and (max-device-width : 767px) {
+    .Form-section-space{
+        text-align: center;
+    }
+    .jaf-card .form-floating {
+        margin: 7px 0 !important;
+    }
+    .jaf-card div:last-of-type .form-floating{
 
+    }
+    .Application-section .AddButton {
+        margin: 0 auto;
+    }
+    #floatingTextarea {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-device-width : 479px){
+    .Form-next-prev{
+        bottom: 101px;
+    }
+}

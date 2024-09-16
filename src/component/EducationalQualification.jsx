@@ -31,28 +31,28 @@ const EducationalQualification = () => {
               <Row>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingQualification-${education.id}`} label="Highest Qualification" className='mb-3'>
-                    <Form.Control type="text"  />
+                    <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingUniversity-${education.id}`} label="Name of Board/University" className='mb-3'>
-                    <Form.Control type="text"  />
+                    <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingMarks-${education.id}`} label="Division/ % of Marks" className='mb-3'>
-                    <Form.Control type="text"  />
+                    <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing">
-                    <Form.Control type="number"  />
+                    <Form.Control type="number"  placeholder='' />
                   </FloatingLabel>
                 </Col>
               </Row>
             </Form>
             {education.id !== 1 && ( // Conditionally render the close icon
-              <span className='delete-card' onClick={() => removeQualification(education.id)}>
+              <span className='delete-card' onClick={() => removeQualification(education.id)} title='Remove'>
                 <IoIosCloseCircle />
               </span>
             )}

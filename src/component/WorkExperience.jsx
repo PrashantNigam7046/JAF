@@ -29,32 +29,32 @@ const WorkExperience = () => {
                     <Row>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingOrganization-${experience.id}`} label="Name of the Organization" className="mb-3">
-                                <Form.Control type="text"  />
+                                <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingDesignation-${experience.id}`} label="Designation" className="mb-3">
-                                <Form.Control type="text"  />
+                                <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingPeriod-${experience.id}`} label="Period" className="mb-3">
-                                <Form.Control type="number"  />
+                                <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingSalary-${experience.id}`} label="Gross Salary P.M">
-                                <Form.Control type="number"  />
+                                <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingDeduction-${experience.id}`} label="Take Home P.M(After Deduction)">
-                                <Form.Control type="number"  />
+                                <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingLeaving-${experience.id}`} label="Reasons for leaving">
-                                <Form.Control type="text"  />
+                                <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                     </Row>

@@ -29,27 +29,27 @@ const Reference = () => {
                     <Row>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingName-${reference.id}`} label="Name" className="mb-3">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingOrganization-${reference.id}`} label="Organization" className="mb-3">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingMobile-${reference.id}`} label="Mobile No " className="mb-3">
-                                <Form.Control type="number" />
+                                <Form.Control type="number" placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingEmail-${reference.id}`} label="E-Mail Address">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingDesignation-${reference.id}`} label="Designation">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>
                     </Row>
