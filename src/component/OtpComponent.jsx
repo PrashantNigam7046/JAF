@@ -28,9 +28,9 @@ const OtpComponent = () => {
                 <div className="d-grid">
                     <Button size="lg" variant="primary" type="submit" className='Btn_Continue'>
                         Continue
-                            <Spinner animation="border" role="status">
+                            {/* <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Loading...</span>
-                            </Spinner>
+                            </Spinner> */}
                     </Button>
                 </div>
             </Form>

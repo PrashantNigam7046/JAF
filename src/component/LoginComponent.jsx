@@ -11,7 +11,7 @@ import { SpinnerContext } from '../context/SpinnerContext';
 const LoginComponent = () => {
     const navigate = useNavigate()
     const { show, hide } = useContext(SpinnerContext);
-
+    const [showSpinner, setShowSpinner] = useState(false)
     const [userDetails, setUserDetails] = useState({
         name : "",
         email: "",
@@ -34,7 +34,7 @@ const LoginComponent = () => {
 
 
       const handleSubmit = async (event) => {
-        show();
+        setShowSpinner(true);
         event.preventDefault();
         const { name, email, mobileNumber } = userDetails;
         try {
@@ -43,9 +43,11 @@ const LoginComponent = () => {
           // Optionally, redirect or handle successful login
           navigate("/otp")
           hide();
+          setShowSpinner(false)
 
         } catch (err) {
           console.error('Login error:', err);
+          setShowSpinner(true)
         } 
       };
 
@@ -80,9 +82,11 @@ const LoginComponent = () => {
 
                     <div className="d-grid">
                         <Button size="lg" variant="primary" type="submit" className='Btn_Continue' onClick={handleSubmit}>
-                            Continue <Spinner animation="border" role="status">
+                            Continue 
+
+                            {showSpinner ? <Spinner animation="border" role="status">
                                         <span className="visually-hidden">Loading...</span>
-                                    </Spinner>
+                                    </Spinner> : null}
                         </Button>
                     </div>
                 </Form>
