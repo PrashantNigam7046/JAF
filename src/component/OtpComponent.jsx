@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css";
@@ -19,6 +19,9 @@ const OtpComponent = () => {
     navigate("/job-application-form-page")
    }
 
+   let email = localStorage.getItem("email_id");
+   console.log("email", email)
+  
     return (
         
         <div className='otp_box'>
