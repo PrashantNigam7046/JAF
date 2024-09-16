@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css"
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../services/apiService';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { SpinnerContext } from '../context/SpinnerContext';
 
@@ -39,6 +39,9 @@ const LoginComponent = () => {
         const { name, email, mobileNumber } = userDetails;
         try {
           const response = await loginUser({ name, email, mobileNumber });
+          const data = JSON.parse(response.config.data);
+localStorage.setItem("email_id", data.email);
+          localStorage.setItem("email_id", JSON.parse(response.config.data).email)
           localStorage.setItem('authToken', response.data.data.token);
           // Optionally, redirect or handle successful login
           navigate("/otp")
@@ -78,6 +81,15 @@ const LoginComponent = () => {
                         label={<><span className="label-text">Mobile Number</span> <span className="required">*</span></>}>
                             <Form.Control type="number" name="mobileNumber" value={userDetails.mobileNumber} placeholder="Phone number" onChange={e => handleChange(e)} />
                         </FloatingLabel>
+                    </Form.Group>
+
+                    <Form.Group className='declaration mb-3'>
+                        <Form.Check
+                            type='checkbox'
+                            label='asdfasdf'
+                            id='asdf'
+                            className='text-start'
+                        />
                     </Form.Group>
 
                     <div className="d-grid">
