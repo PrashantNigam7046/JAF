@@ -73,17 +73,17 @@ const JAFComponent = () => {
                 <Row>
                     <Col md={4}>
                         <FloatingLabel controlId="floatingInput" label="Permanent Address" className="mb-3">
-                            <Form.Control type="text" placeholder="Last Name" />
+                            <Form.Control type="text" placeholder="" />
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
                         <FloatingLabel controlId="floatingInput" label="Pin Code" className="mb-3" >
-                            <Form.Control type="number" placeholder="Pin Code" />
+                            <Form.Control type="number" placeholder="" />
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
                         <FloatingLabel controlId="floatingInput" label="Alternate Number" className="mb-3" >
-                            <Form.Control type="number" placeholder="Pin Code" />
+                            <Form.Control type="number" placeholder="" />
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
@@ -92,7 +92,7 @@ const JAFComponent = () => {
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
-                        <FloatingLabel controlId="floatingSelect" label="GGender">
+                        <FloatingLabel controlId="floatingSelect" label="Gender">
                             <Form.Select aria-label="Floating label select example">
                                 <option>Select</option>
                                 <option value="1">Male</option>

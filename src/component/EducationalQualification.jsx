@@ -27,25 +27,26 @@ const EducationalQualification = () => {
         <Card key={education.id} className="jaf-card mb-4">
           <Card.Body>
             <Form>
+            
               <Row>
                 <Col md={4}>
-                  <FloatingLabel controlId={`floatingFirstName-${education.id}`} label="Highest Qualification" className='mb-3'>
-                    <Form.Control type="text" placeholder="First Name" />
+                  <FloatingLabel controlId={`floatingQualification-${education.id}`} label="Highest Qualification" className='mb-3'>
+                    <Form.Control type="text"  />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
-                  <FloatingLabel controlId={`floatingLastName-${education.id}`} label="Name of Board/University" className='mb-3'>
-                    <Form.Control type="text" placeholder="Last Name" />
+                  <FloatingLabel controlId={`floatingUniversity-${education.id}`} label="Name of Board/University" className='mb-3'>
+                    <Form.Control type="text"  />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
-                  <FloatingLabel controlId={`floatingAge-${education.id}`} label="Division/ % of Marks" className='mb-3'>
-                    <Form.Control type="text" placeholder="Age" />
+                  <FloatingLabel controlId={`floatingMarks-${education.id}`} label="Division/ % of Marks" className='mb-3'>
+                    <Form.Control type="text"  />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
-                  <FloatingLabel controlId={`floatingOccupation-${education.id}`} label="Year of Passing">
-                    <Form.Control type="number" placeholder="Occupation" />
+                  <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing">
+                    <Form.Control type="number"  />
                   </FloatingLabel>
                 </Col>
               </Row>

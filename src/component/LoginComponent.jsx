@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css"
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../services/apiService';
 import { useNavigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
+import { SpinnerContext } from '../context/SpinnerContext';
 
 const LoginComponent = () => {
     const navigate = useNavigate()
+    const { show, hide } = useContext(SpinnerContext);
+
     const [userDetails, setUserDetails] = useState({
         name : "",
         email: "",
         mobileNumber: ""
     })
 
+ 
 
     const handleChange = (e) => {
         console.log("event--", e.target.value)
@@ -29,6 +34,7 @@ const LoginComponent = () => {
 
 
       const handleSubmit = async (event) => {
+        show();
         event.preventDefault();
         const { name, email, mobileNumber } = userDetails;
         try {
@@ -36,6 +42,8 @@ const LoginComponent = () => {
           localStorage.setItem('authToken', response.data.data.token);
           // Optionally, redirect or handle successful login
           navigate("/otp")
+          hide();
+
         } catch (err) {
           console.error('Login error:', err);
         } 
@@ -72,7 +80,9 @@ const LoginComponent = () => {
 
                     <div className="d-grid">
                         <Button size="lg" variant="primary" type="submit" className='Btn_Continue' onClick={handleSubmit}>
-                            Continue
+                            Continue <Spinner animation="border" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner>
                         </Button>
                     </div>
                 </Form>

@@ -29,17 +29,17 @@ const FamilyDetail = () => {
               <Row>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingFirstName-${member.id}`} label="First Name" className='mb-3'>
-                    <Form.Control type="text" placeholder="First Name" />
+                    <Form.Control type="text" />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingLastName-${member.id}`} label="Last Name" className='mb-3'>
-                    <Form.Control type="text" placeholder="Last Name" />
+                    <Form.Control type="text" />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingAge-${member.id}`} label="Age" className='mb-3'>
-                    <Form.Control type="number" placeholder="Age" />
+                    <Form.Control type="number" />
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
@@ -54,7 +54,7 @@ const FamilyDetail = () => {
                 </Col>
                 <Col md={4}>
                   <FloatingLabel controlId={`floatingOccupation-${member.id}`} label="Occupation">
-                    <Form.Control type="text" placeholder="Occupation" />
+                    <Form.Control type="text" />
                   </FloatingLabel>
                 </Col>
               </Row>
