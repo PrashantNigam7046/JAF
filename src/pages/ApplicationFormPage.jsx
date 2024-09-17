@@ -8,12 +8,14 @@ import FamilyDetail from'../component/FamilyDetail';
 import EducationalQualification from'../component/EducationalQualification';
 import WorkExperience from'../component/WorkExperience';
 import Reference from'../component/Reference';
+import Preview from '../component/Preview';
 
 const ApplicationFormPage = () => {
 
 
  
     const steps = [
+        { title: '' },
         { title: '' },
         { title: '' },
         { title: '' },
@@ -28,7 +30,7 @@ const ApplicationFormPage = () => {
           {/* jaf component */}
           <JAFComponent />
         </div>,
-        <div key="step2" className='Application-section'>
+        <div key="step2" className='Application-section FamilyDetail'>
           <FamilyDetail />
         </div>,
         <div key="step3" className='Application-section'>
@@ -37,21 +39,24 @@ const ApplicationFormPage = () => {
         <div key="step4" className='Application-section'>
           <WorkExperience />
         </div>,
-        <div key="step5" className='Application-section'>
+        <div key="step5" className='Application-section Reference'>
           <Reference />
         </div>,
+        <div key="step6" className='Application-section Reference'>
+        <Preview />
+      </div>,
       ];
 
       const handleNext = () => {
          setStepIndex(stepIndex + 1)    
-         if(stepIndex === 3) {
+         if(stepIndex === 4) {
             setBtnShowSubmit(true)
          }else setBtnShowSubmit(false)
          
         } 
         const handlePrevBtn = () => {
             setStepIndex(stepIndex - 1)
-            if(stepIndex === 4) {
+            if(stepIndex === 5) {
                 setBtnShowSubmit(false)
              }
         }

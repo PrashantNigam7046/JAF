@@ -15,12 +15,39 @@ const WorkExperience = () => {
           setExperience(experience.filter(experience => experience.id !== id));
       }
     };
-
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+  
+    const handleStartDateChange = (event) => {
+      setStartDate(event.target.value);
+    };
+  
+    const handleEndDateChange = (event) => {
+      setEndDate(event.target.value);
+    };
     return (
         <>
 
         <h1 className="mb-3">WORK EXPERIENCE DETAILS</h1>
-        <p>( Starting from the current organization )</p>
+        {/* <p>( Starting from the current organization )</p> */}
+        <Form>
+        <div className="mb-3">
+          <Form.Check
+            inline
+            label="Fresher"
+            name="group1"
+            type="radio"
+            id="sd"
+          />
+          <Form.Check
+            inline
+            label="Experienced"
+            name="group1"
+            type="radio"
+            id="ssd"
+          />
+        </div>
+    </Form>
 
         {experience.map(experience => (
         <Card className="jaf-card mb-4 Altcard">
@@ -37,23 +64,38 @@ const WorkExperience = () => {
                                 <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
+                        <Col md={2}>
+                            <FloatingLabel controlId="floatingInput" className="mb-3" 
+                            label={<><span className="label-text">From</span> <span className="required">*</span></>}>
+                                <Form.Control
+                                    type="date"
+                                    aria-label="dsf"
+                                    
+                                />
+                            </FloatingLabel>       
+                        </Col>
+                        <Col md={2}>
+                            <FloatingLabel controlId="floatingInput" className="mb-3" 
+                            label={<><span className="label-text">TO</span> <span className="required">*</span></>}>
+                                <Form.Control
+                                    type="date"
+                                    aria-label="dsf"
+                                    
+                                />
+                            </FloatingLabel>       
+                        </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingPeriod-${experience.id}`} label="Period" className="mb-3">
+                            <FloatingLabel controlId={`floatingSalary-${experience.id}`} label="Gross Salary P.M" className="mb-3">
                                 <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingSalary-${experience.id}`} label="Gross Salary P.M">
+                            <FloatingLabel controlId={`floatingDeduction-${experience.id}`} label="Take Home P.M(After Deduction)" className="mb-3">
                                 <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingDeduction-${experience.id}`} label="Take Home P.M(After Deduction)">
-                                <Form.Control type="number"  placeholder='' />
-                            </FloatingLabel>          
-                        </Col>
-                        <Col md={4}>
-                            <FloatingLabel controlId={`floatingLeaving-${experience.id}`} label="Reasons for leaving">
+                            <FloatingLabel controlId={`floatingLeaving-${experience.id}`} label="Reasons for leaving" className="mb-3">
                                 <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>          
                         </Col>

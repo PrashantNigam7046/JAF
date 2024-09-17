@@ -29,22 +29,27 @@ const EducationalQualification = () => {
             <Form>
             
               <Row>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingQualification-${education.id}`} label="Highest Qualification" className='mb-3'>
-                    <Form.Control type="text"  placeholder='' />
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingQualification-${education.id}`} label="Education (latest pursuing)" className='mb-3'>
+                    <Form.Select aria-label="Floating label select example">
+                      <option>Select</option>
+                      <option value="1">12th</option>
+                      <option value="2">Graduation</option>
+                      <option value="3">Post Graduation</option>
+                    </Form.Select>
                   </FloatingLabel>
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                   <FloatingLabel controlId={`floatingUniversity-${education.id}`} label="Name of Board/University" className='mb-3'>
                     <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                   <FloatingLabel controlId={`floatingMarks-${education.id}`} label="Division/ % of Marks" className='mb-3'>
                     <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                   <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing" className='mb-3'>
                     <Form.Control type="number"  placeholder='' />
                   </FloatingLabel>

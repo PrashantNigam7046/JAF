@@ -20,35 +20,35 @@ const Reference = () => {
         <>
 
         <h1 className="mb-3">PROFESSIONAL REFERENCES</h1>
-        <p>( Last two Supervisors & minimum two colleagues ): MANDATORY</p>
+        <p>( Last two Supervisors & minimum two colleagues )</p>
 
         {reference.map(reference => (
         <Card className="jaf-card mb-4 Altcard">
             <Card.Body>
                 <Form>
                     <Row>
-                        <Col md={4}>
+                        <Col>
                             <FloatingLabel controlId={`floatingName-${reference.id}`} label="Name" className="mb-3">
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
-                        <Col md={4}>
+                        <Col>
                             <FloatingLabel controlId={`floatingOrganization-${reference.id}`} label="Organization" className="mb-3">
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
-                        <Col md={4}>
+                        <Col>
                             <FloatingLabel controlId={`floatingMobile-${reference.id}`} label="Mobile No " className="mb-3">
                                 <Form.Control type="number" placeholder='' />
                             </FloatingLabel>          
                         </Col>
-                        <Col md={4}>
-                            <FloatingLabel controlId={`floatingEmail-${reference.id}`} label="E-Mail Address">
+                        <Col>
+                            <FloatingLabel controlId={`floatingEmail-${reference.id}`} label="E-Mail Address" className="mb-3">
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>
-                        <Col md={4}>
-                            <FloatingLabel controlId={`floatingDesignation-${reference.id}`} label="Designation">
+                        <Col>
+                            <FloatingLabel controlId={`floatingDesignation-${reference.id}`} label="Designation" className="mb-3">
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>

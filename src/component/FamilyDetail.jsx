@@ -28,7 +28,7 @@ const FamilyDetail = () => {
           <Card.Body>
             <Form>
               <Row>
-                <Col md={3}>
+                <Col>
                   <FloatingLabel controlId={`floatingRelationship-${member.id}`} label="Relationship" className='mb-3'>
                     <Form.Select aria-label="Floating label select example">
                       <option>Select</option>
@@ -38,22 +38,22 @@ const FamilyDetail = () => {
                     </Form.Select>
                   </FloatingLabel>
                 </Col>
-                <Col md={3}>
+                <Col>
                   <FloatingLabel controlId={`floatingFirstName-${member.id}`} label="First Name" className='mb-3'>
                     <Form.Control type="text" placeholder='' />
                   </FloatingLabel>
                 </Col>
-                <Col md={3}>
+                <Col>
                   <FloatingLabel controlId={`floatingLastName-${member.id}`} label="Last Name" className='mb-3'>
                     <Form.Control type="text" placeholder='' />
                   </FloatingLabel>
                 </Col>
-                <Col md={3}>
+                <Col>
                   <FloatingLabel controlId={`floatingAge-${member.id}`} label="Age" className='mb-3'>
                     <Form.Control type="number" placeholder='' />
                   </FloatingLabel>
                 </Col>
-                <Col md={3}>
+                <Col>
                   <FloatingLabel controlId={`floatingOccupation-${member.id}`} label="Occupation" className='mb-3'>
                     <Form.Control type="text" placeholder=''/>
                   </FloatingLabel>
