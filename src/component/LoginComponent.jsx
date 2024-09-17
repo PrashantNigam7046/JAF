@@ -86,7 +86,7 @@ localStorage.setItem("email_id", data.email);
                     <Form.Group className='declaration mb-3'>
                         <Form.Check
                             type='checkbox'
-                            label='asdfasdf'
+                            label='I have previously worked with Radical Minds'
                             id='asdf'
                             className='text-start'
                         />
