@@ -21,10 +21,10 @@ const EducationalQualification = () => {
     return (
         <>
 
-            <h1 className="mb-3">EDUCATIONAL QUALIFICATION DETAILS</h1>
+        <h1 className="mb-3">EDUCATIONAL QUALIFICATION DETAILS</h1>
+        {education.map(education => (
 
-            {education.map(education => (
-        <Card key={education.id} className="jaf-card mb-4">
+        <Card key={education.id} className="jaf-card mb-4 Altcardd">
           <Card.Body>
             <Form>
             
@@ -45,7 +45,7 @@ const EducationalQualification = () => {
                   </FloatingLabel>
                 </Col>
                 <Col md={4}>
-                  <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing">
+                  <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing" className='mb-3'>
                     <Form.Control type="number"  placeholder='' />
                   </FloatingLabel>
                 </Col>

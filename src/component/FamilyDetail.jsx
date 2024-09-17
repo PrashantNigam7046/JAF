@@ -21,29 +21,15 @@ const FamilyDetail = () => {
   return (
     <>
       <h1 className="mb-3">FAMILY DETAILS</h1>
+      <p className=''>( Maximum 4 members can be added )</p>
 
       {members.map(member => (
-        <Card key={member.id} className="jaf-card mb-4">
+        <Card key={member.id} className="jaf-card mb-4 Altcard">
           <Card.Body>
             <Form>
               <Row>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingFirstName-${member.id}`} label="First Name" className='mb-3'>
-                    <Form.Control type="text" placeholder='' />
-                  </FloatingLabel>
-                </Col>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingLastName-${member.id}`} label="Last Name" className='mb-3'>
-                    <Form.Control type="text" placeholder='' />
-                  </FloatingLabel>
-                </Col>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingAge-${member.id}`} label="Age" className='mb-3'>
-                    <Form.Control type="number" placeholder='' />
-                  </FloatingLabel>
-                </Col>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingRelationship-${member.id}`} label="Relationship">
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingRelationship-${member.id}`} label="Relationship" className='mb-3'>
                     <Form.Select aria-label="Floating label select example">
                       <option>Select</option>
                       <option value="1">One</option>
@@ -52,8 +38,23 @@ const FamilyDetail = () => {
                     </Form.Select>
                   </FloatingLabel>
                 </Col>
-                <Col md={4}>
-                  <FloatingLabel controlId={`floatingOccupation-${member.id}`} label="Occupation">
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingFirstName-${member.id}`} label="First Name" className='mb-3'>
+                    <Form.Control type="text" placeholder='' />
+                  </FloatingLabel>
+                </Col>
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingLastName-${member.id}`} label="Last Name" className='mb-3'>
+                    <Form.Control type="text" placeholder='' />
+                  </FloatingLabel>
+                </Col>
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingAge-${member.id}`} label="Age" className='mb-3'>
+                    <Form.Control type="number" placeholder='' />
+                  </FloatingLabel>
+                </Col>
+                <Col md={3}>
+                  <FloatingLabel controlId={`floatingOccupation-${member.id}`} label="Occupation" className='mb-3'>
                     <Form.Control type="text" placeholder=''/>
                   </FloatingLabel>
                 </Col>
@@ -76,7 +77,7 @@ const FamilyDetail = () => {
       >
         <IoMdAddCircleOutline /> Add Member
       </Button>
-      <span className='msg-to-user'>(Maximum 4 members can be added)</span>
+      
     </>
   );
 };

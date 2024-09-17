@@ -23,7 +23,7 @@ const WorkExperience = () => {
         <p>( Starting from the current organization )</p>
 
         {experience.map(experience => (
-        <Card className="jaf-card mb-4">
+        <Card className="jaf-card mb-4 Altcard">
             <Card.Body>
                 <Form>
                     <Row>
