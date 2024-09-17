@@ -17,11 +17,10 @@ const JAFComponent = () => {
     
     <>
         <h1 className="mb-3">JOB APPLICATION FORM</h1>
-        {/* <p> (1st page Filled by Candidate only Capital Letters)</p> */}
 
         <Card className="jaf-card mb-4">
             <Card.Body>
-                <Form>
+                <Form>   
                 <Row>
                     <Col md={12} className="mb-3">
                         <h5>Current Address</h5>

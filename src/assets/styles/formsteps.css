@@ -164,7 +164,7 @@ body{
 .jaf-card select,
 .jaf-card input,
 .jaf-card textarea {
-    border-color: #38BAEB80 !important;
+    border-color: #38BAEB80 !important;       
 }
 .jaf-card select:hover,
 .jaf-card input:hover,
