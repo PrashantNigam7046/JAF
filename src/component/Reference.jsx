@@ -23,7 +23,7 @@ const Reference = () => {
         <p>( Last two Supervisors & minimum two colleagues ): MANDATORY</p>
 
         {reference.map(reference => (
-        <Card className="jaf-card mb-4">
+        <Card className="jaf-card mb-4 Altcard">
             <Card.Body>
                 <Form>
                     <Row>
