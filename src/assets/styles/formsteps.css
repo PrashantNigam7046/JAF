@@ -260,6 +260,23 @@ body{
 }
 
 
+.editIcon {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 1000px;
+    color: #fff;
+    font-size: 19px;
+    box-shadow: 0 4px 6px 0px #00000075;
+    outline: 1px solid #fff;
+    background: linear-gradient(90deg, #007AFF 0%, #004999 100%);
+    text-align: center;
+    padding: 0;
+    line-height: 0;
+}
+.editIcon:hover {
+    background: linear-gradient(270deg, #007AFF 0%, #004999 100%);
+}
 @media only screen and (max-device-width : 767px) {
     .Form-section-space{
         text-align: center;
