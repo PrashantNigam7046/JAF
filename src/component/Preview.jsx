@@ -204,8 +204,8 @@ const Preview = () => {
                         </Col>
                         <Col className="text-end d-flex align-items-center flex-row-reverse">
                             {isShowEdit ? <>
-                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
-                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                                <Button className='saveIcon' variant="primary">Save <FaCheckCircle className='ml-1'/></Button>
+                            <Button className='cancelIcon' variant="primary">Cancel <MdCancel  className='ml-1'/></Button>
                             </> 
                             : 
                             <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("Family Details")}>Edit <FiEdit className='ml-1'/></Button>
@@ -262,8 +262,8 @@ const Preview = () => {
                         </Col>
                         <Col className="text-end d-flex align-items-center flex-row-reverse">
                         {isShowEdit ? <>
-                            <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
-                            <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                            <Button className='saveIcon' variant="primary">Save <FaCheckCircle className='ml-1'/></Button>
+                            <Button className='cancelIcon' variant="primary">Cancel <MdCancel  className='ml-1'/></Button>
                         </> 
                          : 
                          <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
@@ -315,8 +315,8 @@ const Preview = () => {
                         </Col>
                         <Col className="text-end d-flex align-items-center flex-row-reverse">
                             {isShowEdit ? <>
-                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
-                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                                <Button className='saveIcon' variant="primary">Save <FaCheckCircle className='ml-1'/></Button>
+                                <Button className='cancelIcon' variant="primary">Cancel <MdCancel  className='ml-1'/></Button>
                             </> 
                             : 
                             <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
@@ -381,8 +381,8 @@ const Preview = () => {
                         </Col>
                         <Col className="text-end d-flex align-items-center flex-row-reverse">
                             {isShowEdit ? <>
-                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
-                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                                <Button className='saveIcon' variant="primary">Save <FaCheckCircle className='ml-1'/></Button>
+                                <Button className='cancelIcon' variant="primary">Cancel <MdCancel  className='ml-1'/></Button>
                             </> 
                             : 
                             <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
