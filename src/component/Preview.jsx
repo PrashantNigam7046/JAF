@@ -9,26 +9,16 @@ const Preview = () => {
 
         <Card className='jaf-card mb-4 GenralDetails'>
             <Card.Body>
+                <Row>
+                    <Col className="mb-3">
+                        <h4 className='mb-3'>Genral Details</h4>
+                    </Col>
+                    <Col className="text-end">
+                    <Button className='editIcon' variant="primary"><FiEdit /></Button>
+                    </Col>
+                </Row>
                 <Form>
-                    <Row>
-                        <Col className="mb-3">
-                            <h4 className='mb-3'>Genral Details</h4>
-                        </Col>
-                        <Col className="text-end">
-                        <Button className='editIcon' variant="primary"><FiEdit /></Button>
-                        </Col>
-                    </Row>
-                </Form>
-                <Form>
-                    <Row>
-                        <Col className="md-6">
-                            <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                                <Form.Label column sm="2">Email address</Form.Label>
-                                <Form.Control column sm="10" type="email" placeholder="name@example.com" />
-                            </Form.Group>
-                        </Col>
-                        <Col className="md-6">asdfasdf</Col>
-                    </Row>
+                    sdfasdfa
                 </Form>
             </Card.Body>
         </Card>

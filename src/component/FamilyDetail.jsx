@@ -29,7 +29,8 @@ const FamilyDetail = () => {
             <Form>
               <Row>
                 <Col>
-                  <FloatingLabel controlId={`floatingRelationship-${member.id}`} label="Relationship" className='mb-3'>
+                  <FloatingLabel controlId={`floatingRelationship-${member.id}`} className='mb-3'
+                  label={<><span className="label-text">Relationship</span> <span className="required">*</span></>}>
                     <Form.Select aria-label="Floating label select example">
                       <option>Select</option>
                       <option value="1">One</option>
@@ -39,7 +40,8 @@ const FamilyDetail = () => {
                   </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel controlId={`floatingFirstName-${member.id}`} label="First Name" className='mb-3'>
+                  <FloatingLabel controlId={`floatingFirstName-${member.id}`} className='mb-3'
+                  label={<><span className="label-text">First Name</span> <span className="required">*</span></>}>
                     <Form.Control type="text" placeholder='' />
                   </FloatingLabel>
                 </Col>
@@ -49,12 +51,14 @@ const FamilyDetail = () => {
                   </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel controlId={`floatingAge-${member.id}`} label="Age" className='mb-3'>
+                  <FloatingLabel controlId={`floatingAge-${member.id}`} className='mb-3'
+                  label={<><span className="label-text">Age</span> <span className="required">*</span></>}>
                     <Form.Control type="number" placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel controlId={`floatingOccupation-${member.id}`} label="Occupation" className='mb-3'>
+                  <FloatingLabel controlId={`floatingOccupation-${member.id}`} className='mb-3'
+                  label={<><span className="label-text">Occupation</span> <span className="required">*</span></>}>
                     <Form.Control type="text" placeholder=''/>
                   </FloatingLabel>
                 </Col>

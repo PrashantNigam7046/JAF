@@ -30,7 +30,8 @@ const EducationalQualification = () => {
             
               <Row>
                 <Col md={3}>
-                  <FloatingLabel controlId={`floatingQualification-${education.id}`} label="Education (latest pursuing)" className='mb-3'>
+                  <FloatingLabel controlId={`floatingQualification-${education.id}`} className='mb-3'
+                  label={<><span className="label-text">Education (latest pursuing)</span> <span className="required">*</span></>}>
                     <Form.Select aria-label="Floating label select example">
                       <option>Select</option>
                       <option value="1">12th</option>
@@ -40,17 +41,20 @@ const EducationalQualification = () => {
                   </FloatingLabel>
                 </Col>
                 <Col md={3}>
-                  <FloatingLabel controlId={`floatingUniversity-${education.id}`} label="Name of Board/University" className='mb-3'>
+                  <FloatingLabel controlId={`floatingUniversity-${education.id}`} className='mb-3'
+                  label={<><span className="label-text">Name of Board/University</span> <span className="required">*</span></>}>
                     <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col md={3}>
-                  <FloatingLabel controlId={`floatingMarks-${education.id}`} label="Division/ % of Marks" className='mb-3'>
+                  <FloatingLabel controlId={`floatingMarks-${education.id}`} className='mb-3'
+                  label={<><span className="label-text">Division/ % of Marks</span> <span className="required">*</span></>}>
                     <Form.Control type="text"  placeholder='' />
                   </FloatingLabel>
                 </Col>
                 <Col md={3}>
-                  <FloatingLabel controlId={`floatingPassingYear-${education.id}`} label="Year of Passing" className='mb-3'>
+                  <FloatingLabel controlId={`floatingPassingYear-${education.id}`} className='mb-3'
+                  label={<><span className="label-text">Year of Passing</span> <span className="required">*</span></>}>
                     <Form.Control type="number"  placeholder='' />
                   </FloatingLabel>
                 </Col>

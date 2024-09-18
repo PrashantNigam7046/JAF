@@ -28,27 +28,32 @@ const Reference = () => {
                 <Form>
                     <Row>
                         <Col>
-                            <FloatingLabel controlId={`floatingName-${reference.id}`} label="Name" className="mb-3">
+                            <FloatingLabel controlId={`floatingName-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Name</span> <span className="required">*</span></>}>
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col>
-                            <FloatingLabel controlId={`floatingOrganization-${reference.id}`} label="Organization" className="mb-3">
+                            <FloatingLabel controlId={`floatingOrganization-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Organization</span> <span className="required">*</span></>}>
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col>
-                            <FloatingLabel controlId={`floatingMobile-${reference.id}`} label="Mobile No " className="mb-3">
+                            <FloatingLabel controlId={`floatingMobile-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Mobile No</span> <span className="required">*</span></>}>
                                 <Form.Control type="number" placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col>
-                            <FloatingLabel controlId={`floatingEmail-${reference.id}`} label="E-Mail Address" className="mb-3">
+                            <FloatingLabel controlId={`floatingEmail-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">E-Mail Address</span> <span className="required">*</span></>}>
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col>
-                            <FloatingLabel controlId={`floatingDesignation-${reference.id}`} label="Designation" className="mb-3">
+                            <FloatingLabel controlId={`floatingDesignation-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
                                 <Form.Control type="text" placeholder='' />
                             </FloatingLabel>          
                         </Col>

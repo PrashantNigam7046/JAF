@@ -55,12 +55,14 @@ const WorkExperience = () => {
                 <Form>
                     <Row>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingOrganization-${experience.id}`} label="Name of the Organization" className="mb-3">
+                            <FloatingLabel controlId={`floatingOrganization-${experience.id}`} className="mb-3"
+                            label={<><span className="label-text">Name of the Organization</span> <span className="required">*</span></>}>
                                 <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingDesignation-${experience.id}`} label="Designation" className="mb-3">
+                            <FloatingLabel controlId={`floatingDesignation-${experience.id}`} className="mb-3"
+                            label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
                                 <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
@@ -85,17 +87,20 @@ const WorkExperience = () => {
                             </FloatingLabel>       
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingSalary-${experience.id}`} label="Gross Salary P.M" className="mb-3">
+                            <FloatingLabel controlId={`floatingSalary-${experience.id}`} className="mb-3"
+                            label={<><span className="label-text">Gross Salary P.M</span> <span className="required">*</span></>}>
                                 <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingDeduction-${experience.id}`} label="Take Home P.M(After Deduction)" className="mb-3">
+                            <FloatingLabel controlId={`floatingDeduction-${experience.id}`} className="mb-3"
+                            label={<><span className="label-text">Take Home P.M(After Deduction)</span> <span className="required">*</span></>}>
                                 <Form.Control type="number"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={4}>
-                            <FloatingLabel controlId={`floatingLeaving-${experience.id}`} label="Reasons for leaving" className="mb-3">
+                            <FloatingLabel controlId={`floatingLeaving-${experience.id}`} className="mb-3"
+                            label={<><span className="label-text">Reasons for leaving</span> <span className="required">*</span></>}>
                                 <Form.Control type="text"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
