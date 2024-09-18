@@ -282,6 +282,28 @@ body{
     border-color: #2d9ec9;
     /* box-shadow: 0 0px 0px 4px #38baeb; */
 }
+.previewCard hr {
+    border-color: #38baeb4d;
+    border-color: #38BAEB80 !important;
+    opacity: 1;
+}
+.previewCard .card-body {
+    margin-bottom: 0 !important;
+}
+.previewCard input:disabled {
+}
+.previewCard input:disabled:hover{
+
+}
+.previewCard select:disabled:hover,
+.previewCard input:disabled:hover,
+.previewCard textarea:disabled:hover,
+.previewCard select:disabled:focus,
+.previewCard input:disabled:focus,
+.previewCard textarea:disabled:focus{
+    box-shadow: none;
+}
+
 @media only screen and (max-device-width : 767px) {
     .Form-section-space{
         text-align: center;
