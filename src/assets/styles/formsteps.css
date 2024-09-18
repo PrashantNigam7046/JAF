@@ -260,8 +260,10 @@ body{
 }
 
 
-.editIcon {
-    display: inline-block;
+.editIcon,
+.cancelIcon,
+.saveIcon {
+    /* display: inline-block;
     width: 35px;
     height: 35px;
     border-radius: 1000px;
@@ -274,15 +276,43 @@ body{
     padding: 0;
     line-height: 0;
     background: #38BAEB;
+    border-color: #38BAEB; */
+    border-radius: 1000px;
+    line-height: 1.5;
+    background: #38BAEB;
     border-color: #38BAEB;
+    padding: 0.375rem 0.75rem;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    height: 30px;
+    margin-left: 5px;
+}
+.cancelIcon{
+    background: red;
+    border-color: red;
+    background-image: linear-gradient(to left, #f43333, #e62a29, #d8211e, #ca1614, #bc0808);
+}
+.saveIcon{
+    background: #28a745 !important;
+    border-color: #28a745 !important;
+    background-image: linear-gradient(to right, #28a745, #259d41, #23923c, #208838, #1e7e34)
+}
+.editIcon svg,
+.cancelIcon svg,
+.saveIcon svg {
+    margin-left: 5px;
 }
 .editIcon:hover {
     background: linear-gradient(270deg, #007AFF 0%, #004999 100%);
     background: #2d9ec9;
     border-color: #2d9ec9;
     /* box-shadow: 0 0px 0px 4px #38baeb; */
+    box-shadow: 0 4px 6px 0px #00000075;
+    border-color: #ffffff73;
 }
-.previewCard hr {
+.previewCard hr,
+.jaf-card hr {
     border-color: #38baeb4d;
     border-color: #38BAEB80 !important;
     opacity: 1;

@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FormGroup, FloatingLabel, Row, Col, Button, Card, Form } from 'react-bootstrap';
-import { FiEdit } from "react-icons/fi";
+import { FiEdit  } from "react-icons/fi";
+import { MdCancel } from "react-icons/md";
+import { FaCheckCircle  } from "react-icons/fa";
 
 const Preview = () => {
+    const[isShowEdit, setShowEdit] = useState(false)
+
+
+
+    const handleEditFormPreview = (str) => {
+      
+        switch (str) {
+            case "General Details":
+                setShowEdit(true)
+                break;
+            case "Family Details":
+                setShowEdit(true)
+            default:
+                break;
+        }
+    }
     return (
         <>
         <h1 className="mb-3">PREVIEW</h1>
@@ -11,10 +29,16 @@ const Preview = () => {
             <Card.Body>
                 <Row className='d-flex align-items-center mb-2'>
                     <Col className="mb-">
-                        <h4 className='mb-0'>Genral Details</h4>
+                        <h4 className='mb-0'>General Details</h4>
                     </Col>
-                    <Col className="text-end">
-                    <Button className='editIcon' variant="primary"><FiEdit /></Button>
+                    <Col className="text-end d-flex align-items-center flex-row-reverse">
+                        {isShowEdit ? <>
+                            <Button className='saveIcon' variant="primary">Save <FaCheckCircle className='ml-1'/></Button>
+                            <Button className='cancelIcon' variant="primary">Cancel <MdCancel  className='ml-1'/></Button>
+                        </> 
+                         : 
+                         <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
+                        }
                     </Col>
                 </Row>
                 <hr></hr>
@@ -23,7 +47,7 @@ const Preview = () => {
                         <Col md={3}>
                             <FloatingLabel controlId="floatingName" className='mb-3'
                             label={<><span className="label-text">Name</span> <span className="required">*</span></>}>
-                                <Form.Control disabled type="text" placeholder='' defaultValue="Name" />
+                                <Form.Control disabled type="text" placeholder='' defaultValue="Sahil Sangwan" />
                             </FloatingLabel>
                         </Col>
 
@@ -32,7 +56,7 @@ const Preview = () => {
                             label={<><span className="label-text">Post Applied for</span> <span className="required">*</span></>}>
                                 <Form.Select aria-label="Floating label select example" disabled>
                                     <option>Select</option>
-                                    <option value="1" selected>Accountant</option>
+                                    <option value="1" selected>Sr. BDA</option>
                                     <option value="2">Designer</option>
                                     <option value="3">Developer</option>
                                 </Form.Select>
@@ -70,7 +94,7 @@ const Preview = () => {
                         <Col md={3}>
                             <FloatingLabel controlId="floatingEmail" className="mb-3"
                             label={<><span className="label-text">E-Mail ID</span> <span className="required">*</span></>}>
-                                <Form.Control disabled type="email" placeholder="E-Mail ID"  defaultValue="user@gmail.com" />
+                                <Form.Control disabled type="email" placeholder="E-Mail ID"  defaultValue="sahil@gmail.com" />
                             </FloatingLabel>
                         </Col>
                         
@@ -171,32 +195,236 @@ const Preview = () => {
             </Card.Body>
         </Card>
 
-<Card className='jaf-card mb-4 FamilyDetails'>
-    <Card.Body>
-        <Form>
-            <Row>
-                <Col className="mb-">
-                    <h4 className='mb-3'>Family Details</h4>
-                </Col>
-                <Col className="text-end">
-                <Button className='editIcon' variant="primary"><FiEdit /></Button>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                <FloatingLabel controlId="asd"label="Relationship" className='mb-3'>
-                    <Form.Select aria-label="Floating label select example">
-                    <option>Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    </Form.Select>
-                </FloatingLabel>
-                </Col>
-            </Row>
-        </Form>
-    </Card.Body>
-</Card>
+        <Card className='jaf-card mb-4 FamilyDetails previewCard'>
+            <Card.Body>
+                <Form>
+                    <Row className='d-flex align-items-center mb-2'>
+                        <Col className="mb-">
+                            <h4 className='mb-0'>Family Details</h4>
+                        </Col>
+                        <Col className="text-end d-flex align-items-center flex-row-reverse">
+                            {isShowEdit ? <>
+                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
+                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                            </> 
+                            : 
+                            <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("Family Details")}>Edit <FiEdit className='ml-1'/></Button>
+                            }
+                        </Col>
+                    </Row>
+                    <hr></hr>
+                    <Row>
+                        <Col>
+                            <FloatingLabel controlId="floatingRelationship" className='mb-3'
+                            label={<><span className="label-text">Relationship</span> <span className="required">*</span></>}>
+                                <Form.Select aria-label="Floating label select example" disabled>
+                                <option>Select</option>
+                                <option value="1" selected>Father</option>
+                                <option value="2">Mother</option>
+                                <option value="3">Uncle</option>
+                                </Form.Select>
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingFirstName" className='mb-3'
+                            label={<><span className="label-text">First Name</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='First Name' defaultValue="Ramesh" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingLastName" label="Last Name" className='mb-3'>
+                                <Form.Control disabled type="text" placeholder='Last Name' defaultValue="Kumar" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingAge" className='mb-3'
+                            label={<><span className="label-text">Age</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="number" placeholder='Age' defaultValue="60" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingOccupation" className='mb-3'
+                            label={<><span className="label-text">Occupation</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='Occupation' defaultValue="Branch Manager" />
+                            </FloatingLabel>
+                        </Col>
+                    </Row>
+                </Form>
+            </Card.Body>
+        </Card>
+
+        <Card className='jaf-card mb-4 EducationalDetails previewCard'>
+            <Card.Body>
+                <Form>
+                    <Row className='d-flex align-items-center mb-2'>
+                        <Col className="mb-">
+                            <h4 className='mb-0'>Educational Qualification Details</h4>
+                        </Col>
+                        <Col className="text-end d-flex align-items-center flex-row-reverse">
+                        {isShowEdit ? <>
+                            <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
+                            <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                        </> 
+                         : 
+                         <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
+                        }
+                    </Col>
+                    </Row>
+                    <hr></hr>
+                    <Row>       
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingQualification" className='mb-3'
+                            label={<><span className="label-text">Education (latest pursuing)</span> <span className="required">*</span></>}>
+                                <Form.Select aria-label="Floating label select example" disabled>
+                                <option>Select</option>
+                                <option value="1">12th</option>
+                                <option value="2" selected>Graduation</option>
+                                <option value="3">Post Graduation</option>
+                                </Form.Select>
+                            </FloatingLabel>
+                        </Col>
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingUniversity" className='mb-3'
+                            label={<><span className="label-text">Name of Board/University</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text"  placeholder='Name of Board/University' defaultValue="M.D.U" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingMarks" className='mb-3'
+                            label={<><span className="label-text">Division/ % of Marks</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text"  placeholder='Division/ % of Marks' defaultValue="65" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingPassingYear" className='mb-3'
+                            label={<><span className="label-text">Year of Passing</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="number"  placeholder='Year of Passing' defaultValue="2012" />
+                            </FloatingLabel>
+                        </Col>
+                    </Row>
+                </Form>
+            </Card.Body>
+        </Card>
+
+        <Card className='jaf-card mb-4 ExperienceDetails previewCard'>
+            <Card.Body>
+                <Form>
+                    <Row className='d-flex align-items-center mb-2'>
+                        <Col className="mb-">
+                            <h4 className='mb-0'>Work Experience Details</h4>
+                        </Col>
+                        <Col className="text-end d-flex align-items-center flex-row-reverse">
+                            {isShowEdit ? <>
+                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
+                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                            </> 
+                            : 
+                            <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
+                            }
+                        </Col>
+                    </Row>
+                    <hr></hr>
+                    <Row>       
+                        <Col md={4}>
+                            <FloatingLabel controlId="floatingOrganization" className="mb-3"
+                            label={<><span className="label-text">Name of the Organization</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text"  placeholder='Name of the Organization' defaultValue="Abc Pvt ltd" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col md={4}>
+                            <FloatingLabel controlId="floatingDesignation" className="mb-3"
+                            label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text"  placeholder='Designation' defaultValue="Sr Manager" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col md={2}>
+                            <FloatingLabel controlId="floatingFromDate" className="mb-3" 
+                            label={<><span className="label-text">From</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="date" aria-label="Date from" defaultValue="2020-01-01"  />
+                            </FloatingLabel>       
+                        </Col>
+                        <Col md={2}>
+                            <FloatingLabel controlId="floatingToDate" className="mb-3" 
+                            label={<><span className="label-text">TO</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="date" aria-label="Date to" defaultValue="2024-04-12"  />
+                            </FloatingLabel>       
+                        </Col>
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingSalary" className="mb-3"
+                            label={<><span className="label-text">Gross Salary P.M</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="number"  placeholder='Gross Salary P.M' defaultValue="50000" />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col md={3}>
+                            <FloatingLabel controlId="floatingDeduction" className="mb-3"
+                            label={<><span className="label-text">Take Home P.M(After Deduction)</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="number"  placeholder='Take Home P.M(After Deduction)' defaultValue="45000" />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col md={6}>
+                            <FloatingLabel controlId="floatingLeaving" className="mb-3"
+                            label={<><span className="label-text">Reasons for leaving</span> <span className="required">*</span></>}>
+                                <Form.Control disabled as="textarea"  placeholder='Reasons for leaving' defaultValue="I want to take on new challenges that will help me develop my skills further." />
+                            </FloatingLabel>          
+                        </Col>
+                    </Row>
+                </Form>
+            </Card.Body>
+        </Card>
+
+        <Card className='jaf-card mb-4 ExperienceDetails previewCard'>
+            <Card.Body>
+                <Form>
+                    <Row className='d-flex align-items-center mb-2'>
+                        <Col className="mb-">
+                            <h4 className='mb-0'>Professional References</h4>
+                        </Col>
+                        <Col className="text-end d-flex align-items-center flex-row-reverse">
+                            {isShowEdit ? <>
+                                <Button className='saveIcon' variant="primary">Save <FiEdit className='ml-1'/></Button>
+                                <Button className='cancelIcon' variant="primary">Cancel <FiEdit className='ml-1'/></Button>
+                            </> 
+                            : 
+                            <Button className='editIcon' variant="primary" onClick={() => handleEditFormPreview("General Details")}>Edit <FiEdit className='ml-1'/></Button>
+                            }
+                        </Col>
+                    </Row>
+                    <hr></hr>
+                    <Row>
+                        <Col>
+                            <FloatingLabel controlId="floatingReferenceName" className="mb-3"
+                            label={<><span className="label-text">Name</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='Name' defaultValue="Shobhit Adhikari" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingReferenceOrganization" className="mb-3"
+                            label={<><span className="label-text">Organization</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='Organization' defaultValue="One Cube pvt ltd" />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingReferenceMobile" className="mb-3"
+                            label={<><span className="label-text">Mobile No:</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="number" placeholder='Mobile No:' defaultValue="7878787878" />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingReferenceEmail" className="mb-3"
+                            label={<><span className="label-text">E-Mail Address</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='E-Mail Address' defaultValue="shobhit@gmail.com" />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId="floatingReferenceDesignation" className="mb-3"
+                            label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
+                                <Form.Control disabled type="text" placeholder='Designation' defaultValue="React Developer" />
+                            </FloatingLabel>          
+                        </Col>
+                    </Row>
+                </Form>
+            </Card.Body>
+        </Card>
 
 
             

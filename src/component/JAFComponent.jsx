@@ -21,11 +21,12 @@ const JAFComponent = () => {
         <Card className="jaf-card mb-4">
             <Card.Body>
                 <Form>   
-                <Row>
-                    <Col md={12} className="mb-3">
-                        <h5>Current Address</h5>
+                <Row className='d-flex align-items-center mb-2'>
+                    <Col className="mb-">
+                        <h4 className='mb-0'>General Details</h4>
                     </Col>
                 </Row>
+                <hr></hr> 
                 <Row>
                     <Col md={3}>
                         <FloatingLabel controlId="floatingPost" className="mb-3"
@@ -39,6 +40,76 @@ const JAFComponent = () => {
                         </FloatingLabel>
                     </Col>
                     <Col md={3}>
+                        <FloatingLabel controlId="floatingEmail" className="mb-3"
+                        label={<><span className="label-text">E-Mail ID</span> <span className="required">*</span></>}>
+                            <Form.Control type="email" placeholder="E-Mail ID" />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingDob" className="mb-3" 
+                        label={<><span className="label-text">DOB</span> <span className="required">*</span></>}>
+                            <Form.Control
+                                type="date"
+                                aria-label="DOB"
+                            />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingSelect" className="mb-3"
+                        label={<><span className="label-text">Gender</span> <span className="required">*</span></>}>
+                            <Form.Select aria-label="Floating label select example">
+                                <option>Select</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </Form.Select>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingAadhar" className="mb-3" 
+                        label={<><span className="label-text">Aadhar Card No</span> <span className="required">*</span></>}>
+                            <Form.Control type="number" placeholder="Pin Code" />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingPan" label="Pan Card No" className="mb-3">
+                            <Form.Control type="number" placeholder="Pan Card" />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingSource" className="mb-3"
+                        label={<><span className="label-text">Job Applied Source</span> <span className="required">*</span></>}>
+                            <Form.Select aria-label="Floating label select example">
+                                <option>Select</option>
+                                <option value="1">Naukari</option>
+                                <option value="2">Consultant</option>
+                                <option value="3">Walk In</option>
+                                <option value="3">HR</option>
+                            </Form.Select>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={3}>
+                        <FloatingLabel controlId="floatingSubSource" className="mb-3"
+                        label={<><span className="label-text">Sub Source (RM....)</span> <span className="required">*</span></>}>
+                            <Form.Control type="number" placeholder="Pin Code" />
+                        </FloatingLabel>
+                    </Col>
+
+                </Row> 
+                {/* <Row>
+                    <Col md={12} className="mb-3">
+                        <h5>Current Address</h5>
+                    </Col>
+                </Row> */}
+                {/* <br></br>
+                <Row className='d-flex align-items-center mb-2'>
+                    <Col className="mb-">
+                        <h4 className='mb-0'>Current Address</h4>
+                    </Col>
+                </Row>
+                <hr></hr>
+                <Row>
+                    <Col md={4}>
                         <FloatingLabel controlId="floatingSelect" className="mb-3"
                         label={<><span className="label-text">State</span> <span className="required">*</span></>}>
                          
@@ -50,7 +121,7 @@ const JAFComponent = () => {
                             </Form.Select>
                         </FloatingLabel>
                     </Col>
-                    <Col md={3}>
+                    <Col md={4}>
                         <FloatingLabel
                             controlId="floatingCurrentAddress"
                             className="mb-3"
@@ -59,7 +130,7 @@ const JAFComponent = () => {
                             <Form.Control as="textarea" placeholder="Address" />
                         </FloatingLabel>
                     </Col>
-                    <Col md={3}>
+                    <Col md={4}>
                         <FloatingLabel
                             controlId="floatingInput"
                             className="mb-3"
@@ -67,7 +138,7 @@ const JAFComponent = () => {
                             <Form.Control type="number" placeholder="Pin Code" />
                         </FloatingLabel>
                     </Col>
-                </Row>
+                </Row> */}
                 </Form>
             </Card.Body>
         </Card>
@@ -75,6 +146,43 @@ const JAFComponent = () => {
         <Card className="jaf-card mb-4 Altcardd">
             <Card.Body>
                 <Form>
+                <Row className='d-flex align-items-center mb-2'>
+                    <Col className="mb-">
+                        <h4 className='mb-0'>Current Address</h4>
+                    </Col>
+                </Row>
+                <hr></hr>
+                <Row>
+                    <Col md={4}>
+                        <FloatingLabel controlId="floatingCurrentState" className="mb-3"
+                        label={<><span className="label-text">Current State</span> <span className="required">*</span></>}>
+                         
+                            <Form.Select aria-label="Floating label select example">
+                                <option>Select</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </Form.Select>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={4}>
+                        <FloatingLabel
+                            controlId="floatingCurrentAddress"
+                            className="mb-3"
+                            label={<><span className="label-text">Current Address</span> <span className="required">*</span></>}>
+                        
+                            <Form.Control as="textarea" placeholder="Address" />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={4}>
+                        <FloatingLabel
+                            controlId="floatingCurrentPin"
+                            className="mb-3"
+                            label={<><span className="label-text">Current Pin Code</span> <span className="required">*</span></>}>
+                            <Form.Control type="number" placeholder="Pin Code" />
+                        </FloatingLabel>
+                    </Col>
+                </Row>
                 <Row>
                     <Col md={12}>
                         <Form.Group className='declaration mb-3'>
@@ -87,18 +195,30 @@ const JAFComponent = () => {
                         </Form.Group>
                     </Col>
                     <Col md={4}>
-                        <FloatingLabel controlId="floatingInput" className="mb-3"
-                        label={<><span className="label-text">Permanent Address</span> <span className="required">*</span></>}>
-                            <Form.Control type="text" placeholder="" />
+                        <FloatingLabel controlId="floatingPermanentState" className="mb-3"
+                        label={<><span className="label-text">Permanent State</span> <span className="required">*</span></>}>
+                         
+                            <Form.Select aria-label="Floating label select example">
+                                <option>Select</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </Form.Select>
                         </FloatingLabel>
                     </Col>
                     <Col md={4}>
-                        <FloatingLabel controlId="floatingInput" className="mb-3" 
-                        label={<><span className="label-text">Pin Code</span> <span className="required">*</span></>}>
+                        <FloatingLabel controlId="floatingPermanentAddress" className="mb-3"
+                        label={<><span className="label-text">Permanent Address</span> <span className="required">*</span></>}>
+                            <Form.Control as="textarea" placeholder="" />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md={4}>
+                        <FloatingLabel controlId="floatingPermanentPin" className="mb-3" 
+                        label={<><span className="label-text">Permanent Pin Code</span> <span className="required">*</span></>}>
                             <Form.Control type="number" placeholder="" />
                         </FloatingLabel>
                     </Col>
-                    <Col md={4}>
+                    {/* <Col md={4}>
                         <FloatingLabel controlId="floatingNumber" className="mb-3" 
                         label={<><span className="label-text">Alternate Number</span> <span className="required">*</span></>}>
                             <Form.Control type="number" placeholder="" />
@@ -126,17 +246,17 @@ const JAFComponent = () => {
                         label={<><span className="label-text">DOB</span> <span className="required">*</span></>}>
                             <Form.Control
                                 type="date"
-                                aria-label="dsf"
+                                aria-label="DOB"
                                 
                             />
                         </FloatingLabel>
-                    </Col>
+                    </Col> */}
                 </Row>
                 </Form>
             </Card.Body>
         </Card>
 
-        <Card className="jaf-card mb-4">
+        <Card className="jaf-card mb-4 d-none">
             <Card.Body>
                 <Form>
                 <Row>
@@ -165,7 +285,7 @@ const JAFComponent = () => {
                     </Col>
                     <Col md={3}>
                         <FloatingLabel controlId="floatingSubSource" className="mb-3"
-                        label={<><span className="label-text">Sub source (RM....)</span> <span className="required">*</span></>}>
+                        label={<><span className="label-text">Sub Source (RM....)</span> <span className="required">*</span></>}>
                             <Form.Control type="number" placeholder="Pin Code" />
                         </FloatingLabel>
                     </Col>
