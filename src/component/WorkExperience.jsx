@@ -101,7 +101,7 @@ const WorkExperience = () => {
                         <Col md={6}>
                             <FloatingLabel controlId={`floatingLeaving-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Reasons for leaving</span> <span className="required">*</span></>}>
-                                <Form.Control type="text"  placeholder='' />
+                                <Form.Control as="textarea"  placeholder='' />
                             </FloatingLabel>          
                         </Col>
                     </Row>
