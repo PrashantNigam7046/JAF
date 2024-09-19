@@ -289,19 +289,26 @@ body{
     margin-left: 5px;
 }
 .cancelIcon{
-    background: red;
-    border-color: red;
+    /* background: red;
+    border-color: red; */
     background-image: linear-gradient(to left, #f43333, #e62a29, #d8211e, #ca1614, #bc0808);
+    border-color: #f43333 !important;
 }
 .saveIcon{
-    background: #28a745 !important;
+    /* background: #28a745 !important;
+    border-color: #28a745 !important; */
+    background-image: linear-gradient(to right, #28a745, #259d41, #23923c, #208838, #1e7e34);
     border-color: #28a745 !important;
-    background-image: linear-gradient(to right, #28a745, #259d41, #23923c, #208838, #1e7e34)
 }
 .editIcon svg,
 .cancelIcon svg,
 .saveIcon svg {
     margin-left: 5px;
+}
+.cancelIcon:hover,
+.saveIcon:hover{
+    box-shadow: 0 4px 6px 0px #00000075;
+    border-color: #ffffff73 !important;
 }
 .editIcon:hover {
     background: linear-gradient(270deg, #007AFF 0%, #004999 100%);
