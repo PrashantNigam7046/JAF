@@ -7,7 +7,8 @@ import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
-
+import Thankyou from './pages/Thankyou';
+import LoginHrComponent from './component/HumanResource/LoginHrComponent';
 
 function App() {
   return (
@@ -15,9 +16,12 @@ function App() {
       <div className='root_screen'>
           <HeaderComponent></HeaderComponent>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
+          
+          <Route path="/login-hr" element={<LoginHrComponent />} />
+            <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
+            <Route path="/thankyou" element={<Thankyou />} />
           </Routes>
           <FooterComponent></FooterComponent>
 
