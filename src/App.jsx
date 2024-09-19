@@ -7,6 +7,7 @@ import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
+import Thankyou from './pages/Thankyou';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
+            <Route path="/thankyou" element={<Thankyou />} />
           </Routes>
           <FooterComponent></FooterComponent>
 
