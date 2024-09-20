@@ -1,7 +1,7 @@
 import React from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 
-const FloatingInput = ({ controlId, label, type, placeholder, options, required }) => {
+const FloatingInput = ({ controlId, label, type, placeholder, options, required, onChange }) => {
   return (
     <FloatingLabel
       controlId={controlId}
@@ -14,7 +14,7 @@ const FloatingInput = ({ controlId, label, type, placeholder, options, required 
       }
     >
       {type === 'select' ? (
-        <Form.Select aria-label={label}>
+        <Form.Select aria-label={label} onChange={onChange}>
           <option>Select</option>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
