@@ -10,7 +10,6 @@ import ApplicationFormPage from './pages/ApplicationFormPage';
 import Thankyou from './pages/Thankyou';
 import HrLoginPage from './pages/HrLoginPage';
 import HrDashboardPage from './pages/HrDashboardPage';
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -20,11 +19,15 @@ function App() {
         <ToastContainer></ToastContainer>
           <HeaderComponent></HeaderComponent>
           <Routes>
+
+            {/* Redirect from home route to /login-applicant when someone hits on home route */}
+            <Route path="/" element={<Navigate to="/login-applicant" />} />
+
+
+            {/* route list */}
           
             <Route path="/login-hr" element={<HrLoginPage />} />
             <Route path="/dashboard-hr" element={<HrDashboardPage />} />
-          {/* Redirect from home route to /login-applicant when someone hits on home route */}
-            <Route path="/" element={<Navigate to="/login-applicant" />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
