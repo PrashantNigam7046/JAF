@@ -6,20 +6,20 @@ import FloatingInput from "./commonComponent/FloatingInput";
 
 const JAFComponent = () => {
     const [formData, setFormData] = useState({
-        selectedPost: '',
+        openPostId: '',
         email: '',
         dob: '',
         gender: '',
-        aadhar: '',
-        pan: '',
-        jobSource: '',
+        aadhaarCardNumber: '',
+        panCardNumber: '',
+        source: '',
         subSource: '',
-        currentState: '',
+        currentAddressState: '',
         currentAddress: '',
-        currentPin: '',
-        permanentState: '',
+        currentAddressPincode: '',
+        permanentAddressState: '',
         permanentAddress: '',
-        permanentPin: '',
+        permanentAddressPincode: '',
     });
 
     const handleChange = (event) => {
@@ -42,7 +42,7 @@ const JAFComponent = () => {
                 { value: '3', label: 'Three' },
             ],
             required: true,
-            name: "selectedPost",
+            name: "openPostId",
             onChange: handleChange,
         },
         {
