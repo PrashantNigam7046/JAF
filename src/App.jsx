@@ -9,6 +9,8 @@ import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import Thankyou from './pages/Thankyou';
 import HrLoginPage from './pages/HrLoginPage';
+import HrDashboardPage from './pages/HrDashboardPage';
+
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
           <HeaderComponent></HeaderComponent>
           <Routes>
           
-          <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route path="/dashboard-hr" element={<HrDashboardPage />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />

@@ -32,24 +32,9 @@ const LoginHrComponent = () => {
 
 
       const handleSubmit = async (event) => {
-        setShowSpinner(true);
-        event.preventDefault();
-        const { name, email, mobileNumber } = userDetails;
-        try {
-          const response = await loginUser({ name, email, mobileNumber });
-          const data = JSON.parse(response.config.data);
-          localStorage.setItem("email_id", data.email);
-          localStorage.setItem("email_id", JSON.parse(response.config.data).email)
-          localStorage.setItem('authToken', response.data.data.token);
-          // Optionally, redirect or handle successful login
-          navigate("/otp")
-          hide();
-          setShowSpinner(false)
-
-        } catch (err) {
-          console.error('Login error:', err);
-          setShowSpinner(true)
-        } 
+        
+        navigate("/dashboard-hr")
+        
       };
 
 

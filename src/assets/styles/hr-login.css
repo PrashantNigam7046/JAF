@@ -45,3 +45,6 @@
 }
 
 
+.Dashboard-section-space {
+    min-height: calc(100vh - 155px);
+}
