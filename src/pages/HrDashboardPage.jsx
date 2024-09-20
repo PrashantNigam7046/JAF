@@ -8,11 +8,9 @@ const HrDashboardPage = () => {
         
         <Container>
             <div className='Dashboard-section-space'>
-                <Row className="mt-4 mb-4">
-                    <Col>
-                        <DashboardHrComponent />
-                    </Col>
-                </Row>
+                <div className="mt-4 mb-4">
+                    <DashboardHrComponent />
+                </div>
                 
             </div>
         </Container>

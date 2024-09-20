@@ -5,12 +5,7 @@ const DashboardHrComponent = () => {
     return (
         <>
 
-            <Container>
-                <Row>
-                    <Col>Dashboard</Col>
-                    <Col>Prashant</Col>
-                </Row>
-            </Container>
+            asdfasd
             
         </>
     );
