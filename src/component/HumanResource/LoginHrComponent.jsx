@@ -1,7 +1,7 @@
 import React, { useState, useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import "../../assets/styles/hr-login.css"
+// import "../../assets/styles/hr-login.css"
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../../services/apiService';
 import { json, useNavigate } from 'react-router-dom';
@@ -57,12 +57,12 @@ const LoginHrComponent = () => {
 
     return (
         <>
-            <div className='form_box'>
+            <div className='form_box Hr_form_box'>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <FloatingLabel
                             controlId="floatingInput"
-                            label={<><span className="label-text">Name</span> <span className="required">*</span></>}
+                            label={<><span className="label-text">Email</span> <span className="required">*</span></>}
                             className="mb-3"
                         >
                             <Form.Control type="email" name="name" value={userDetails.name}  onChange={e => handleChange(e)} placeholder="name@example.com" />
@@ -71,23 +71,34 @@ const LoginHrComponent = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <FloatingLabel controlId="floatingPassword" 
-                        label={<><span className="label-text">Email</span> <span className="required">*</span></>}>
-                            <Form.Control type="email" name="email" value={userDetails.email} placeholder="email" onChange={e => handleChange(e)} />
-                        </FloatingLabel>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicPhone">
-                        <FloatingLabel controlId="floatingPassword" 
-                        label={<><span className="label-text">Mobile Number</span> <span className="required">*</span></>}>
-                            <Form.Control type="number" name="mobileNumber" value={userDetails.mobileNumber} placeholder="Phone number" onChange={e => handleChange(e)} />
+                        label={<><span className="label-text">Password</span> <span className="required">*</span></>}>
+                            <Form.Control type="password"  placeholder="Password" />
                         </FloatingLabel>
                     </Form.Group>
 
                     <Form.Group className='declaration mb-3'>
                         <Form.Check
-                            type='checkbox'
-                            label='Previously worked with Radical Minds'
-                            id='asdf'
+                            type='radio'
+                            inline
+                            label='hr'
+                            id='hr'
+                            name="group1"
+                            className='text-start'
+                        />
+                        <Form.Check
+                            type='radio'
+                            inline
+                            label='ops'
+                            id='ops'
+                            name="group1"
+                            className='text-start'
+                        />
+                        <Form.Check
+                            type='radio'
+                            inline
+                            label='client'
+                            id='client'
+                            name="group1"
                             className='text-start'
                         />
                     </Form.Group>
