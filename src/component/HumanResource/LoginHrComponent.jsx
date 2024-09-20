@@ -1,10 +1,10 @@
 import React, { useState, useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import "../../assets/styles/hr-login.css"
-import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
+import {FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../../services/apiService';
-import { json, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import "../../assets/styles/hr-login.css";
 import Spinner from 'react-bootstrap/Spinner';
 
 const LoginHrComponent = () => {
@@ -32,35 +32,20 @@ const LoginHrComponent = () => {
 
 
       const handleSubmit = async (event) => {
-        setShowSpinner(true);
-        event.preventDefault();
-        const { name, email, mobileNumber } = userDetails;
-        try {
-          const response = await loginUser({ name, email, mobileNumber });
-          const data = JSON.parse(response.config.data);
-          localStorage.setItem("email_id", data.email);
-          localStorage.setItem("email_id", JSON.parse(response.config.data).email)
-          localStorage.setItem('authToken', response.data.data.token);
-          // Optionally, redirect or handle successful login
-          navigate("/otp")
-          hide();
-          setShowSpinner(false)
-
-        } catch (err) {
-          console.error('Login error:', err);
-          setShowSpinner(true)
-        } 
+        
+        navigate("/dashboard-hr")
+        
       };
 
 
     return (
         <>
-            <div className='form_box'>
+            <div className='form_box Hr_form_box'>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <FloatingLabel
                             controlId="floatingInput"
-                            label={<><span className="label-text">Name</span> <span className="required">*</span></>}
+                            label={<><span className="label-text">Email</span> <span className="required">*</span></>}
                             className="mb-3"
                         >
                             <Form.Control type="email" name="name" value={userDetails.name}  onChange={e => handleChange(e)} placeholder="name@example.com" />
@@ -69,25 +54,42 @@ const LoginHrComponent = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <FloatingLabel controlId="floatingPassword" 
-                        label={<><span className="label-text">Email</span> <span className="required">*</span></>}>
-                            <Form.Control type="email" name="email" value={userDetails.email} placeholder="email" onChange={e => handleChange(e)} />
+                        label={<><span className="label-text">Password</span> <span className="required">*</span></>}>
+                            <Form.Control type="password"  placeholder="Password" />
                         </FloatingLabel>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPhone">
-                        <FloatingLabel controlId="floatingPassword" 
-                        label={<><span className="label-text">Mobile Number</span> <span className="required">*</span></>}>
-                            <Form.Control type="number" name="mobileNumber" value={userDetails.mobileNumber} placeholder="Phone number" onChange={e => handleChange(e)} />
-                        </FloatingLabel>
-                    </Form.Group>
-
-                    <Form.Group className='declaration mb-3'>
-                        <Form.Check
-                            type='checkbox'
-                            label='Previously worked with Radical Minds'
-                            id='asdf'
-                            className='text-start'
-                        />
+                    <Form.Group className='declaration mb-3 d-flex justify-content-between'>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='HR'
+                                id='hr'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='OPS'
+                                id='ops'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='Client'
+                                id='client'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
                     </Form.Group>
 
                     <div className="d-grid">

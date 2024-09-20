@@ -8,7 +8,8 @@ import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import Thankyou from './pages/Thankyou';
-import LoginHrComponent from './component/HumanResource/LoginHrComponent';
+import HrLoginPage from './pages/HrLoginPage';
+import HrDashboardPage from './pages/HrDashboardPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -18,10 +19,15 @@ function App() {
         <ToastContainer></ToastContainer>
           <HeaderComponent></HeaderComponent>
           <Routes>
-          
-          <Route path="/login-hr" element={<LoginHrComponent />} />
-          {/* Redirect from home route to /login-applicant when someone hits on home route */}
+
+            {/* Redirect from home route to /login-applicant when someone hits on home route */}
             <Route path="/" element={<Navigate to="/login-applicant" />} />
+
+
+            {/* route list */}
+          
+            <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route path="/dashboard-hr" element={<HrDashboardPage />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
