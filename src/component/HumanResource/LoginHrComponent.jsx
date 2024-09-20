@@ -1,16 +1,14 @@
 import React, { useState, useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import "../../assets/styles/hr-login.css"
-import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
+import {FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../../services/apiService';
-import { json, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import "../../assets/styles/hr-login.css";
 import Spinner from 'react-bootstrap/Spinner';
-import { SpinnerContext } from '../../context/SpinnerContext';
 
 const LoginHrComponent = () => {
     const navigate = useNavigate()
-    const { show, hide } = useContext(SpinnerContext);
     const [showSpinner, setShowSpinner] = useState(false)
     const [userDetails, setUserDetails] = useState({
         name : "",
@@ -76,31 +74,37 @@ const LoginHrComponent = () => {
                         </FloatingLabel>
                     </Form.Group>
 
-                    <Form.Group className='declaration mb-3'>
-                        <Form.Check
-                            type='radio'
-                            inline
-                            label='hr'
-                            id='hr'
-                            name="group1"
-                            className='text-start'
-                        />
-                        <Form.Check
-                            type='radio'
-                            inline
-                            label='ops'
-                            id='ops'
-                            name="group1"
-                            className='text-start'
-                        />
-                        <Form.Check
-                            type='radio'
-                            inline
-                            label='client'
-                            id='client'
-                            name="group1"
-                            className='text-start'
-                        />
+                    <Form.Group className='declaration mb-3 d-flex justify-content-between'>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='HR'
+                                id='hr'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='OPS'
+                                id='ops'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
+                        <span className='declaration-option'>
+                            <Form.Check
+                                type='radio'
+                                inline
+                                label='Client'
+                                id='client'
+                                name="group1"
+                                className='declaration-option-box d-flex justify-content-between flex-row-reverse align-items-center'
+                            />
+                        </span>
                     </Form.Group>
 
                     <div className="d-grid">

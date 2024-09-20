@@ -8,7 +8,6 @@ import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import Thankyou from './pages/Thankyou';
-// import LoginHrComponent from './component/HumanResource/LoginHrComponent';
 import HrLoginPage from './pages/HrLoginPage';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
           <HeaderComponent></HeaderComponent>
           <Routes>
           
-          {/* <Route path="/login-hr" element={<LoginHrComponent />} /> */}
           <Route path="/login-hr" element={<HrLoginPage />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
