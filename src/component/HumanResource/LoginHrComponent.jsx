@@ -6,11 +6,9 @@ import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../../services/apiService';
 import { json, useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
-import { SpinnerContext } from '../../context/SpinnerContext';
 
 const LoginHrComponent = () => {
     const navigate = useNavigate()
-    const { show, hide } = useContext(SpinnerContext);
     const [showSpinner, setShowSpinner] = useState(false)
     const [userDetails, setUserDetails] = useState({
         name : "",
