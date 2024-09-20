@@ -77,8 +77,10 @@ const JAFComponent = () => {
             onChange: handleChange,
         },
         {
+            
             controlId: "floatingAadhar",
             label: "Aadhar Card No",
+            placeholder: "Aadhar Card No",
             type: "number",
             required: true,
             name: "aadhar",
@@ -87,6 +89,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingPan",
             label: "Pan Card No",
+            placeholder: "Pan Card No",
             type: "number",
             name: "pan",
             onChange: handleChange,
@@ -109,6 +112,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingSubSource",
             label: "Sub Source (RM....)",
+            placeholder: "Sub Source (RM....)",
             type: "number",
             required: true,
             name: "subSource",
@@ -134,6 +138,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingCurrentAddress",
             label: "Current Address",
+            placeholder: "Current Address",
             type: "textarea",
             required: true,
             name: "currentAddress",
@@ -142,6 +147,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingCurrentPin",
             label: "Current Pin Code",
+            placeholder: "Current Pin Code",
             type: "number",
             required: true,
             name: "currentPin",
@@ -167,6 +173,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingPermanentAddress",
             label: "Permanent Address",
+            placeholder: "Permanent Address",
             type: "textarea",
             required: true,
             name: "permanentAddress",
@@ -175,6 +182,7 @@ const JAFComponent = () => {
         {
             controlId: "floatingPermanentPin",
             label: "Permanent Pin Code",
+            placeholder: "Permanent Pin Code",
             type: "number",
             required: true,
             name: "permanentPin",
@@ -186,7 +194,7 @@ const JAFComponent = () => {
         <>
             <h1 className="mb-3">JOB APPLICATION FORM</h1>
 
-            <Card className="jaf-card mb-4">
+            <Card className="jaf-card mb-4 Altcardd">
                 <Card.Body>
                     <Form>
                         <Row className='d-flex align-items-center mb-2'>
@@ -208,7 +216,7 @@ const JAFComponent = () => {
                 </Card.Body>
             </Card>
 
-            <Card className="jaf-card mb-4">
+            <Card className="jaf-card mb-4 Altcardd">
                 <Card.Body>
                     <Form>
                         <Row className='d-flex align-items-center mb-2'>
@@ -219,7 +227,7 @@ const JAFComponent = () => {
                         <hr />
                         <Row>
                             {currentAddressFields.map((field, index) => (
-                                <Col md={field.type === 'textarea' ? 4 : 3} key={index}>
+                                <Col md={field.type === 'textarea' ? 6 : 3} key={index}>
                                     <FloatingInput
                                         {...field}
                                     />
@@ -231,12 +239,20 @@ const JAFComponent = () => {
                 </Card.Body>
             </Card>
 
-            <Card className="jaf-card mb-4">
+            <Card className="jaf-card mb-4 Altcardd">
                 <Card.Body>
                     <Form>
                         <Row className='d-flex align-items-center mb-2'>
                             <Col className="mb-">
-                                <h4 className='mb-0'>Permanent Address</h4>
+                                <h4 className='mb-0 d-inline-block'>Permanent Address</h4>
+                                <Form.Group className='declaration d-inline-block mx-4 me-0'>
+                                    <Form.Check
+                                        type='checkbox'
+                                        label='Same as Current Address'
+                                        id='permanentAddressCheck'
+                                        className='text-start'
+                                    />
+                                </Form.Group>
                             </Col>
                         </Row>
                         <hr />
@@ -244,7 +260,7 @@ const JAFComponent = () => {
 
                         <Row>
                             {permanentAddressFields.map((field, index) => (
-                                <Col md={field.type === 'textarea' ? 4 : 3} key={index}>
+                                <Col md={field.type === 'textarea' ? 6 : 3} key={index}>
                                     <FloatingInput
                                         {...field}
                                     />
@@ -252,7 +268,7 @@ const JAFComponent = () => {
                             ))}
                         </Row>
 
-                        <Row>
+                        {/* <Row>
                             <Col md={12}>
                                 <Form.Group className='declaration mb-3'>
                                     <Form.Check
@@ -263,7 +279,7 @@ const JAFComponent = () => {
                                     />
                                 </Form.Group>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Form>
                 </Card.Body>
             </Card>
