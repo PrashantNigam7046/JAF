@@ -6,17 +6,24 @@ import OtpInput from 'react-otp-input';
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
+import { verifyOtp } from '../services/apiService';
 
 const OtpComponent = () => {
     const [otp, setOtp] = useState('');
     const navigate = useNavigate()
    const handleOtpChange = (e) => {
-    // console.log("e", e)
      setOtp(e)
    }
 
-   const handleSubmitOtp = () => {
+   const handleSubmitOtp = async (e) => {
+    e.preventDefault()
     navigate("/job-application-form-page")
+    try {
+        const data = await verifyOtp(otp)
+        console.log("data---", data)
+    } catch (error) {
+        console.log("error", error)
+    }
    }
 
    let email = localStorage.getItem("email_id");

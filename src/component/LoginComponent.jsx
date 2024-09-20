@@ -4,13 +4,11 @@ import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css"
 import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 import { loginUser } from '../services/apiService';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
-import { SpinnerContext } from '../context/SpinnerContext';
 
 const LoginComponent = () => {
     const navigate = useNavigate()
-    const { show, hide } = useContext(SpinnerContext);
     const [showSpinner, setShowSpinner] = useState(false)
     const [userDetails, setUserDetails] = useState({
         name : "",
@@ -40,7 +38,7 @@ const LoginComponent = () => {
         try {
           const response = await loginUser({ name, email, mobileNumber });
           const data = JSON.parse(response.config.data);
-localStorage.setItem("email_id", data.email);
+          localStorage.setItem("email_id", data.email);
           localStorage.setItem("email_id", JSON.parse(response.config.data).email)
           localStorage.setItem('authToken', response.data.data.token);
           // Optionally, redirect or handle successful login
