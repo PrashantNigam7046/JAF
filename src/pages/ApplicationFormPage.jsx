@@ -9,6 +9,7 @@ import EducationalQualification from'../component/EducationalQualification';
 import WorkExperience from'../component/WorkExperience';
 import Reference from'../component/Reference';
 import Preview from '../component/Preview';
+import { postCandidateDetails } from '../services/apiService';
 
 const ApplicationFormPage = () => {
 
@@ -24,11 +25,13 @@ const ApplicationFormPage = () => {
       ];
 
       const [stepIndex, setStepIndex] = React.useState(0);
-      const [btnShowSubmit, setBtnShowSubmit] = React.useState(false)
+      const [btnShowSubmit, setBtnShowSubmit] = React.useState(false);
+      const [formData, setFormData] = React.useState({}); // State to hold form data
+
       const stepContent = [
         <div key="step1" className='Application-section'>
           {/* jaf component */}
-          <JAFComponent />
+          <JAFComponent onDataChange={setFormData}  />
         </div>,
         <div key="step2" className='Application-section FamilyDetail'>
           <FamilyDetail />
@@ -47,19 +50,35 @@ const ApplicationFormPage = () => {
       </div>,
       ];
 
+      const handleApiCall = async (data) => {
+        console.log("body-----", data)
+        try {
+            const response = await postCandidateDetails(data)
+            console.log('API response:', response);
+        } catch (error) {
+            console.error('Error during API call:', error);
+        }
+    };
+
+
       const handleNext = () => {
-         setStepIndex(stepIndex + 1)    
+        console.log("stepindex====", stepIndex)
+         setStepIndex(stepIndex + 1)  
+         if(stepIndex === 0) {
+            handleApiCall(formData);
+         }  
          if(stepIndex === 4) {
             setBtnShowSubmit(true)
          }else setBtnShowSubmit(false)
          
-        } 
-        const handlePrevBtn = () => {
+      }
+
+      const handlePrevBtn = () => {
             setStepIndex(stepIndex - 1)
             if(stepIndex === 5) {
                 setBtnShowSubmit(false)
-             }
-        }
+             }        
+       }
     return (
         <>
 
@@ -114,12 +133,9 @@ const ApplicationFormPage = () => {
                 </Col>
                 <Col className="text-end d-flex justify-content-end">
                    {btnShowSubmit ?
-                        <Button className='final-submit-button' variant="primary" > Submit <FaCheckCircle /> </Button> 
-                        
-                        : 
-
-                        <Button className='btn-next' variant="primary" onClick={handleNext} disabled={stepIndex === steps.length - 1} > Next <FaLongArrowAltRight />
-                        </Button>
+                    <Button className='final-submit-button' variant="primary">Submit<FaCheckCircle /></Button> 
+                    :
+                    <Button className='btn-next' variant="primary" onClick={handleNext} disabled={stepIndex === steps.length - 1} > Next <FaLongArrowAltRight /></Button>
                    }
                 </Col>
             </Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 
-const FloatingInput = ({ controlId, label, type, placeholder, options, required, onChange }) => {
+const FloatingInput = ({ controlId, label, type, placeholder, options, required, onChange, value, name }) => {
   return (
     <FloatingLabel
       controlId={controlId}
@@ -14,8 +14,13 @@ const FloatingInput = ({ controlId, label, type, placeholder, options, required,
       }
     >
       {type === 'select' ? (
-        <Form.Select aria-label={label} onChange={onChange}>
-          <option>Select</option>
+        <Form.Select 
+          aria-label={label} 
+          onChange={onChange} 
+          value={value} // Ensure value is controlled
+          name={name} // Pass the name prop
+        >
+          <option value="">Select</option>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}
@@ -23,7 +28,13 @@ const FloatingInput = ({ controlId, label, type, placeholder, options, required,
           ))}
         </Form.Select>
       ) : (
-        <Form.Control type={type} placeholder={placeholder} />
+        <Form.Control 
+          type={type} 
+          placeholder={placeholder} 
+          onChange={onChange} 
+          value={value} // Ensure value is controlled
+          name={name} // Pass the name prop
+        />
       )}
     </FloatingLabel>
   );
