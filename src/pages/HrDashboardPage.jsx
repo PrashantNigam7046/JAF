@@ -9,7 +9,9 @@ const HrDashboardPage = () => {
         <Container>
             <div className='Dashboard-section-space'>
                 <div className="mt-4 mb-4">
-                    <DashboardHrComponent />
+                    <Col>
+                        <DashboardHrComponent />
+                    </Col>
                 </div>
                 
             </div>
