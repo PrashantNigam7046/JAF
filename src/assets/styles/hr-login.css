@@ -224,6 +224,9 @@ tbody, td, tfoot, th, thead, tr{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+.customTable tbody tr td:first-child {
+    padding-left: 20px;
+}
 
 #border-separate:checked ~ table {
     border-collapse: separate;
@@ -255,6 +258,51 @@ tbody, td, tfoot, th, thead, tr{
 .EditCell {
     line-height: 18px;
 }
+.EditCell span{
+    background: #F2EAFF;
+    width: 25px;
+    display: inline-block;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #8147E7;
+    box-shadow: 0 4px 6px 0px #00000029;
+    cursor: pointer;
+}
 .EditCell svg {
-    color: #0a73f0;
+    color: #8147E7;
+}
+.EditCell span:hover {
+    background: #8147e7;
+}
+.EditCell span:hover svg{
+    color: #fff;
+}
+.SearchBox {
+    max-width: 300px;
+}
+.SearchBox .input-group-prepend button {
+    border-radius: 0px;
+    border-top-left-radius: .375rem;
+    border-bottom-left-radius: .375rem;
+    /* line-height: 23px; */
+    display: flex;
+    vertical-align: middle;
+    height: 100%;
+    align-items: center;
+    border: 1px solid #B1AFC8;
+    color: #B1AFC8;
+}
+.SearchBox input{
+    border: 1px solid #B1AFC8 !important;
+}
+.appDate {
+    margin-left: 1rem;
+}
+.appDate input {
+    color: #8147E7;
+    background: #EADDFF;
+}
+::-webkit-calendar-picker-indicator {
+    /* filter: invert(1); */
+    color: 8147E7;
 }

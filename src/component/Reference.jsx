@@ -20,9 +20,9 @@ const Reference = () => {
         <>
 
         <h1 className="mb-3">PROFESSIONAL REFERENCES</h1>
-        <p>( Last two Supervisors & minimum two colleagues )</p>
+        <p>( Minimum two colleagues )</p>
 
-        {reference.map(reference => (
+        {/* {reference.map(reference => ( */}
         <Card className="jaf-card mb-4 Altcard">
             <Card.Body>
                 <Form>
@@ -59,17 +59,61 @@ const Reference = () => {
                         </Col>
                     </Row>
                 </Form>
-                {reference.id !== 1 && ( // Conditionally render the close icon
+                {/* {reference.id !== 1 && ( // Conditionally render the close icon
                     <span className='delete-card' onClick={() => removeReference(reference.id)}>
                         <IoIosCloseCircle />
                     </span>
-                )}
+                )} */}
             </Card.Body>
         </Card>
-         ))}
+        <Card className="jaf-card mb-4 Altcard">
+            <Card.Body>
+                <Form>
+                    <Row>
+                        <Col>
+                            <FloatingLabel controlId={`floatingName-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Name</span> <span className="required">*</span></>}>
+                                <Form.Control type="text" placeholder='' />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId={`floatingOrganization-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Organization</span> <span className="required">*</span></>}>
+                                <Form.Control type="text" placeholder='' />
+                            </FloatingLabel>
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId={`floatingMobile-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Mobile No</span> <span className="required">*</span></>}>
+                                <Form.Control type="number" placeholder='' />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId={`floatingEmail-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">E-Mail Address</span> <span className="required">*</span></>}>
+                                <Form.Control type="text" placeholder='' />
+                            </FloatingLabel>          
+                        </Col>
+                        <Col>
+                            <FloatingLabel controlId={`floatingDesignation-${reference.id}`} className="mb-3"
+                            label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
+                                <Form.Control type="text" placeholder='' />
+                            </FloatingLabel>          
+                        </Col>
+                    </Row>
+                </Form>
+                {/* {reference.id !== 1 && ( // Conditionally render the close icon
+                    <span className='delete-card' onClick={() => removeReference(reference.id)}>
+                        <IoIosCloseCircle />
+                    </span>
+                )} */}
+            </Card.Body>
+        </Card>
+        
+         {/* ))} */}
         
         {/* <Button variant="primary" className='AddButton'> <IoMdAddCircleOutline /> Add References</Button> */}
-        <Button variant="primary" className='AddButton' onClick={addReference} disabled={reference.length >= 4} > <IoMdAddCircleOutline /> Add References</Button>
+        {/* <Button variant="primary" className='AddButton' onClick={addReference} disabled={reference.length >= 4} > <IoMdAddCircleOutline /> Add References</Button> */}
             
         </>
     );
