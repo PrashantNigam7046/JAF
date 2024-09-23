@@ -48,3 +48,213 @@
 .Dashboard-section-space {
     min-height: calc(100vh - 155px);
 }
+.Dashboard-post {
+    color: #606060;
+    font-weight: 400;
+}
+.Dashboard-user-image {
+    /* width: 40px; */
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background: #cbcbcb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+	background: linear-gradient(90deg, #007AFF 0%, #004999 100%);
+}
+.Dashboard-user-image button,
+.Dashboard-user-image button:active, 
+.Dashboard-user-image button:hover {
+    background: linear-gradient(90deg, #007AFF 0%, #004999 100%) !important;
+    border-color: #007aff !important;
+}
+.Dashboard-user-image .dropdown-menu.show {
+    padding: 0;
+}
+.Dashboard-user-image .dropdown-item{
+    /* background-color: red; */
+    border-radius: 0.375rem;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+}
+.Dashboard-user-image .dropdown-item svg{
+    color: red;
+    font-size: 20px;
+}
+.Dashboard-user-image .dropdown-item:hover,
+.Dashboard-user-image .dropdown-item:hover svg{
+    background-color: red;
+    color: #fff;
+}
+
+.Dashboard-user-image svg {
+    font-size: 28px;
+	color: #fff;
+}
+.block-box {
+    border-radius: 6px;
+    /* background: #ccc; */
+	padding: 20px 15px;
+	position: relative;
+    height: 100%;
+}
+.block-box-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.block-box-value {
+    font-size: 2rem;
+    font-weight: 500;
+    filter: drop-shadow(6px 4px 2px #0000004a);
+}
+
+.notstarted-block {
+    background-color: #f4b3b9;
+}
+.progress-block {
+    background-color: #DC9A0040;
+}
+.completed-block{
+    background-color: #40997E40;
+}
+.notstarted-block .block-box-title {
+    color: #CC1313;
+}
+.progress-block .block-box-title {
+	color: #DC9A00;
+}
+.completed-block .block-box-title {
+	color: #40997E;
+}
+.notstarted-block img,
+.progress-block img,
+.completed-block img{
+	position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+	mix-blend-mode: multiply;
+}
+.feeling-block {
+    background: linear-gradient(180deg, #0052B4 0%, #00244E 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.feeling-block .block-box-title {
+    background: linear-gradient(90deg, #65A9FA 0%, #026EEF 100%);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+}
+.feeling-box {
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 15px;
+}
+.feeling-box-single img {
+	max-width: 45px;
+	width: 100%;
+    cursor: pointer;
+    transition: all ease .2s;
+}
+.feeling-box-single img:hover {
+    transform: scale(1.2);
+}
+tbody, td, tfoot, th, thead, tr{
+    border-color: inherit;
+    border-style: none;
+    border-width: 0;
+}
+.customTable {
+    background: transparent;
+
+    --bs-table-bg: transparent;
+    --bs-table-border-color: ;
+    border-collapse: separate;
+
+    border-spacing: 0 5px;
+    /* border-spacing: 1vw;
+    border-spacing: 2em; */
+}
+.customTable thead{
+
+}
+.customTable thead tr{
+    border: 0px;
+}
+.customTable thead tr th{
+    background: transparent;
+    border: 0px;
+    font-size: 15px;
+    font-weight: 500;   
+}
+.customTable tbody tr{
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-color: transparent;
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px 0px #00000029;
+}
+.customTable tbody tr td{
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 400; 
+    /* padding: 5px; */
+    padding: .6rem .5rem;
+}
+.customTable tbody tr td:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.customTable tbody tr td:last-child{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#border-separate:checked ~ table {
+    border-collapse: separate;
+  }
+  
+  #border-collapse:checked ~ table {
+    border-collapse: collapse;
+  }
+  .StatusTag {
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+.notStartedTag {
+    color: #CC1313;
+    background: #E7BDC3;
+    font-size: 13px;
+}
+.ProgressTag {
+    color: #DC9A00;
+    background: #e6dfbf;
+    font-size: 13px;
+}
+.CompletedTag {
+    color: #40997E;
+    background: #b9dcdf;
+    font-size: 13px;
+}
+.EditCell {
+    line-height: 18px;
+}
+.EditCell svg {
+    color: #0a73f0;
+}
