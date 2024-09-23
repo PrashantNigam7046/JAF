@@ -31,7 +31,7 @@ const EducationalQualification = () => {
               <Row>
                 <Col md={3}>
                   <FloatingLabel controlId={`floatingQualification-${education.id}`} className='mb-3'
-                  label={<><span className="label-text">Education (latest pursuing)</span> <span className="required">*</span></>}>
+                  label={<><span className="label-text">Education (Highest/Latest pursuing)</span> <span className="required">*</span></>}>
                     <Form.Select aria-label="Floating label select example">
                       <option>Select</option>
                       <option value="1">12th</option>
@@ -60,16 +60,16 @@ const EducationalQualification = () => {
                 </Col>
               </Row>
             </Form>
-            {education.id !== 1 && ( // Conditionally render the close icon
+            {/* {education.id !== 1 && ( // Conditionally render the close icon
               <span className='delete-card' onClick={() => removeQualification(education.id)} title='Remove'>
                 <IoIosCloseCircle />
               </span>
-            )}
+            )} */}
           </Card.Body>
         </Card>
       ))}
 
-          <Button variant="primary" className='AddButton' onClick={addEducationDetail} disabled={education.length >= 4} > <IoMdAddCircleOutline /> Add Qualification</Button>
+          {/* <Button variant="primary" className='AddButton' onClick={addEducationDetail} disabled={education.length >= 4} > <IoMdAddCircleOutline /> Add Qualification</Button> */}
             
         </>
     );
