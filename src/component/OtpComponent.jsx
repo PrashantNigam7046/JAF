@@ -17,13 +17,13 @@ const OtpComponent = () => {
 
    const handleSubmitOtp = async (e) => {
     e.preventDefault()
-    navigate("/job-application-form-page")
-    // try {
-    //     const data = await verifyOtp(otp)
-    //     console.log("data---", data)
-    // } catch (error) {
-    //     console.log("error", error)
-    // }
+    // navigate("/job-application-form-page")
+    try {
+        const data = await verifyOtp(localStorage.getItem("uuid"))
+        console.log("data---", data)
+    } catch (error) {
+        console.log("error", error)
+    }
    }
 
    let email = localStorage.getItem("email_id");

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FloatingInput from "./commonComponent/FloatingInput";
+import { getOpenPositions } from "../services/apiService";
 
-const JAFComponent = () => {
+const JAFComponent = ({ onDataChange }) => {
     const [formData, setFormData] = useState({
         openPostId: '',
         email: '',
@@ -24,12 +25,27 @@ const JAFComponent = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-        console.log(name, value);
+        console.log("name---", name, value)
+        const updatedFormData = { ...formData, [name]: value };
+        setFormData(updatedFormData); // Update local state
+        onDataChange(updatedFormData); // Send updated data to parent
+
     };
+
+    const getOpenPosition = async () => {
+        try {
+            const response = await getOpenPositions()
+            console.log("Response", response)
+         } catch (error) {
+            console.log(error)
+         }
+    }
+
+    useEffect(()=>{
+        getOpenPosition()
+    },[])
+
+    console.log("formData", formData)
 
     const generalDetailsFields = [
         {
@@ -83,7 +99,7 @@ const JAFComponent = () => {
             placeholder: "Aadhar Card No",
             type: "number",
             required: true,
-            name: "aadhar",
+            name: "aadhaarCardNumber",
             onChange: handleChange,
         },
         {
@@ -91,7 +107,7 @@ const JAFComponent = () => {
             label: "Pan Card No",
             placeholder: "Pan Card No",
             type: "number",
-            name: "pan",
+            name: "panCardNumber",
             onChange: handleChange,
         },
         {
@@ -150,7 +166,7 @@ const JAFComponent = () => {
             placeholder: "Current Pin Code",
             type: "number",
             required: true,
-            name: "currentPin",
+            name: "currentAddressPincode",
             onChange: handleChange,
         },
     ];
@@ -232,6 +248,7 @@ const JAFComponent = () => {
                                         {...field}
                                     />
                                 </Col>
+                                
                             ))}
                         </Row>
                         
@@ -268,6 +285,20 @@ const JAFComponent = () => {
                             ))}
                         </Row>
 
+                        <Row>
+                            {permanentAddressFields.map((field, index) => (
+                                <Col md={field.type === 'textarea' ? 6 : 3} key={index}>
+                                <FloatingInput
+                                    {...field}
+                                    value={formData[field.name]} // Pass the current value from formData
+                                    onChange={handleChange} // Ensure handleChange is passed down
+                                />
+                                </Col>
+                            ))}
+                        </Row>
+
+
+
                         {/* <Row>
                             <Col md={12}>
                                 <Form.Group className='declaration mb-3'>
@@ -283,6 +314,9 @@ const JAFComponent = () => {
                     </Form>
                 </Card.Body>
             </Card>
+
+            {/* <Button>Save</Button> */}
+
         </>
     );
 }
