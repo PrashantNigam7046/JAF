@@ -71,3 +71,35 @@ export const postEducationalDetails = async (body) => {
     throw error; 
   }
 }
+
+
+
+export const postExperienceDetails = async (body) => {
+  try {
+    const res = await axiosInstance.post(API_ENDPOINTS.POST_CANDIDATE_EXPERIENCE, body);
+    console.log("res---", res.data.message)
+    showToast(res.data.message, "success")
+
+    return res;
+  } catch (error) {
+    console.log("error--", error)
+    showToast(error.response.data.message, 'error');
+    throw error; 
+  }
+}
+
+
+
+export const postRefernceDetails = async (body) => {
+  try {
+    const res = await axiosInstance.post(API_ENDPOINTS.POST_CANDIDATE_REFERENCES, body);
+    console.log("res---", res.data.message)
+    showToast(res.data.message, "success")
+
+    return res;
+  } catch (error) {
+    console.log("error--", error)
+    showToast(error.response.data.message, 'error');
+    throw error; 
+  }
+}
