@@ -1,49 +1,73 @@
-
 import { API_ENDPOINTS } from '../constants/endpoints';
 import { showToast } from '../utils/ToastNotification/toastNotification';
 import axiosInstance from '../config/axios.Config.js';
-import axios from 'axios';
 
-export const loginUser = async (credentials) => {
+// Function to post candidate details
+export const postCandidateDetails = async (body) => {
   try {
-    const response = await axios.post(API_ENDPOINTS.USER_LOGIN, credentials);
-    showToast('Login successful!', 'success');
-    return response;
+    const res = await axiosInstance.post(API_ENDPOINTS.POST_CANDIDATE_DETAILS_BASIC, body);
+    return res;
   } catch (error) {
-    showToast(error.response?.data?.message || 'Login failed!', 'error');
+    console.log("error--", error.response.data.message)
+    showToast(error.response.data.message, 'error');
     throw error; 
   }
 };
 
-// without token
-export const verifyOtp = (otp_cred) => {
+// Function to get open positions
+export const getOpenPositions = async () => {
   try {
-    let res = axios.post(API_ENDPOINTS.OTP_VERIFY, otp_cred)
-    showToast("otp verified successfully")
+    const res = await axiosInstance.get(API_ENDPOINTS.GET_OPEN_POSTITONS);
+    return res; // Ensure you return the response
+  } catch (error) {
+    showToast("Unable to fetch open positions");
+    console.error("Error fetching open positions:", error);
+    throw error; 
+  }
+};
+
+// Function to get applied sources
+export const getAppliedSource = async () => {
+  try {
+    const res = await axiosInstance.get(API_ENDPOINTS.GET_SOURCE);
+    return res; 
+  } catch (error) {
+    console.warn("Error fetching applied sources:", error);
+    throw error; 
+  }
+};
+
+
+export const getRelations = async () => {
+  try {
+    const res = await axiosInstance.get(API_ENDPOINTS.GET_RELATIONS_LIST)
     return res
   } catch (error) {
-      showToast("wrong otp");
+    console.log(error)
   }
 }
 
-export const postCandidateDetails = (body) => {
+export const postFamilyDetails = async (body) => {
   try {
-    let res = axiosInstance.post(API_ENDPOINTS.POST_CANDIDATE_DETAILS_BASIC, body)
-    return res
+    const res = await axiosInstance.post(API_ENDPOINTS.POST_FAMILY_DETAILS_OF_CANDIDATE, body);
+    return res;
   } catch (error) {
-      showToast("wrong details");
+    console.log("error--", error)
+    showToast(error.response.data.message, 'error');
+    throw error; 
+  }
+};
+
+export const postEducationalDetails = async (body) => {
+  try {
+    const res = await axiosInstance.post(API_ENDPOINTS.POST_CANDIDATE_EDUCATION_DETAILS, body);
+    console.log("res---", res.data.message)
+    showToast(res.data.message, "success")
+
+    return res;
+  } catch (error) {
+    console.log("error--", error)
+    showToast(error.response.data.message, 'error');
+    throw error; 
   }
 }
-
-
-export const getOpenPositions = (body) => {
-  try {
-    let res = axiosInstance.get(API_ENDPOINTS.GET_OPEN_POSTITONS, body)
-    return res
-  } catch (error) {
-    showToast("unable to fetch open positions")
-  }
-}
-
-
-// Add more functions for other endpoints as needed

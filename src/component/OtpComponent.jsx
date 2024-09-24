@@ -1,53 +1,49 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import "../assets/styles/login.css";
 import OtpInput from 'react-otp-input';
-import {Container, Row, Col, FloatingLabel} from 'react-bootstrap';
-import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
-import { verifyOtp } from '../services/apiService';
+import axios from 'axios';
+import "../assets/styles/login.css";
 
 const OtpComponent = () => {
     const [otp, setOtp] = useState('');
-    const navigate = useNavigate()
-   const handleOtpChange = (e) => {
-     setOtp(e)
-   }
+    const navigate = useNavigate();
 
-   const handleSubmitOtp = async (e) => {
-    e.preventDefault()
-    // navigate("/job-application-form-page")
-    try {
-        const data = await verifyOtp(localStorage.getItem("uuid"))
-        console.log("data---", data)
-    } catch (error) {
-        console.log("error", error)
-    }
-   }
+    const handleOtpChange = (e) => {
+        setOtp(e);
+    };
 
-   let email = localStorage.getItem("email_id");
-   console.log("email", email)
-  
+    const handleSubmitOtp = async (e) => {
+        e.preventDefault();
+        try {
+            const uuid = localStorage.getItem("uuid");
+            const response = await axios.post(`https://demoserver.radicalminds.in:3010/api/v1/otp/verify?otpId=${uuid}`, {
+                otp: otp
+            });
+            console.log("OTP response", response.data.data.token);
+            localStorage.setItem("authToken", response.data.data.token)
+            alert("otp verified")
+            // Optionally navigate after successful verification
+            navigate("/job-application-form-page");
+        } catch (error) {
+            alert("invalid otp")
+            console.log("Error during OTP verification", error);
+        }
+    };
+
     return (
-        
         <div className='otp_box'>
-            <Form>
+            <Form onSubmit={handleSubmitOtp}>
                 <OtpInput
                     value={otp}
-                    // isInputNum={tel}
-                    inputType="tel"
-                    onChange={e => handleOtpChange(e)}
+                    onChange={handleOtpChange}
                     numInputs={6}
-                    renderInput={(props) => (<input {...props} />) }
+                    renderInput={(props) => (<input {...props} />)}
                 />
-
                 <div className="d-grid">
-                    <Button size="lg" variant="primary" type="submit" onClick={handleSubmitOtp} className='Btn_Continue'>
+                    <Button size="lg" variant="primary" type="submit" className='Btn_Continue'>
                         Continue
-                            {/* <Spinner animation="border" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner> */}
                     </Button>
                 </div>
             </Form>
