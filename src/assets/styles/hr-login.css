@@ -375,3 +375,74 @@ tbody, td, tfoot, th, thead, tr{
     font-size: 26px;
     line-height: 18px;
 }
+
+
+
+
+
+.candidate-titile {
+    margin: 0;
+    line-height: 30px;
+}
+.candidate-titile span {
+    background-color: #DFDFDF80;
+    padding: 4px 15px;
+    border-radius: 4px;
+}
+.ops-client-btn button {
+    border-radius: 100px;
+    min-width: 85px;
+}
+.client-btn {
+    margin-left: 10px;
+}
+.ops-client-btn button:hover,
+.ops-client-btn button.active {
+    background: linear-gradient(90deg, #007AFF 0%, #004999 100%) !important;
+}
+.CompetenciesRow h5 {
+    color: #007AFF;
+    margin: 0;
+    line-height: 30px;
+}
+.CompetenciesRow .list-group-item {
+    border: none;
+    background: none;
+    /* padding: 0; */
+}
+.CompetenciesRow .list-group-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+.CompetenciesRow .list-group-item p.Poor {
+    color: #D80027;
+}
+.CompetenciesRow .list-group-item p.Average {
+    color: #F58A45;
+}
+.CompetenciesRow .list-group-item p.Good {
+    color: #A16BFF;
+}
+.CompetenciesRow .list-group-item p.VGood {
+    color: #0052B4;
+}
+.CompetenciesRow .list-group-item p.Excellent {
+    color: #2BB25C;
+}
+.MarkingRowLeftSingle {
+    padding: 8px 5px;
+    background: #fff;
+    border-radius: 5px;
+}
+.MarkingRowLeftRadio .form-check-inline {
+    margin-right: 0px;
+    margin-left: 3rem;
+    /* margin: 0 20px; */
+}
+.MarkingRowLeftRadio .form-check-inline:first-child {
+    margin: 0;
+}
+.MarkingRowLeftRadio .form-check-inline input {
+    border-color: #0052B4;
+}

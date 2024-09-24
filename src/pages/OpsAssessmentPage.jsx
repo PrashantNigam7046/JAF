@@ -9,9 +9,9 @@ const OpsAssessmentPage = () => {
             
         <Container>
             <div className='Dashboard-section-space'>
-                <div className="mt-4 mb-4">
+                <div className="mt-4 mb-5">
                     <Col>
-                        <Button variant="dark" className='mb-2 backButton'><FaArrowLeft /></Button>
+                        <Button variant="dark" className='mb-4 backButton'><FaArrowLeft /></Button>
                         <OpsDashboardComponent />
                     </Col>
                 </div>
