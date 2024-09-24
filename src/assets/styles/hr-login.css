@@ -45,8 +45,17 @@
 }
 
 
+
+.backButton {
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
 .Dashboard-section-space {
-    min-height: calc(100vh - 155px);
+    min-height: calc(100vh - 185px);
 }
 .Dashboard-post {
     color: #606060;
@@ -103,6 +112,7 @@
 	padding: 20px 15px;
 	position: relative;
     height: 100%;
+    border: 1px solid transparent;
 }
 .block-box-title {
     font-size: 1rem;
@@ -148,6 +158,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #2a86f4;
 }
 .feeling-block .block-box-title {
     background: linear-gradient(90deg, #65A9FA 0%, #026EEF 100%);
@@ -173,6 +184,29 @@
 .feeling-box-single img:hover {
     transform: scale(1.2);
 }
+
+.notstarted-block.BlockActive,
+.notstarted-block:hover{
+    border-color: #CC1313;
+    box-shadow: 0 4px 6px 0px #00000029;
+    border-style: dashed;
+    box-shadow: 2px 5px 8px 2px #00000030;
+}
+.progress-block.BlockActive,
+.progress-block:hover{
+    border-color: #DC9A00;
+    box-shadow: 0 4px 6px 0px #00000029;
+    border-style: dashed;
+    box-shadow: 2px 5px 8px 2px #00000030;
+}
+.completed-block.BlockActive,
+.completed-block:hover{
+    border-color: #40997E;
+    box-shadow: 0 4px 6px 0px #00000029;
+    border-style: dashed;
+    box-shadow: 2px 5px 8px 2px #00000030;
+}
+
 tbody, td, tfoot, th, thead, tr{
     border-color: inherit;
     border-style: none;
@@ -185,7 +219,7 @@ tbody, td, tfoot, th, thead, tr{
     --bs-table-border-color: ;
     border-collapse: separate;
 
-    border-spacing: 0 5px;
+    border-spacing: 0 8px;
     /* border-spacing: 1vw;
     border-spacing: 2em; */
 }
@@ -200,6 +234,9 @@ tbody, td, tfoot, th, thead, tr{
     border: 0px;
     font-size: 15px;
     font-weight: 500;   
+}
+.Sorting {
+    color: #57A2FC;
 }
 .customTable tbody tr{
     border-top: 5px solid transparent;
@@ -239,6 +276,9 @@ tbody, td, tfoot, th, thead, tr{
     background: #ffffff;
     padding: 4px 10px;
     border-radius: 5px;
+    min-width: 110px;
+    display: inline-block;
+    text-align: center;
 }
 .notStartedTag {
     color: #CC1313;
@@ -291,18 +331,47 @@ tbody, td, tfoot, th, thead, tr{
     align-items: center;
     border: 1px solid #B1AFC8;
     color: #B1AFC8;
+    border-color: #956fb3 !important;
+    color: #956fb3;
+}
+
+.SearchBox .input-group-prepend button:hover {
+    background-color: #eaddff;
 }
 .SearchBox input{
     border: 1px solid #B1AFC8 !important;
+    border-color: #956fb3 !important;
 }
 .appDate {
     margin-left: 1rem;
 }
 .appDate input {
     color: #8147E7;
+    color: #956fb3;
     background: #EADDFF;
+    border-color: #956fb3 !important;
 }
 ::-webkit-calendar-picker-indicator {
     /* filter: invert(1); */
+    /* filter: invert(90) sepia(50) saturate(90) hue-rotate(240deg); */
+    /* filter: invert(29%) sepia(100%) saturate(192%) hue-rotate(230deg); */
+    filter: invert(40%) sepia(100%) saturate(192%) hue-rotate(230deg);
     color: 8147E7;
+}
+.pagination .page-link {
+    border-color: #8147E7;
+    color: #8147E7;
+    height: 38px;
+}
+.pagination .page-item.active .page-link {
+    background-color: #8147E7;
+    color: #fff;
+}
+.pagination .page-link:hover {
+    background-color: #956fb3 ;
+    color: #fff;
+}
+.PageArrow span {
+    font-size: 26px;
+    line-height: 18px;
 }
