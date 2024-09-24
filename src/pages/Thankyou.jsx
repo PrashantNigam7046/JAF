@@ -9,7 +9,8 @@ const Thankyou = () => {
                     <div className='Middle_screen_inner ThankyouPage'>  
                         <img src='thank-you.gif' alt='Thankyou' style={{mixBlendMode:"multiply", maxWidth:"310px", width:"100%"}} />
                         <h5>for your interest in joining Radical Minds Technology Pvt. Ltd. </h5>
-                        <h5>We have received your job application and are excited to review your credentials</h5>
+                        <h5>Your Application Id is <span className='appId'>94569852</span>.</h5>
+                        <h5>We have sent you an email on <span className='appmail'>abc@gmail.com</span> confirming your application.</h5>
                         </div>
                     </div>
             </Container>  

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Container, Row, Col, Dropdown, Table, Form, Button } from 'react-bootstrap';
+import {Container, Row, Col, Dropdown, Table, Form, Button, Pagination } from 'react-bootstrap';
 import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiSearch } from "react-icons/fi";
 
 const DashboardHrComponent = () => {
     return (
@@ -32,23 +32,23 @@ const DashboardHrComponent = () => {
                 </Col>
             </Row>
 
-            <Row className='Dashboard-blocks mb-4'>
+            <Row className='Dashboard-blocks mb-5'>
                 <Col md={8} className='mb-sm-4 mb-md-0'>
                     <Row>
                         <Col>
-                            <div className='notstarted-block block-box'>
-                                <p className='block-box-title'>Not Started</p>
+                            <div className='notstarted-block block-box BlockActive'>
+                                <p className='block-box-title'>Not Completed</p>
                                 <span className='block-box-value'>30</span>
                                 <img className='notstarted' src='./notstarted.gif' alt='notstarted' />
                             </div>
                         </Col>
-                        <Col>
+                        {/* <Col>
                             <div className='progress-block block-box'>
                                 <p className='block-box-title'>Work in Progress</p>
                                 <span className='block-box-value'>40</span>
                                 <img className='progress' src='./progress.gif' alt='progress' />
                             </div>
-                        </Col>
+                        </Col> */}
                         <Col>
                             <div className='completed-block block-box'>
                                 <p className='block-box-title'>Completed</p>
@@ -83,12 +83,23 @@ const DashboardHrComponent = () => {
                 <Col className='text-end'>
                     <Form inline  className='text-end'>
                         <Row  className='text-end d-flex flex-row-reverse align-items-center'>
-                            <Col xs="auto">
+                            {/* <Col xs="auto">
                                 <Form.Control
                                 type="text"
                                 placeholder="Search"
                                 className=" mr-sm-2"
                                 />
+                            </Col> */}
+                            <Col className='text-end d-flex flex-row-reverse align-items-center'>
+                                <div className="appDate">
+                                    <Form.Control type="date" placeholder="date" />
+                                </div>
+                                <div class="input-group SearchBox">
+                                    <div class="input-group-prepend">
+                                        <button id="button-addon5" type="submit" class="btn btn-light"><FiSearch /></button>
+                                    </div>
+                                    <input type="search" placeholder="Search" aria-describedby="button-addon1" class="form-control border-0 bg-light" />
+                                </div>
                             </Col>
                         </Row>
                     </Form>
@@ -99,14 +110,14 @@ const DashboardHrComponent = () => {
                     <Table hover className='customTable'>
                         <thead>
                                 <tr>
-                                    <th>Sr. No <FaSort /></th>
-                                    <th>Name <FaSort /></th>
-                                    <th>Contact Number <FaSort /></th>
-                                    <th>Date <FaSort /></th>
-                                    <th>E-mail <FaSort /></th>
-                                    <th>Role <FaSort /></th>
-                                    <th>Status <FaSort /></th>
-                                    <th>Action <FaSort /></th>
+                                    <th>Sr. No <FaSort className='Sorting' /></th>
+                                    <th>Name <FaSort className='Sorting' /></th>
+                                    <th>Contact Number <FaSort className='Sorting' /></th>
+                                    <th>Date <FaSort className='Sorting' /></th>
+                                    <th>E-mail <FaSort className='Sorting' /></th>
+                                    <th>Role <FaSort className='Sorting' /></th>
+                                    <th>Status <FaSort className='Sorting' /></th>
+                                    <th>Action <FaSort className='Sorting' /></th>
                                 </tr>
                         </thead>
                         <tbody>
@@ -117,51 +128,61 @@ const DashboardHrComponent = () => {
                                 <td>23 Sept 2024</td>
                                 <td>prasahant@gmail.com</td>
                                 <td>Software Engineer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Started</span></td>
-                                <td className='text-center EditCell'><FiEdit /></td>
+                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
+                                <td className='text-center EditCell'><span><FiEdit /></span></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Prashant Nigam</td>
-                                <td>+91 9898989898</td>
-                                <td>23 Sept 2024</td>
-                                <td>prasahant@gmail.com</td>
-                                <td>Software Engineer</td>
-                                <td><span className='StatusTag ProgressTag'>In Progress</span></td>
-                                <td className='text-center EditCell'><FiEdit /></td>
+                                <td>Riya Sharma</td>
+                                <td>+91 9876543210</td>
+                                <td>15 Oct 2024</td>
+                                <td>riya.sharma@example.com</td>
+                                <td>Data Analyst</td>
+                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
+                                <td className='text-center EditCell'><span><FiEdit /></span></td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>Prashant Nigam</td>
-                                <td>+91 9898989898</td>
-                                <td>23 Sept 2024</td>
-                                <td>prasahant@gmail.com</td>
-                                <td>Software Engineer</td>
+                                <td>Amit Verma</td>
+                                <td>+91 9988776655</td>
+                                <td>30 Nov 2024</td>
+                                <td>amit.verma@mail.com</td>
+                                <td>Project Manager</td>
                                 <td><span className='StatusTag CompletedTag'>Completed</span></td>
-                                <td className='text-center EditCell'><FiEdit /></td>
+                                <td className='text-center EditCell'><span><FiEdit /></span></td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>Prashant Nigam</td>
-                                <td>+91 9898989898</td>
-                                <td>23 Sept 2024</td>
-                                <td>prasahant@gmail.com</td>
-                                <td>Software Engineer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Started</span></td>
-                                <td className='text-center EditCell'><FiEdit /></td>
+                                <td>Sneha Patel</td>
+                                <td>+91 9123456789</td>
+                                <td>19 Dec 2024</td>
+                                <td>sneha.patel@example.com</td>
+                                <td>UX Designer</td>
+                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
+                                <td className='text-center EditCell'><span><FiEdit /></span></td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>Prashant Nigam</td>
-                                <td>+91 9898989898</td>
-                                <td>23 Sept 2024</td>
-                                <td>prasahant@gmail.com</td>
-                                <td>Software Engineer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Started</span></td>
-                                <td className='text-center EditCell'><FiEdit /></td>
+                                <td>Vikram Singh</td>
+                                <td>+91 9654321098</td>
+                                <td>12 Jan 2024</td>
+                                <td>vikram.singh@mail.com</td>
+                                <td>Web Developer</td>
+                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
+                                <td className='text-center EditCell'><span><FiEdit /></span></td>
                             </tr>
                         </tbody>
                     </Table>
+                    <Pagination>
+                        <Pagination.First className='PageArrow' />
+                        <Pagination.Prev className='PageArrow' />
+                        <Pagination.Item active>{1}</Pagination.Item>
+                        <Pagination.Item>{2}</Pagination.Item>
+                        <Pagination.Item>{3}</Pagination.Item>
+                        <Pagination.Item>{4}</Pagination.Item>
+                        <Pagination.Next className='PageArrow' />
+                        <Pagination.Last className='PageArrow' />
+                    </Pagination>
                 </Col>
             </Row>
             
