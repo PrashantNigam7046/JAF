@@ -6,4 +6,46 @@
   body{
     background: linear-gradient(to right top, #ffffff, #f8faff, #edf5ff, #dff2ff, #cfeffb);
   }
+
+  @media only screen and (max-device-width : 767px){
+    .Header-main,
+    .footer_box,
+    .Form-steps,
+    .Form-next-prev {
+      padding: 5px 0 !important;
+    }
+    .header_box img {
+      width: 100%;
+      max-width: 160px;
+  }
+  .footer_box p {
+    font-size: 11px;
+    line-height: 17px;
+  }
+  .Form-steps {
+    top: 47.16px !important;
+  }
+  .Form-next-prev{
+    bottom: 50px !important;
+  }
+  .single-step-box span{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .multi-step-box > div > div > :nth-child(1) > div, .multi-step-box > div > div > :nth-child(2) > div, .multi-step-box > div > div > :nth-child(3) > div, .multi-step-box > div > div > :nth-child(4) > div, .multi-step-box > div > div > :nth-child(5) > div, .multi-step-box > div > div > :nth-child(6) > div{
+    width: 7px !important;
+    height: 7px !important;
+  }
+  .Form-next-prev button{
+    font-size: 13px;
+  }
+  .Application-section h1 {
+    font-size: calc(1.2rem + 0.6vw);
+  }
+  .Application-section h4 {
+    font-size: calc(1.2rem + 0.1vw);
+  }
+  
+  
+  }
   
