@@ -3,14 +3,17 @@ import { Row, Col } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FloatingInput from "./commonComponent/FloatingInput";
-import { getOpenPositions } from "../services/apiService";
+import { getOpenPositions, getAppliedSource } from "../services/apiService.js";
 
 const JAFComponent = ({ onDataChange }) => {
+    const [openPosition, setOpenPositions] = useState([])
+    const [appliedSource, setAppliedSource] = useState([])
     const [formData, setFormData] = useState({
         openPostId: '',
-        email: '',
+        // email: '',
         dob: '',
         gender: '',
+        candidateSignature: "candidate",
         aadhaarCardNumber: '',
         panCardNumber: '',
         source: '',
@@ -25,8 +28,10 @@ const JAFComponent = ({ onDataChange }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        console.log("name---", name, value)
-        const updatedFormData = { ...formData, [name]: value };
+        const updatedValue = name === 'dob' ? new Date(value).toISOString().split('T')[0] : value;
+        
+        const updatedFormData = { ...formData, [name]: updatedValue };
+        // const updatedFormData = { ...formData, [name]: value };
         setFormData(updatedFormData); // Update local state
         onDataChange(updatedFormData); // Send updated data to parent
 
@@ -35,14 +40,26 @@ const JAFComponent = ({ onDataChange }) => {
     const getOpenPosition = async () => {
         try {
             const response = await getOpenPositions()
-            console.log("Response", response)
+            setOpenPositions(response.data.data)
          } catch (error) {
             console.log(error)
          }
     }
 
+    const getSource = async () => {
+        try {
+            const res = await getAppliedSource();
+            console.log("res===",res.data.data)
+            setAppliedSource(res.data.data)
+
+        } catch (error) {
+            console.log(error)   
+        }
+    }
+
     useEffect(()=>{
         getOpenPosition()
+        getSource()
     },[])
 
     console.log("formData", formData)
@@ -52,24 +69,23 @@ const JAFComponent = ({ onDataChange }) => {
             controlId: "floatingPost",
             label: "Post Applied for",
             type: "select",
-            options: [
-                { value: '1', label: 'One' },
-                { value: '2', label: 'Two' },
-                { value: '3', label: 'Three' },
-            ],
+            options: openPosition.map(position => ({
+                value: position.uuid, 
+                label: position.openPostName 
+            })),
             required: true,
             name: "openPostId",
             onChange: handleChange,
         },
-        {
-            controlId: "floatingEmail",
-            label: "E-Mail ID",
-            type: "email",
-            placeholder: "E-Mail ID",
-            required: true,
-            name: "email",
-            onChange: handleChange,
-        },
+        // {
+        //     controlId: "floatingEmail",
+        //     label: "E-Mail ID",
+        //     type: "email",
+        //     placeholder: "E-Mail ID",
+        //     required: true,
+        //     name: "email",
+        //     onChange: handleChange,
+        // },
         {
             controlId: "floatingDob",
             label: "DOB",
@@ -83,7 +99,6 @@ const JAFComponent = ({ onDataChange }) => {
             label: "Gender",
             type: "select",
             options: [
-                { value: '', label: 'Select' },
                 { value: '1', label: 'Male' },
                 { value: '2', label: 'Female' },
                 { value: '3', label: 'Other' },
@@ -106,7 +121,7 @@ const JAFComponent = ({ onDataChange }) => {
             controlId: "floatingPan",
             label: "Pan Card No",
             placeholder: "Pan Card No",
-            type: "number",
+            type: "text",
             name: "panCardNumber",
             onChange: handleChange,
         },
@@ -114,15 +129,12 @@ const JAFComponent = ({ onDataChange }) => {
             controlId: "floatingSource",
             label: "Job Applied Source",
             type: "select",
-            options: [
-                { value: '', label: 'Select' },
-                { value: '1', label: 'Naukari' },
-                { value: '2', label: 'Consultant' },
-                { value: '3', label: 'Walk In' },
-                { value: '4', label: 'HR' },
-            ],
+            options: appliedSource.map(position => ({
+                value: position.uuid, 
+                label: position.sourceName 
+            })),
             required: true,
-            name: "jobSource",
+            name: "source",
             onChange: handleChange,
         },
         {
@@ -142,13 +154,12 @@ const JAFComponent = ({ onDataChange }) => {
             label: "Current State",
             type: "select",
             options: [
-                { value: '', label: 'Select' },
                 { value: '1', label: 'One' },
                 { value: '2', label: 'Two' },
                 { value: '3', label: 'Three' },
             ],
             required: true,
-            name: "currentState",
+            name: "currentAddressState",
             onChange: handleChange,
         },
         {
@@ -177,13 +188,12 @@ const JAFComponent = ({ onDataChange }) => {
             label: "Permanent State",
             type: "select",
             options: [
-                { value: '', label: 'Select' },
                 { value: '1', label: 'One' },
                 { value: '2', label: 'Two' },
                 { value: '3', label: 'Three' },
             ],
             required: true,
-            name: "permanentState",
+            name: "permanentAddressState",
             onChange: handleChange,
         },
         {
@@ -201,7 +211,7 @@ const JAFComponent = ({ onDataChange }) => {
             placeholder: "Permanent Pin Code",
             type: "number",
             required: true,
-            name: "permanentPin",
+            name: "permanentAddressPincode",
             onChange: handleChange,
         },
     ];
@@ -273,17 +283,7 @@ const JAFComponent = ({ onDataChange }) => {
                             </Col>
                         </Row>
                         <hr />
-                        
-
-                        <Row>
-                            {permanentAddressFields.map((field, index) => (
-                                <Col md={field.type === 'textarea' ? 6 : 3} key={index}>
-                                    <FloatingInput
-                                        {...field}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
+                    
 
                         <Row>
                             {permanentAddressFields.map((field, index) => (

@@ -17,7 +17,9 @@ const WorkExperience = () => {
     };
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-  
+    const [disableInput, setDisable] = useState(false)
+    const [experienceLevel, setExperienceLevel] = useState('experienced'); // Default value
+
     const handleStartDateChange = (event) => {
       setStartDate(event.target.value);
     };
@@ -25,6 +27,14 @@ const WorkExperience = () => {
     const handleEndDateChange = (event) => {
       setEndDate(event.target.value);
     };
+
+
+
+    const handleExperienceChange = (value) => {
+        setExperienceLevel(value);
+        setDisable(value === 'fresher'); // Disable input if "Fresher" is selected
+    };
+
     return (
         <>
 
@@ -32,21 +42,27 @@ const WorkExperience = () => {
         {/* <p>( Starting from the current organization )</p> */}
         <Form>
         <div className="mb-3">
-          <Form.Check
-            inline
-            label="Fresher"
-            name="group1"
-            type="radio"
-            id="sd"
-          />
-          <Form.Check
-            inline
-            label="Experienced"
-            name="group1"
-            type="radio"
-            id="ssd"
-          />
-        </div>
+      <Form.Check
+        inline
+        label="Experienced"
+        name="group1"
+        type="radio"
+        id="experienced"
+        value="experienced"
+        checked={experienceLevel === 'experienced'}
+        onChange={() => handleExperienceChange("experienced")}
+      />
+      <Form.Check
+        inline
+        label="Fresher"
+        name="group1"
+        type="radio"
+        id="fresher"
+        value="fresher"
+        checked={experienceLevel === 'fresher'}
+        onChange={() => handleExperienceChange("fresher")}
+      />
+    </div>
     </Form>
 
         {experience.map(experience => (
@@ -57,13 +73,13 @@ const WorkExperience = () => {
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingOrganization-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Name of the Organization</span> <span className="required">*</span></>}>
-                                <Form.Control type="text"  placeholder='' />
+                                <Form.Control   disabled={disableInput} type="text"  placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={4}>
                             <FloatingLabel controlId={`floatingDesignation-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
-                                <Form.Control type="text"  placeholder='' />
+                                <Form.Control type="text" disabled={disableInput}  placeholder='' />
                             </FloatingLabel>
                         </Col>
                         <Col md={2}>
@@ -71,7 +87,8 @@ const WorkExperience = () => {
                             label={<><span className="label-text">From</span> <span className="required">*</span></>}>
                                 <Form.Control
                                     type="date"
-                                    aria-label="dsf"
+                                    aria-label="from"
+                                    disabled={disableInput}
                                     
                                 />
                             </FloatingLabel>       
@@ -81,7 +98,8 @@ const WorkExperience = () => {
                             label={<><span className="label-text">TO</span> <span className="required">*</span></>}>
                                 <Form.Control
                                     type="date"
-                                    aria-label="dsf"
+                                    aria-label="to"
+                                    disabled={disableInput}
                                     
                                 />
                             </FloatingLabel>       
@@ -89,19 +107,19 @@ const WorkExperience = () => {
                         <Col md={3}>
                             <FloatingLabel controlId={`floatingSalary-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Gross Salary P.M</span> <span className="required">*</span></>}>
-                                <Form.Control type="number"  placeholder='' />
+                                <Form.Control type="number" disabled={disableInput} placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={3}>
                             <FloatingLabel controlId={`floatingDeduction-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Take Home P.M(After Deduction)</span> <span className="required">*</span></>}>
-                                <Form.Control type="number"  placeholder='' />
+                                <Form.Control type="number" disabled={disableInput} placeholder='' />
                             </FloatingLabel>          
                         </Col>
                         <Col md={6}>
                             <FloatingLabel controlId={`floatingLeaving-${experience.id}`} className="mb-3"
                             label={<><span className="label-text">Reasons for leaving</span> <span className="required">*</span></>}>
-                                <Form.Control as="textarea"  placeholder='' />
+                                <Form.Control as="textarea"  disabled={disableInput} placeholder='' />
                             </FloatingLabel>          
                         </Col>
                     </Row>
