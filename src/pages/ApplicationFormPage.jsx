@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col, Button } from 'react-bootstrap';
+import {Container, Row, Col, Button, Badge  } from 'react-bootstrap';
 import Stepper from 'react-stepper-horizontal';
 import JAFComponent from '../component/JAFComponent';
 import "../assets/styles/formsteps.css";
@@ -9,7 +9,7 @@ import EducationalQualification from'../component/EducationalQualification';
 import WorkExperience from'../component/WorkExperience';
 import Reference from'../component/Reference';
 import Preview from '../component/Preview';
-import { postCandidateDetails, postFamilyDetails, postEducationalDetails } from '../services/apiService';
+import { postCandidateDetails, postFamilyDetails, postEducationalDetails, postExperienceDetails, postRefernceDetails } from '../services/apiService';
 import { showToast } from '../utils/ToastNotification/toastNotification';
 
 const ApplicationFormPage = () => {
@@ -30,6 +30,10 @@ const ApplicationFormPage = () => {
       const [formData, setFormData] = React.useState({}); // State to hold form data
       const [familyData, setFamilyData] = React.useState([])
       const [educationData,seteducationData] = React.useState([])
+      const [refernceDetail,setReferencesDetail] = React.useState([])
+      const [experienceDetail, setExperienceDetail] = React.useState([])
+      const [error, setError] = React.useState('');
+
       const stepContent = [
         <div key="step1" className='Application-section'>
           {/* jaf component */}
@@ -42,10 +46,13 @@ const ApplicationFormPage = () => {
           <EducationalQualification onDataChange={seteducationData}/>
         </div>,
         <div key="step4" className='Application-section'>
-          <WorkExperience />
+         <div>
+                {error && <Badge pill bg="danger" className="mb-3">{error}</Badge>}
+            </div>
+          <WorkExperience onDataChange={setExperienceDetail} />
         </div>,
         <div key="step5" className='Application-section Reference'>
-          <Reference />
+          <Reference onDataChange={setReferencesDetail} />
         </div>,
         <div key="step6" className='Application-section Reference'>
         <Preview />
@@ -111,8 +118,84 @@ const ApplicationFormPage = () => {
     }
   }; 
 
+  const handSubmitReferences = async () => {
+    const payload = {
+        professionalReferenceDetails: refernceDetail.map((element) => ({
+            name: element.name,
+            organization: element.organization,
+            emailAddress: element.emailAddress,
+            mobileNumber: element.mobileNumber,
+            designation: element.designation,
+        }))
+    };
+
+    console.log("payloadRef====", payload);
+
+    try {
+        const res = await postRefernceDetails(payload);
+        console.log(res);
+        return true;
+    } catch (error) {
+        console.error("Error submitting references:", error);
+        return false;        
+    }
+};
+
+
+
+  const validateWorkExperience = (payload) => {
+    const isValid = payload.workExperienceDetails.every((experience) => {
+      return Object.values(experience).every((value) => {
+        if (typeof value === 'string') {
+          return value.trim() !== '';
+        } else {
+          return value !== null && value !== undefined;
+        }
+      });
+    });
+    return isValid;
+  };
+
+  const handleSubmitExperienceDetails = async () => {
+    // Assuming experienceDetail is your state holding the work experience data
+    const payload = {
+        workExperienceDetails: experienceDetail.map(({ 
+            organizationName, designation, periodStartDate, periodEndDate, grossSalaryPm, takeHomeSalaryPm, reasonForLeaving 
+        }) => ({
+            organizationName,
+            designation,
+            periodStartDate,
+            periodEndDate,
+            grossSalaryPm,
+            takeHomeSalaryPm,
+            reasonForLeaving
+        })),
+    };
+    console.log("Payload before validation:", payload); 
+    console.log("dasdas", validateWorkExperience(payload))
+    
+    // if(validateWorkExperience(payload)){
+    //     setError("Please fill all the Required Field")
+    // }else{
+        
+    // }
+
+
+    try {
+        setError("")
+        const response = await postExperienceDetails(payload);
+        console.log('API response:', response);
+        return true;
+    } catch (error) {
+        console.error('Error during API call:', error);
+        return false;
+    }
+};
+
+
     const handleNext = async () => {
         console.log("stepindex===", stepIndex);
+        console.log("sdaffasfs", error)
         
         // Handle the API call for the first step (if applicable)
         // if (stepIndex === 0) {
@@ -129,6 +212,15 @@ const ApplicationFormPage = () => {
         if(stepIndex === 2) {
             const successEducationDetails = await handleSubmitEducationDetails(educationData);
             if(!successEducationDetails) return;
+        }
+        if(stepIndex === 3) {
+            const successExperienceDetails  = await handleSubmitExperienceDetails(experienceDetail)
+            if(!successExperienceDetails) return;
+        }
+        if(stepIndex === 4) {
+            // handSubmitReferences(refernceDetail)
+            const successReference = await handSubmitReferences(refernceDetail)
+            if(!successReference) return;
         }
         // Move to the next step
         setStepIndex(stepIndex + 1);
@@ -171,6 +263,7 @@ const ApplicationFormPage = () => {
                 
                 </Col> */}
             </Row>
+           
             
         </Container>
     </div>
