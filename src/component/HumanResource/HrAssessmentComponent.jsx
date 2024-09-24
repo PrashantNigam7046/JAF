@@ -4,7 +4,7 @@ import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FiEdit, FiSearch } from "react-icons/fi";
 
-const OpsDashboardComponent = () => {
+const HrAssessmentComponent = () => {
     const renderTooltip = (id) => (props) => (
         <Tooltip id={`tooltip-${id}`} {...props}>
             {id.charAt(0).toUpperCase() + id.slice(1)} 
@@ -12,9 +12,10 @@ const OpsDashboardComponent = () => {
     );
     return (
         <>
+
             <Row className='d-flex align-items-center Dashboard-top-info mb-4'>
                 <Col className='d-flex flex-column'>
-                    <h3 className='Dashboard-userName mb-1'>OPS ASSESSMENT</h3>
+                    <h3 className='Dashboard-userName mb-1'>HR ASSESSMENT</h3>
                 </Col>
                 <Col className='text-end d-flex flex-row-reverse align-items-center'>
                     <Dropdown className='Dashboard-user-image'>
@@ -37,8 +38,8 @@ const OpsDashboardComponent = () => {
                     </Row>
                 </Col>
                 <Col className='d-flex flex-row-reverse ops-client-btn'>
-                <Button className='client-btn' variant="outline-primary">Client</Button>
-                    <Button className='ops-btn' variant="outline-primary" active>OPS</Button>
+                    <Button className='client-btn' variant="outline-primary">Client</Button>
+                    <Button className='ops-btn' variant="outline-primary"   >OPS</Button>
                 </Col>
             </Row>
             <Row className='CompetenciesRow mb-4'>
@@ -71,7 +72,6 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
@@ -136,8 +136,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -173,7 +172,6 @@ const OpsDashboardComponent = () => {
                                     name="group1"
                                     type="radio"
                                     id="average"
-                                        checked
                                 />
                             </OverlayTrigger>
                             
@@ -224,8 +222,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments'
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -274,7 +271,6 @@ const OpsDashboardComponent = () => {
                                     name="group1"
                                     type="radio"
                                     id="good"
-                                        checked
                                 />
                             </OverlayTrigger>
                             
@@ -312,8 +308,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments'
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -335,7 +330,6 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
@@ -400,8 +394,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments'
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -437,7 +430,6 @@ const OpsDashboardComponent = () => {
                                     name="group1"
                                     type="radio"
                                     id="average"
-                                        checked
                                 />
                             </OverlayTrigger>
                             
@@ -488,8 +480,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -525,7 +516,6 @@ const OpsDashboardComponent = () => {
                                     name="group1"
                                     type="radio"
                                     id="average"
-                                        checked
                                 />
                             </OverlayTrigger>
                             
@@ -576,8 +566,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments'
-                             value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -600,7 +589,6 @@ const OpsDashboardComponent = () => {
                                         type="radio"
                                         id="GraduationYes"
                                         label="Yes"
-                                        checked
                                         className='GraduationYes'
                                     />
                             </OverlayTrigger>
@@ -627,8 +615,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -650,7 +637,6 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
@@ -715,8 +701,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -738,7 +723,6 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
@@ -803,8 +787,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -827,7 +810,6 @@ const OpsDashboardComponent = () => {
                                         type="radio"
                                         id="FlexibleYes"
                                         label="Yes"
-                                        checked
                                         className='FlexibleYes'
                                     />
                             </OverlayTrigger>
@@ -854,8 +836,7 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
@@ -877,7 +858,6 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
@@ -942,16 +922,14 @@ const OpsDashboardComponent = () => {
                 <Col md={3} className='MarkingRowRight'>
                     <div className='w-100 h-100'>
                         <Form.Group controlId="Comments" className='h-100'>
-                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' 
-                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+                            <Form.Control as="textarea" rows={1}  className='h-100' placeholder='Comments' />
                         </Form.Group>  
                     </div>
                 </Col>
             </Row>
-
-
+            
         </>
     );
 }
 
-export default OpsDashboardComponent;
+export default HrAssessmentComponent;

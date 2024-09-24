@@ -4,7 +4,7 @@ import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FiEdit, FiSearch } from "react-icons/fi";
 
-const OpsDashboardComponent = () => {
+const ClientAssessmentComponent = () => {
     const renderTooltip = (id) => (props) => (
         <Tooltip id={`tooltip-${id}`} {...props}>
             {id.charAt(0).toUpperCase() + id.slice(1)} 
@@ -12,9 +12,10 @@ const OpsDashboardComponent = () => {
     );
     return (
         <>
+        
             <Row className='d-flex align-items-center Dashboard-top-info mb-4'>
                 <Col className='d-flex flex-column'>
-                    <h3 className='Dashboard-userName mb-1'>OPS ASSESSMENT</h3>
+                    <h3 className='Dashboard-userName mb-1'>CLIENT ASSESSMENT</h3>
                 </Col>
                 <Col className='text-end d-flex flex-row-reverse align-items-center'>
                     <Dropdown className='Dashboard-user-image'>
@@ -948,10 +949,9 @@ const OpsDashboardComponent = () => {
                     </div>
                 </Col>
             </Row>
-
-
+            
         </>
     );
 }
 
-export default OpsDashboardComponent;
+export default ClientAssessmentComponent;

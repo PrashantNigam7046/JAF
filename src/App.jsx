@@ -7,7 +7,9 @@ import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
-import OpsAssessmentPage from './pages/OpsAssessmentPage';
+import OpsAssessmentPage from './component/ops/OpsAssessmentPage';
+import HrAssessmentPage from './pages/HrAssessmentPage';
+import ClientAssesmentPage from './component/client/ClientAssessmentPage';
 import Thankyou from './pages/Thankyou';
 import HrLoginPage from './pages/HrLoginPage';
 import HrDashboardPage from './pages/HrDashboardPage';
@@ -34,6 +36,8 @@ function App() {
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
             <Route path="/thankyou" element={<Thankyou />} />
             <Route path="/ops-assessment" element={<OpsAssessmentPage />} />
+            <Route path="/hr-assessment" element={<HrAssessmentPage />} />
+            <Route path="/client-assessment" element={<ClientAssesmentPage />} />
           </Routes>
           <FooterComponent></FooterComponent>
 

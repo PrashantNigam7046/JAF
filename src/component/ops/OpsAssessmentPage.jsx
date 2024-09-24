@@ -1,8 +1,7 @@
 import React from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
-import { FaArrowLeft } from "react-icons/fa";
-import OpsDashboardComponent from '../component/ops/OpsDashboardComponent';
-
+import { FaArrowLeft, FaLongArrowAltRight } from "react-icons/fa";
+import OpsDashboardComponent from './OpsDashboardComponent';
 const OpsAssessmentPage = () => {
     return (
         <>
@@ -13,6 +12,11 @@ const OpsAssessmentPage = () => {
                     <Col>
                         <Button variant="dark" className='mb-4 backButton'><FaArrowLeft /></Button>
                         <OpsDashboardComponent />
+                        <Row>
+                            <Col className='p-0'>
+                                <Button variant="dark" className='mt-3 nextButton'>Next <FaLongArrowAltRight /></Button>
+                            </Col>
+                        </Row>
                     </Col>
                 </div>
                 
