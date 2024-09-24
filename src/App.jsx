@@ -6,6 +6,7 @@ import HeaderComponent from './component/HeaderComponent';
 import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
+import NotFoundPage from './pages/NotFound';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import OpsAssessmentPage from './component/ops/OpsAssessmentPage';
 import HrAssessmentPage from './pages/HrAssessmentPage';

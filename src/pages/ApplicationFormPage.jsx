@@ -3,6 +3,7 @@ import {Container, Row, Col, Button, Badge  } from 'react-bootstrap';
 import Stepper from 'react-stepper-horizontal';
 import JAFComponent from '../component/JAFComponent';
 import "../assets/styles/formsteps.css";
+import { useNavigate } from 'react-router-dom';
 import { FaLongArrowAltRight, FaLongArrowAltLeft, FaCheckCircle  } from "react-icons/fa";
 import FamilyDetail from'../component/FamilyDetail';
 import EducationalQualification from'../component/EducationalQualification';
@@ -33,6 +34,7 @@ const ApplicationFormPage = () => {
       const [refernceDetail,setReferencesDetail] = React.useState([])
       const [experienceDetail, setExperienceDetail] = React.useState([])
       const [error, setError] = React.useState('');
+      const navigate = useNavigate()
 
       const stepContent = [
         <div key="step1" className='Application-section'>
@@ -192,7 +194,9 @@ const ApplicationFormPage = () => {
     }
 };
 
-
+const handleSubmitOverview = async () => {
+    navigate("/thankyou")
+}
     const handleNext = async () => {
         console.log("stepindex===", stepIndex);
         console.log("sdaffasfs", error)
@@ -292,7 +296,7 @@ const ApplicationFormPage = () => {
                 </Col>
                 <Col className="text-end d-flex justify-content-end">
                    {btnShowSubmit ?
-                    <Button className='final-submit-button' variant="primary">Submit<FaCheckCircle /></Button> 
+                    <Button className='final-submit-button' variant="primary" onClick={handleSubmitOverview}>Submit<FaCheckCircle /></Button> 
                     :
                     <Button className='btn-next' variant="primary" onClick={handleNext} disabled={stepIndex === steps.length - 1} > Next <FaLongArrowAltRight /></Button>
                    }

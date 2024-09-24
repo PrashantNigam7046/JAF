@@ -95,22 +95,20 @@ const Reference = ({ onDataChange }) => {
                                     required
                                 />
                             </Col>
-                            <Col>
-                                {/* Conditionally render the close icon for references added beyond the initial two */}
-                                {reference.id > 2 && (
+                           
+                        </Row>
+                        {reference.id > 2 && (
                                     <span className='delete-card' onClick={() => removeReference(reference.id)}>
                                         <IoIosCloseCircle />
                                     </span>
                                 )}
-                            </Col>
-                        </Row>
                     </Card.Body>
                 </Card>
             ))}
 
-            <Button variant="primary" className='AddButton' onClick={addReference} disabled={references.length >= 4}>
+            {/* <Button variant="primary" className='AddButton' onClick={addReference} disabled={references.length >= 4}>
                 <IoMdAddCircleOutline /> Add References
-            </Button>
+            </Button> */}
         </>
     );
 }

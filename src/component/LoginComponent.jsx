@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { showToast } from '../utils/ToastNotification/toastNotification';
 import "../assets/styles/login.css";
 import { FloatingLabel } from 'react-bootstrap';
 import axios from 'axios';
@@ -34,7 +35,7 @@ const LoginComponent = () => {
             // Ensure the response data is structured as expected
             const uuid = response.data.data.uuid;
             console.log("uuid", uuid)
-            alert("otp sent successfully")
+            showToast("otp sent successfully", "success")
             localStorage.setItem('uuid', uuid); // Store token
             localStorage.setItem("email_id", email); // Store email
             navigate("/otp"); // Redirect to OTP page
