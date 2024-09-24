@@ -101,12 +101,13 @@ const ApplicationFormPage = () => {
     };
 
     console.log("payload-------------", payload);
-
     try {
       const response = await postEducationalDetails(payload);
       console.log('API response:', response);
+      return true
     } catch (error) {
       console.error('Error during API call:', error);
+      return false
     }
   }; 
 

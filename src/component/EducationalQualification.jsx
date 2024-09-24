@@ -41,7 +41,7 @@ const EducationalQualification = ({ onDataChange }) => {
               <Row>
                 <Col md={3}>
                   <FloatingLabel controlId={`floatingQualification-${item.id}`} className='mb-3'
-                    label={<><span className="label-text">Education (latest pursuing)</span> <span className="required">*</span></>}>
+                    label={<><span className="label-text">Education (Highest/Latest/pursuing)</span> <span className="required">*</span></>}>
                     <Form.Select 
                       aria-label="Floating label select example"
                       name="diplomaDegreeExaminationPassed"
@@ -102,9 +102,9 @@ const EducationalQualification = ({ onDataChange }) => {
         </Card>
       ))}
 
-      <Button variant="primary" className='AddButton' onClick={addEducationDetail} disabled={education.length >= 4}>
+      {/* <Button variant="primary" className='AddButton' onClick={addEducationDetail} disabled={education.length >= 4}>
         <IoMdAddCircleOutline /> Add Qualification
-      </Button>
+      </Button> */}
       
     </>
   );
