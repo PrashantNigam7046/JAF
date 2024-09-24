@@ -2,7 +2,6 @@ import React, { useState, useContext  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {FloatingLabel} from 'react-bootstrap';
-import { loginUser } from '../../services/apiService';
 import {useNavigate } from 'react-router-dom';
 import "../../assets/styles/hr-login.css";
 import Spinner from 'react-bootstrap/Spinner';

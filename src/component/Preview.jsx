@@ -226,7 +226,7 @@ const handleCancel = (section) => {
                             <Col>
                                 <FloatingLabel controlId="floatingRelationship" className='mb-3'
                                 label={<><span className="label-text">Relationship</span> <span className="required">*</span></>}>
-                                    <Form.Select aria-label="Floating label select example" disabled>
+                                    <Form.Select aria-label="Floating label select example" disabled={!isShowEditBtn.isShowEditBtnFamily}>
                                     <option>Select</option>
                                     <option value="1" selected>Father</option>
                                     <option value="2">Mother</option>
@@ -237,24 +237,24 @@ const handleCancel = (section) => {
                             <Col>
                                 <FloatingLabel controlId="floatingFirstName" className='mb-3'
                                 label={<><span className="label-text">First Name</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='First Name' defaultValue="Ramesh" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnFamily} type="text" placeholder='First Name' defaultValue="Ramesh" />
                                 </FloatingLabel>
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingLastName" label="Last Name" className='mb-3'>
-                                    <Form.Control disabled type="text" placeholder='Last Name' defaultValue="Kumar" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnFamily} type="text" placeholder='Last Name' defaultValue="Kumar" />
                                 </FloatingLabel>
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingAge" className='mb-3'
                                 label={<><span className="label-text">Age</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="number" placeholder='Age' defaultValue="60" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnFamily} type="number" placeholder='Age' defaultValue="60" />
                                 </FloatingLabel>
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingOccupation" className='mb-3'
                                 label={<><span className="label-text">Occupation</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='Occupation' defaultValue="Branch Manager" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnFamily} type="text" placeholder='Occupation' defaultValue="Branch Manager" />
                                 </FloatingLabel>
                             </Col>
                         </Row>
@@ -284,7 +284,7 @@ const handleCancel = (section) => {
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingQualification" className='mb-3'
                                 label={<><span className="label-text">Education (latest pursuing)</span> <span className="required">*</span></>}>
-                                    <Form.Select aria-label="Floating label select example" disabled>
+                                    <Form.Select aria-label="Floating label select example" disabled={!isShowEditBtn.isShowEditBtnEducational}>
                                     <option>Select</option>
                                     <option value="1">12th</option>
                                     <option value="2" selected>Graduation</option>
@@ -295,19 +295,19 @@ const handleCancel = (section) => {
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingUniversity" className='mb-3'
                                 label={<><span className="label-text">Name of Board/University</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text"  placeholder='Name of Board/University' defaultValue="M.D.U" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnEducational} type="text"  placeholder='Name of Board/University' defaultValue="M.D.U" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingMarks" className='mb-3'
                                 label={<><span className="label-text">Division/ % of Marks</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text"  placeholder='Division/ % of Marks' defaultValue="65" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnEducational} type="text"  placeholder='Division/ % of Marks' defaultValue="65" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingPassingYear" className='mb-3'
                                 label={<><span className="label-text">Year of Passing</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="number"  placeholder='Year of Passing' defaultValue="2012" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnEducational} type="number"  placeholder='Year of Passing' defaultValue="2012" />
                                 </FloatingLabel>
                             </Col>
                         </Row>
@@ -337,43 +337,43 @@ const handleCancel = (section) => {
                             <Col md={4}>
                                 <FloatingLabel controlId="floatingOrganization" className="mb-3"
                                 label={<><span className="label-text">Name of the Organization</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text"  placeholder='Name of the Organization' defaultValue="Abc Pvt ltd" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="text"  placeholder='Name of the Organization' defaultValue="Abc Pvt ltd" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={4}>
                                 <FloatingLabel controlId="floatingDesignation" className="mb-3"
                                 label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text"  placeholder='Designation' defaultValue="Sr Manager" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="text"  placeholder='Designation' defaultValue="Sr Manager" />
                                 </FloatingLabel>
                             </Col>
                             <Col md={2}>
                                 <FloatingLabel controlId="floatingFromDate" className="mb-3" 
                                 label={<><span className="label-text">From</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="date" aria-label="Date from" defaultValue="2020-01-01"  />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="date" aria-label="Date from" defaultValue="2020-01-01"  />
                                 </FloatingLabel>       
                             </Col>
                             <Col md={2}>
                                 <FloatingLabel controlId="floatingToDate" className="mb-3" 
                                 label={<><span className="label-text">TO</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="date" aria-label="Date to" defaultValue="2024-04-12"  />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="date" aria-label="Date to" defaultValue="2024-04-12"  />
                                 </FloatingLabel>       
                             </Col>
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingSalary" className="mb-3"
                                 label={<><span className="label-text">Gross Salary P.M</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="number"  placeholder='Gross Salary P.M' defaultValue="50000" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="number"  placeholder='Gross Salary P.M' defaultValue="50000" />
                                 </FloatingLabel>          
                             </Col>
                             <Col md={3}>
                                 <FloatingLabel controlId="floatingDeduction" className="mb-3"
                                 label={<><span className="label-text">Take Home P.M(After Deduction)</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="number"  placeholder='Take Home P.M(After Deduction)' defaultValue="45000" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} type="number"  placeholder='Take Home P.M(After Deduction)' defaultValue="45000" />
                                 </FloatingLabel>          
                             </Col>
                             <Col md={6}>
                                 <FloatingLabel controlId="floatingLeaving" className="mb-3"
                                 label={<><span className="label-text">Reasons for leaving</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled as="textarea"  placeholder='Reasons for leaving' defaultValue="I want to take on new challenges that will help me develop my skills further." />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnWorkExp} as="textarea"  placeholder='Reasons for leaving' defaultValue="I want to take on new challenges that will help me develop my skills further." />
                                 </FloatingLabel>          
                             </Col>
                         </Row>
@@ -403,31 +403,31 @@ const handleCancel = (section) => {
                             <Col>
                                 <FloatingLabel controlId="floatingReferenceName" className="mb-3"
                                 label={<><span className="label-text">Name</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='Name' defaultValue="Shobhit Adhikari" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnProffessionalRef} type="text" placeholder='Name' defaultValue="Shobhit Adhikari" />
                                 </FloatingLabel>
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingReferenceOrganization" className="mb-3"
                                 label={<><span className="label-text">Organization</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='Organization' defaultValue="One Cube pvt ltd" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnProffessionalRef} type="text" placeholder='Organization' defaultValue="One Cube pvt ltd" />
                                 </FloatingLabel>
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingReferenceMobile" className="mb-3"
                                 label={<><span className="label-text">Mobile No:</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="number" placeholder='Mobile No:' defaultValue="7878787878" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnProffessionalRef} type="number" placeholder='Mobile No:' defaultValue="7878787878" />
                                 </FloatingLabel>          
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingReferenceEmail" className="mb-3"
                                 label={<><span className="label-text">E-Mail Address</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='E-Mail Address' defaultValue="shobhit@gmail.com" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnProffessionalRef} type="text" placeholder='E-Mail Address' defaultValue="shobhit@gmail.com" />
                                 </FloatingLabel>          
                             </Col>
                             <Col>
                                 <FloatingLabel controlId="floatingReferenceDesignation" className="mb-3"
                                 label={<><span className="label-text">Designation</span> <span className="required">*</span></>}>
-                                    <Form.Control disabled type="text" placeholder='Designation' defaultValue="React Developer" />
+                                    <Form.Control disabled={!isShowEditBtn.isShowEditBtnProffessionalRef} type="text" placeholder='Designation' defaultValue="React Developer" />
                                 </FloatingLabel>          
                             </Col>
                         </Row>

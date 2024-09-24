@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../assets/styles/login.css";
 import { FloatingLabel } from 'react-bootstrap';
-import { loginUser } from '../services/apiService';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -30,18 +30,16 @@ const LoginComponent = () => {
         const { name, email, mobileNumber } = userDetails;
 
         try {
-            const response = await loginUser({ name, email, mobileNumber });
+            const response = await axios.post(`https://demoserver.radicalminds.in:3010/api/v1/otp/send`, userDetails);
             // Ensure the response data is structured as expected
             const uuid = response.data.data.uuid;
-            console.log("token", response)
+            console.log("uuid", uuid)
+            alert("otp sent successfully")
             localStorage.setItem('uuid', uuid); // Store token
             localStorage.setItem("email_id", email); // Store email
-
-            console.log("response token:", token);
             navigate("/otp"); // Redirect to OTP page
         } catch (err) {
             console.error('Login error:', err);
-            alert("Login failed! Please try again."); // Optional user feedback 
         } finally {
             setShowSpinner(false); // Hide spinner at the end
         }
