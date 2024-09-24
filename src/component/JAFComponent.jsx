@@ -4,18 +4,20 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FloatingInput from "./commonComponent/FloatingInput";
 import { getOpenPositions, getAppliedSource } from "../services/apiService.js";
+import axios from "axios";
 
 const JAFComponent = ({ onDataChange }) => {
     const [openPosition, setOpenPositions] = useState([])
     const [appliedSource, setAppliedSource] = useState([])
+    const [states, setStates] = useState([])
     const [formData, setFormData] = useState({
         openPostId: '',
         // email: '',
         dob: '',
         gender: '',
         candidateSignature: "candidate",
-        aadhaarCardNumber: '',
-        panCardNumber: '',
+        // aadhaarCardNumber: '',
+        // panCardNumber: '',
         source: '',
         subSource: '',
         currentAddressState: '',
@@ -37,6 +39,11 @@ const JAFComponent = ({ onDataChange }) => {
 
     };
 
+    const handleCurrentAddress = () => {
+        
+    }
+
+
     const getOpenPosition = async () => {
         try {
             const response = await getOpenPositions()
@@ -57,9 +64,20 @@ const JAFComponent = ({ onDataChange }) => {
         }
     }
 
+    const getStateList = async () => {
+        try {
+            const res = await axios.get("./state.json")
+            console.log("state====", res.data)
+            setStates(res.data)
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
     useEffect(()=>{
         getOpenPosition()
         getSource()
+        getStateList()
     },[])
 
     console.log("formData", formData)
@@ -107,24 +125,24 @@ const JAFComponent = ({ onDataChange }) => {
             name: "gender",
             onChange: handleChange,
         },
-        {
+        // {
             
-            controlId: "floatingAadhar",
-            label: "Aadhar Card No",
-            placeholder: "Aadhar Card No",
-            type: "number",
-            required: true,
-            name: "aadhaarCardNumber",
-            onChange: handleChange,
-        },
-        {
-            controlId: "floatingPan",
-            label: "Pan Card No",
-            placeholder: "Pan Card No",
-            type: "text",
-            name: "panCardNumber",
-            onChange: handleChange,
-        },
+        //     controlId: "floatingAadhar",
+        //     label: "Aadhar Card No",
+        //     placeholder: "Aadhar Card No",
+        //     type: "number",
+        //     required: true,
+        //     name: "aadhaarCardNumber",
+        //     onChange: handleChange,
+        // },
+        // {
+        //     controlId: "floatingPan",
+        //     label: "Pan Card No",
+        //     placeholder: "Pan Card No",
+        //     type: "text",
+        //     name: "panCardNumber",
+        //     onChange: handleChange,
+        // },
         {
             controlId: "floatingSource",
             label: "Job Applied Source",
@@ -153,11 +171,10 @@ const JAFComponent = ({ onDataChange }) => {
             controlId: "floatingCurrentState",
             label: "Current State",
             type: "select",
-            options: [
-                { value: '1', label: 'One' },
-                { value: '2', label: 'Two' },
-                { value: '3', label: 'Three' },
-            ],
+            options: states.map((element) => ({
+                value: element.value,
+                label: element.label
+            })),
             required: true,
             name: "currentAddressState",
             onChange: handleChange,
@@ -187,11 +204,10 @@ const JAFComponent = ({ onDataChange }) => {
             controlId: "floatingPermanentState",
             label: "Permanent State",
             type: "select",
-            options: [
-                { value: '1', label: 'One' },
-                { value: '2', label: 'Two' },
-                { value: '3', label: 'Three' },
-            ],
+            options: states.map((element) => ({
+                value: element.value,
+                label: element.label
+            })),
             required: true,
             name: "permanentAddressState",
             onChange: handleChange,
@@ -276,6 +292,7 @@ const JAFComponent = ({ onDataChange }) => {
                                     <Form.Check
                                         type='checkbox'
                                         label='Same as Current Address'
+                                        onChange={handleCurrentAddress}
                                         id='permanentAddressCheck'
                                         className='text-start'
                                     />

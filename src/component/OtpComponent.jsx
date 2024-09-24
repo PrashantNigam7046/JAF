@@ -5,6 +5,7 @@ import OtpInput from 'react-otp-input';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "../assets/styles/login.css";
+import { showToast } from '../utils/ToastNotification/toastNotification';
 
 const OtpComponent = () => {
     const [otp, setOtp] = useState('');
@@ -23,8 +24,7 @@ const OtpComponent = () => {
             });
             console.log("OTP response", response.data.data.token);
             localStorage.setItem("authToken", response.data.data.token)
-            alert("otp verified")
-            // Optionally navigate after successful verification
+            showToast("otp verified", "success")
             navigate("/job-application-form-page");
         } catch (error) {
             alert("invalid otp")
