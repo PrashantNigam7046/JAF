@@ -6,6 +6,7 @@ import HeaderComponent from './component/HeaderComponent';
 import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
+import NotFoundPage from './pages/NotFound';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import Thankyou from './pages/Thankyou';
 import HrLoginPage from './pages/HrLoginPage';
@@ -32,6 +33,9 @@ function App() {
             <Route path="/otp" element={<OtpPage />} />
             <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
             <Route path="/thankyou" element={<Thankyou />} />
+
+            {/* for undefined routes */}
+            <Route path="*" element={<NotFoundPage />} /> 
           </Routes>
           <FooterComponent></FooterComponent>
 
