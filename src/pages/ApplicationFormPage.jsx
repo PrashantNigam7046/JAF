@@ -213,10 +213,10 @@ const handleSubmitOverview = async () => {
             if (!successFamilyPost) return; // If submission failed, do not proceed
         }
    
-        if(stepIndex === 2) {
-            const successEducationDetails = await handleSubmitEducationDetails(educationData);
-            if(!successEducationDetails) return;
-        }
+        // if(stepIndex === 2) {
+        //     const successEducationDetails = await handleSubmitEducationDetails(educationData);
+        //     if(!successEducationDetails) return;
+        // }
         if(stepIndex === 3) {
             const successExperienceDetails  = await handleSubmitExperienceDetails(experienceDetail)
             if(!successExperienceDetails) return;

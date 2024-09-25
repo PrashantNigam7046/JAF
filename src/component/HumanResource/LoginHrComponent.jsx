@@ -5,14 +5,14 @@ import {FloatingLabel} from 'react-bootstrap';
 import {useNavigate } from 'react-router-dom';
 import "../../assets/styles/hr-login.css";
 import Spinner from 'react-bootstrap/Spinner';
+import { postHrLogin } from '../../services/hrService';
 
 const LoginHrComponent = () => {
     const navigate = useNavigate()
     const [showSpinner, setShowSpinner] = useState(false)
     const [userDetails, setUserDetails] = useState({
-        name : "",
         email: "",
-        mobileNumber: ""
+        password: ""
     })
 
  
@@ -30,9 +30,20 @@ const LoginHrComponent = () => {
     }
 
 
-      const handleSubmit = async (event) => {
-        
-        navigate("/dashboard-hr")
+      const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log("userDetails",userDetails)
+        try {
+            const data = await postHrLogin(userDetails)
+            let authToken_hr = data.data.data.token;
+            let roleName = data.data.data.roleName;
+            let uuid = data.data.data.uuid;
+            localStorage.setItem("authToken_hr", authToken_hr)
+            localStorage.setItem("roleName_admin", roleName)
+            navigate("/dashboard-hr")
+        } catch (error) {
+            console.log(error)
+        }
         
       };
 
@@ -47,14 +58,14 @@ const LoginHrComponent = () => {
                             label={<><span className="label-text">Email</span> <span className="required">*</span></>}
                             className="mb-3"
                         >
-                            <Form.Control type="email" name="name" value={userDetails.name}  onChange={e => handleChange(e)} placeholder="name@example.com" />
+                            <Form.Control type="email" name="email" value={userDetails.email}  onChange={e => handleChange(e)} placeholder="name@example.com" />
                         </FloatingLabel>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <FloatingLabel controlId="floatingPassword" 
                         label={<><span className="label-text">Password</span> <span className="required">*</span></>}>
-                            <Form.Control type="password"  placeholder="Password" />
+                            <Form.Control type="password"  name="password" value={userDetails.password} onChange={e => handleChange(e)} placeholder="Password" />
                         </FloatingLabel>
                     </Form.Group>
 
