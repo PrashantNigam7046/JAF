@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FloatingLabel, Row, Col, Button, Card, Form, Alert } from 'react-bootstrap';
 import { IoMdAddCircleOutline, IoIosCloseCircle } from 'react-icons/io';
+import { getUniversityList } from '../services/apiService';
 
 const EducationalQualification = ({ onDataChange }) => {
   const [education, setEducation] = useState([{ id: 1, diplomaDegreeExaminationPassed: '', boardName: '', percentage: '', yearOfPassing: '' }]);
-
+  const [universityList, setUniversityList] = useState()
   const addEducationDetail = () => {
     setEducation([...education, { id: education.length + 1, diplomaDegreeExaminationPassed: '', boardName: '', percentage: '', yearOfPassing: '' }]);
   };
@@ -19,6 +20,19 @@ const EducationalQualification = ({ onDataChange }) => {
     }
   };
 
+  const getUniversityListData = async () => {
+      try {
+        const res = await getUniversityList()
+          console.log("university==========", res.data)
+          setUniversityList(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+  useEffect(()=>{
+    getUniversityListData()
+  },[])
 
   const handleChange = (id, name, value) => {
     setEducation(prev => {
@@ -79,9 +93,12 @@ const EducationalQualification = ({ onDataChange }) => {
                     label={<><span className="label-text">University</span> <span className="required">*</span></>}>
                     <Form.Select aria-label="Floating label select example">
                       <option>select</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      {universityList?.map((element)=>{
+                        console.log("element name",element.name)
+                        return (<>
+                          <option value={element.name}>{element.name}</option>
+                        </>)
+                      })}
                     </Form.Select>
                   </FloatingLabel>
                 </Col>
