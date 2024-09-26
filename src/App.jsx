@@ -8,7 +8,11 @@ import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
 import NotFoundPage from './pages/NotFound';
+import HrFinalStatusPage from './pages/HrFinalStatusPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
+import OpsAssessmentPage from './component/ops/OpsAssessmentPage';
+import HrAssessmentPage from './pages/HrAssessmentPage';
+import ClientAssesmentPage from './component/client/ClientAssessmentPage';
 import Thankyou from './pages/Thankyou';
 import HrLoginPage from './pages/HrLoginPage';
 import HrDashboardPage from './pages/HrDashboardPage';
@@ -25,27 +29,22 @@ function App() {
           {/* Redirect from home route to /login-applicant */}
           <Route path="/" element={<Navigate to="/login-applicant" />} />
 
-          {/* Public routes */}
-          <Route path="/login-applicant" element={<LoginPage />} />
-          <Route path="/login-hr" element={<HrLoginPage />} />
-          <Route path="/otp" element={<OtpPage />} />
-          <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
-          <Route path="/thankyou" element={<Thankyou />} />
 
-          {/* Protected HR route */}
-          <Route 
-            path="/dashboard-hr" 
-            element={
-              <ProtectedRoute allowedRoles={['Hr']}> 
-                <HrDashboardPage />
-              </ProtectedRoute>
-            } 
-          />
+            {/* route list */}
+          
+            <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route path="/hr-status" element={<HrFinalStatusPage />} />
+            <Route path="/dashboard-hr" element={<HrDashboardPage />} />
+            <Route path="/login-applicant" element={<LoginPage />} />
+            <Route path="/otp" element={<OtpPage />} />
+            <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
+            <Route path="/thankyou" element={<Thankyou />} />
+            <Route path="/ops-assessment" element={<OpsAssessmentPage />} />
+            <Route path="/hr-assessment" element={<HrAssessmentPage />} />
+            <Route path="/client-assessment" element={<ClientAssesmentPage />} />
+          </Routes>
+          <FooterComponent></FooterComponent>
 
-          {/* Not found route */}
-          <Route path="*" element={<NotFoundPage />} /> 
-        </Routes>
-        <FooterComponent />
       </div>
     </Router>
   );

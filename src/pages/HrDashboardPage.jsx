@@ -11,7 +11,7 @@ const HrDashboardPage = () => {
             <div className='Dashboard-section-space'>
                 <div className="mt-4 mb-4">
                     <Col>
-                        <Button variant="dark" className='mb-2 backButton'><FaArrowLeft /></Button>
+                        {/* <Button variant="dark" className='mb-2 backButton'><FaArrowLeft /></Button> */}
                         <DashboardHrComponent />
                     </Col>
                 </div>

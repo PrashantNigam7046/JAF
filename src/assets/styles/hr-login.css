@@ -375,3 +375,116 @@ tbody, td, tfoot, th, thead, tr{
     font-size: 26px;
     line-height: 18px;
 }
+
+
+
+
+
+.candidate-titile {
+    margin: 0;
+    line-height: 30px;
+}
+.candidate-titile span {
+    background-color: #DFDFDF80;
+    padding: 4px 15px;
+    border-radius: 4px;
+}
+.ops-client-btn button {
+    border-radius: 100px;
+    min-width: 85px;
+}
+.client-btn {
+    margin-left: 10px;
+}
+.ops-client-btn button:hover,
+.ops-client-btn button.active {
+    background: linear-gradient(90deg, #007AFF 0%, #004999 100%) !important;
+}
+.CompetenciesRow h5 {
+    color: #007AFF;
+    margin: 0;
+    line-height: 30px;
+}
+.CompetenciesRow .list-group-item {
+    border: none;
+    background: none;
+    /* padding: 0; */
+}
+.CompetenciesRow .list-group-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+.CompetenciesRow .list-group-item p.Poor {
+    color: #D80027;
+}
+.CompetenciesRow .list-group-item p.Average {
+    color: #F58A45;
+}
+.CompetenciesRow .list-group-item p.Good {
+    color: #A16BFF;
+}
+.CompetenciesRow .list-group-item p.VGood {
+    color: #0052B4;
+}
+.CompetenciesRow .list-group-item p.Excellent {
+    color: #2BB25C;
+}
+.MarkingRowLeftSingle {
+    padding: 12px 5px;
+    background: #fff;
+    border-radius: 5px;
+}
+.MarkingRowLeftSingle:hover{
+    box-shadow: 0 4px 6px 0px #00000029;
+}
+.MarkingRowLeftRadio .form-check-inline {
+    margin-right: 0px;
+    margin-left: 3rem;
+    /* margin: 0 20px; */
+}
+.MarkingRowLeftRadio .form-check-inline:first-child {
+    margin: 0;
+}
+.MarkingRowLeftRadio .form-check-inline input {
+    border-color: #0052B4;
+}
+.MarkingRowRight textarea {
+    background: #EEEEFF;
+    border: 1px solid #000;
+    border-color: #956fb3 !important;
+    font-size: 14px;
+}
+.MarkingRowLeftSingle p {
+    font-size: 14px;
+}
+.GraduationYes,
+.FlexibleYes{
+    color: #2BB25C;
+}
+.GraduationNo,
+.FlexibleNo{
+    color: #D80027;
+}
+.GraduationYes label, 
+.FlexibleYes label,
+.GraduationNo label,
+.FlexibleNo label {
+    font-size: 14px;
+    font-weight: 600;
+}
+.nextButton {
+    background: linear-gradient(90deg, #007AFF 0%, #004999 100%);
+    /* padding: 0.813rem .75rem; */
+    border: 1px solid #007aff !important;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    transition: all ease .2s;
+}
+.nextButton svg{
+    margin-left: 5px;
+}
+.nextButton:hover {
+    background: linear-gradient(270deg, #007AFF 0%, #004999 100%);
+}

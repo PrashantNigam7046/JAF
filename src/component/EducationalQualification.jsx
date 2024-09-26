@@ -39,12 +39,13 @@ const EducationalQualification = ({ onDataChange }) => {
           <Card.Body>
             <Form>
               <Row>
-                <Col md={3}>
+                <Col md={12}>
                 {/* label={<><span className="label-text">Education (Highest/Latest/pursuing)</span> <span className="required">*</span></>} */}
                 <FloatingLabel controlId={`floatingQualification-${item.id}`} className='mb-3'>
                     <div>
                         <Form.Check 
                             type="radio" 
+                            inline
                             name="diplomaDegreeExaminationPassed" 
                             label="12th" 
                             value="12th" 
@@ -53,6 +54,7 @@ const EducationalQualification = ({ onDataChange }) => {
                         />
                         <Form.Check 
                             type="radio" 
+                            inline
                             name="diplomaDegreeExaminationPassed" 
                             label="Graduation" 
                             value="Graduation" 
@@ -60,7 +62,8 @@ const EducationalQualification = ({ onDataChange }) => {
                             onChange={(e) => handleChange(item.id, e.target.name, e.target.value)}
                         />
                         <Form.Check 
-                            type="radio" 
+                            type="radio"
+                            inline 
                             name="diplomaDegreeExaminationPassed" 
                             label="Post Graduation" 
                             value="Post Graduation" 
@@ -69,6 +72,18 @@ const EducationalQualification = ({ onDataChange }) => {
                         />
                     </div>
                 </FloatingLabel>
+                </Col>
+                
+                <Col md={3}>
+                  <FloatingLabel controlId="floatingUniversity" className='mb-3'
+                    label={<><span className="label-text">University</span> <span className="required">*</span></>}>
+                    <Form.Select aria-label="Floating label select example">
+                      <option>select</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </Form.Select>
+                  </FloatingLabel>
                 </Col>
                 <Col md={3}>
                   <FloatingLabel controlId={`floatingUniversity-${item.id}`} className='mb-3'
