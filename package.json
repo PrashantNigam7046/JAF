@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "https-start": "HTTPS=true SSL_CRT_FILE=/etc/apache2/_.radicalminds.in.crt SSL_KEY_FILE=/etc/apache2/_.radicalminds.in.key react-scripts start"
   },
   "dependencies": {
     "axios": "^1.7.7",
