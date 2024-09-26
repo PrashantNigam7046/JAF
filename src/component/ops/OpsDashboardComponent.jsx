@@ -71,7 +71,7 @@ const OpsDashboardComponent = () => {
                                         name="group1"
                                         type="radio"
                                         id="poor"
-                                        checked
+                                        
                                     />
                             </OverlayTrigger>
                             <OverlayTrigger
