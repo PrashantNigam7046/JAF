@@ -19,6 +19,7 @@ import HrDashboardPage from './pages/HrDashboardPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './function/protectedRoute';
+
 function App() {
   return (
     <Router>
@@ -26,25 +27,29 @@ function App() {
          <ToastContainer />
         <HeaderComponent />
         <Routes>
-          {/* Redirect from home route to /login-applicant */}
-          <Route path="/" element={<Navigate to="/login-applicant" />} />
-
-
-            {/* route list */}
-          
-            <Route path="/login-hr" element={<HrLoginPage />} />
-            <Route path="/hr-status" element={<HrFinalStatusPage />} />
-            <Route path="/dashboard-hr" element={<HrDashboardPage />} />
+            <Route path="/" element={<Navigate to="/login-applicant" />} />
+  
+            {/* Route list for candidate */}
+            <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />
-            <Route path="/job-application-form-page" element={<ApplicationFormPage />} />
-            <Route path="/thankyou" element={<Thankyou />} />
-            <Route path="/ops-assessment" element={<OpsAssessmentPage />} />
-            <Route path="/hr-assessment" element={<HrAssessmentPage />} />
-            <Route path="/client-assessment" element={<ClientAssesmentPage />} />
-          </Routes>
-          <FooterComponent></FooterComponent>
 
+            {/* Route list for HR */}
+            <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route element={<ProtectedRoute allowedRoles={["Hr"]} />}>
+              <Route path="/hr-status" element={<HrFinalStatusPage />} />
+              <Route path="/dashboard-hr" element={<HrDashboardPage />} />
+              <Route path="/client-assessment" element={<ClientAssesmentPage />} />
+              <Route path="/hr-assessment" element={<HrAssessmentPage />} />
+              <Route path="/ops-assessment" element={<OpsAssessmentPage />} />
+            </Route>
+
+            {/* Thank you page */}
+            <Route path="/thankyou" element={<Thankyou />} />
+            {/* Not Found Page */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          <FooterComponent />
       </div>
     </Router>
   );
