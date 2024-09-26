@@ -40,20 +40,35 @@ const EducationalQualification = ({ onDataChange }) => {
             <Form>
               <Row>
                 <Col md={3}>
-                  <FloatingLabel controlId={`floatingQualification-${item.id}`} className='mb-3'
-                    label={<><span className="label-text">Education (Highest/Latest/pursuing)</span> <span className="required">*</span></>}>
-                    <Form.Select 
-                      aria-label="Floating label select example"
-                      name="diplomaDegreeExaminationPassed"
-                      onChange={(e) => handleChange(item.id, e.target.name, e.target.value)}
-                      value={item.diplomaDegreeExaminationPassed}
-                    >
-                      <option value="">Select</option>
-                      <option value="12th">12th</option>
-                      <option value="Graduation">Graduation</option>
-                      <option value="Post Graduation">Post Graduation</option>
-                    </Form.Select>
-                  </FloatingLabel>
+                {/* label={<><span className="label-text">Education (Highest/Latest/pursuing)</span> <span className="required">*</span></>} */}
+                <FloatingLabel controlId={`floatingQualification-${item.id}`} className='mb-3'>
+                    <div>
+                        <Form.Check 
+                            type="radio" 
+                            name="diplomaDegreeExaminationPassed" 
+                            label="12th" 
+                            value="12th" 
+                            checked={item.diplomaDegreeExaminationPassed === "12th"}
+                            onChange={(e) => handleChange(item.id, e.target.name, e.target.value)}
+                        />
+                        <Form.Check 
+                            type="radio" 
+                            name="diplomaDegreeExaminationPassed" 
+                            label="Graduation" 
+                            value="Graduation" 
+                            checked={item.diplomaDegreeExaminationPassed === "Graduation"}
+                            onChange={(e) => handleChange(item.id, e.target.name, e.target.value)}
+                        />
+                        <Form.Check 
+                            type="radio" 
+                            name="diplomaDegreeExaminationPassed" 
+                            label="Post Graduation" 
+                            value="Post Graduation" 
+                            checked={item.diplomaDegreeExaminationPassed === "Post Graduation"}
+                            onChange={(e) => handleChange(item.id, e.target.name, e.target.value)}
+                        />
+                    </div>
+                </FloatingLabel>
                 </Col>
                 <Col md={3}>
                   <FloatingLabel controlId={`floatingUniversity-${item.id}`} className='mb-3'

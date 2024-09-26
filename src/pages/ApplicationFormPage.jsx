@@ -99,6 +99,9 @@ const ApplicationFormPage = () => {
 
     
   const handleSubmitEducationDetails = async () => {
+    
+    console.log("educationData------", educationData)
+    
     const payload = {
       educationDetails: educationData.map(({ diplomaDegreeExaminationPassed, boardName, percentage, yearOfPassing }) => ({
         diplomaDegreeExaminationPassed,
@@ -213,10 +216,10 @@ const handleSubmitOverview = async () => {
             if (!successFamilyPost) return; // If submission failed, do not proceed
         }
    
-        // if(stepIndex === 2) {
-        //     const successEducationDetails = await handleSubmitEducationDetails(educationData);
-        //     if(!successEducationDetails) return;
-        // }
+        if(stepIndex === 2) {
+            const successEducationDetails = await handleSubmitEducationDetails(educationData);
+            if(!successEducationDetails) return;
+        }
         if(stepIndex === 3) {
             const successExperienceDetails  = await handleSubmitExperienceDetails(experienceDetail)
             if(!successExperienceDetails) return;

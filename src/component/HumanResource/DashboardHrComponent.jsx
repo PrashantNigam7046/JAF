@@ -3,7 +3,7 @@ import {Container, Row, Col, Dropdown, Table, Form, Button, Pagination } from 'r
 import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FiEdit, FiSearch } from "react-icons/fi";
-import { getCandidateDetailsDashboard } from '../../services/hrService.js';
+import { getCandidateDetailsDashboard, getCountCandidate } from '../../services/hrService.js';
 
 const DashboardHrComponent = () => {
 
@@ -15,12 +15,26 @@ const DashboardHrComponent = () => {
             console.log("data", data.data.data)
             setCandidateData(data.data.data)
         } catch (error) {
-            console.log("zsajsha", error)
+            console.log("error", error)
         }
+    }
+
+    const fetchCount = async () => {
+        try {
+            const data = await getCountCandidate();
+            console.log("data-------", data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleCandidateData = (applicantId) => {
+        console.log("applicantId", applicantId)
     }
 
     useEffect(()=>{
         fetchCandidateDetails()
+        fetchCount()
     },[])
 
 
@@ -152,7 +166,7 @@ const DashboardHrComponent = () => {
                                     <td>{element.email}</td>
                                     <td>{element.postAppliedFor}</td>
                                     <td><span className='StatusTag notStartedTag'>{element.applicationStatus}</span></td>
-                                    <td className='text-center EditCell'><span><FiEdit /></span></td>
+                                    <td className='text-center EditCell'><span><FiEdit onClick={e => handleCandidateData(element.applicationId)} /></span></td>
                                 </tr>                                    
                                 </>)})}
                         </tbody>

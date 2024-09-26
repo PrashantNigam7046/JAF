@@ -18,8 +18,8 @@ import ProtectedRoute from './function/protectedRoute';
 function App() {
   return (
     <Router>
-      <div className='root_screen'>
-        <ToastContainer />
+      <div className='root_screen'>    
+         <ToastContainer />
         <HeaderComponent />
         <Routes>
           {/* Redirect from home route to /login-applicant */}

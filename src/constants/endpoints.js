@@ -1,7 +1,7 @@
 export const API_ENDPOINTS = {
   
   // get Routes
-  GET_RELATIONS_LIST:'/candidate-details/family-relation',
+    GET_RELATIONS_LIST:'/candidate-details/family-relation',
     GET_SOURCE: "/candidate-details/applied-source",
     GET_OPEN_POSTITONS: "/candidate-details/open-post",
     

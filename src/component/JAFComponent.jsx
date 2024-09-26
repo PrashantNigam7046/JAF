@@ -124,6 +124,23 @@ const JAFComponent = ({ onDataChange }) => {
             name: "gender",
             onChange: handleChange,
         },
+        {            
+            controlId: "floatingAadhar",
+            label: "Aadhar Card No",
+            placeholder: "Aadhar Card No",
+            type: "number",
+            required: true,
+            name: "aadhaarCardNumber",
+            onChange: handleChange,
+        },
+        {
+            controlId: "floatingPan",
+            label: "Pan Card No",
+            placeholder: "Pan Card No",
+            type: "text",
+            name: "panCardNumber",
+            onChange: handleChange,
+        },
         {
             controlId: "floatingSource",
             label: "Job Applied Source",
@@ -132,10 +149,20 @@ const JAFComponent = ({ onDataChange }) => {
                 value: position.uuid, 
                 label: position.sourceName 
             })),
-            required: false,
+            required: true,
             name: "source",
             onChange: handleChange,
         },
+        {
+            controlId: "floatingSubSource",
+            label: "Sub Source (RM....)",
+            placeholder: "Sub Source (RM....)",
+            type: "number",
+            required: true,
+            name: "subSource",
+            onChange: handleChange,
+        },
+
     ];
 
     const currentAddressFields = [
@@ -209,6 +236,7 @@ const JAFComponent = ({ onDataChange }) => {
             <h1 className="mb-3">JOB APPLICATION FORM</h1>
 
             <Card className="jaf-card mb-4 Altcardd">
+              
                 <Card.Body>
                     <Form>
                         <Row className='d-flex align-items-center mb-2'>

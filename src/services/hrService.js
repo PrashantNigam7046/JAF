@@ -24,3 +24,12 @@ export const postHrLogin = async (body) => {
       throw error; 
     }
   };
+
+  export const  getCountCandidate = async () => {
+    try {
+      const res = await axiosInstance_Admin.get(API_ENDPOINTS_ADMIN.GET_CANDIDATE_COUNT);
+      return res
+    } catch (error) {
+      throw error
+    }
+  } 
