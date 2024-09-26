@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Container, Row, Col, Dropdown, Table, Form, Button, Pagination } from 'react-bootstrap';
 import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FiEdit, FiSearch } from "react-icons/fi";
+import { getCandidateDetailsDashboard, getCountCandidate } from '../../services/hrService.js';
 
 const DashboardHrComponent = () => {
+
+    const [candidateData, setCandidateData] = useState([])
+
+    const fetchCandidateDetails = async () => {
+        try {
+            const data = await getCandidateDetailsDashboard()
+            console.log("data", data.data.data)
+            setCandidateData(data.data.data)
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    const fetchCount = async () => {
+        try {
+            const data = await getCountCandidate();
+            console.log("data-------", data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleCandidateData = (applicantId) => {
+        console.log("applicantId", applicantId)
+    }
+
+    useEffect(()=>{
+        fetchCandidateDetails()
+        fetchCount()
+    },[])
+
+
     return (
         <>
             {/* <Row>
@@ -110,7 +143,7 @@ const DashboardHrComponent = () => {
                     <Table hover className='customTable'>
                         <thead>
                                 <tr>
-                                    <th>Sr. No <FaSort className='Sorting' /></th>
+                                    <th>Application Id <FaSort className='Sorting' /></th>
                                     <th>Name <FaSort className='Sorting' /></th>
                                     <th>Contact Number <FaSort className='Sorting' /></th>
                                     <th>Date <FaSort className='Sorting' /></th>
@@ -121,56 +154,21 @@ const DashboardHrComponent = () => {
                                 </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Prashant Nigam</td>
-                                <td>+91 9898989898</td>
-                                <td>23 Sept 2024</td>
-                                <td>prasahant@gmail.com</td>
-                                <td>Software Engineer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
-                                <td className='text-center EditCell'><span><FiEdit /></span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Riya Sharma</td>
-                                <td>+91 9876543210</td>
-                                <td>15 Oct 2024</td>
-                                <td>riya.sharma@example.com</td>
-                                <td>Data Analyst</td>
-                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
-                                <td className='text-center EditCell'><span><FiEdit /></span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Amit Verma</td>
-                                <td>+91 9988776655</td>
-                                <td>30 Nov 2024</td>
-                                <td>amit.verma@mail.com</td>
-                                <td>Project Manager</td>
-                                <td><span className='StatusTag CompletedTag'>Completed</span></td>
-                                <td className='text-center EditCell'><span><FiEdit /></span></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Sneha Patel</td>
-                                <td>+91 9123456789</td>
-                                <td>19 Dec 2024</td>
-                                <td>sneha.patel@example.com</td>
-                                <td>UX Designer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
-                                <td className='text-center EditCell'><span><FiEdit /></span></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Vikram Singh</td>
-                                <td>+91 9654321098</td>
-                                <td>12 Jan 2024</td>
-                                <td>vikram.singh@mail.com</td>
-                                <td>Web Developer</td>
-                                <td><span className='StatusTag notStartedTag'>Not Completed</span></td>
-                                <td className='text-center EditCell'><span><FiEdit /></span></td>
-                            </tr>
+                            {
+                                candidateData.map((element)=>{
+                                    console.log("element", element)
+                                    return (<>
+                                 <tr>
+                                    <td>{element.applicationId}</td>
+                                    <td>{element.name}</td>
+                                    <td>{element.mobileNumber}</td>
+                                    <td>23 Sept 2024</td>
+                                    <td>{element.email}</td>
+                                    <td>{element.postAppliedFor}</td>
+                                    <td><span className='StatusTag notStartedTag'>{element.applicationStatus}</span></td>
+                                    <td className='text-center EditCell'><span><FiEdit onClick={e => handleCandidateData(element.applicationId)} /></span></td>
+                                </tr>                                    
+                                </>)})}
                         </tbody>
                     </Table>
                     <Pagination>

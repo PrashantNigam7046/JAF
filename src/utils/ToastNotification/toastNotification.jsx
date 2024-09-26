@@ -1,4 +1,3 @@
-// src/utils/toastUtil.js
 import { toast } from 'react-toastify';
 
 export const showToast = (message, type) => {

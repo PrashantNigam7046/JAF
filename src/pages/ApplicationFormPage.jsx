@@ -99,6 +99,9 @@ const ApplicationFormPage = () => {
 
     
   const handleSubmitEducationDetails = async () => {
+    
+    console.log("educationData------", educationData)
+    
     const payload = {
       educationDetails: educationData.map(({ diplomaDegreeExaminationPassed, boardName, percentage, yearOfPassing }) => ({
         diplomaDegreeExaminationPassed,
