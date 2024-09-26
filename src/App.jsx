@@ -1,5 +1,6 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/LoginPage';
 import HeaderComponent from './component/HeaderComponent';
@@ -17,16 +18,16 @@ import HrLoginPage from './pages/HrLoginPage';
 import HrDashboardPage from './pages/HrDashboardPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoute from './function/protectedRoute';
 function App() {
   return (
     <Router>
-      <div className='root_screen'>
-        <ToastContainer></ToastContainer>
-          <HeaderComponent></HeaderComponent>
-          <Routes>
-
-            {/* Redirect from home route to /login-applicant when someone hits on home route */}
-            <Route path="/" element={<Navigate to="/login-applicant" />} />
+      <div className='root_screen'>    
+         <ToastContainer />
+        <HeaderComponent />
+        <Routes>
+          {/* Redirect from home route to /login-applicant */}
+          <Route path="/" element={<Navigate to="/login-applicant" />} />
 
 
             {/* route list */}

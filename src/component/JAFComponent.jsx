@@ -7,19 +7,15 @@ import { getOpenPositions, getAppliedSource } from "../services/apiService.js";
 import axios from "axios";
 
 const JAFComponent = ({ onDataChange }) => {
-    const [openPosition, setOpenPositions] = useState([])
-    const [appliedSource, setAppliedSource] = useState([])
-    const [states, setStates] = useState([])
+    const [openPosition, setOpenPositions] = useState([]);
+    const [appliedSource, setAppliedSource] = useState([]);
+    const [states, setStates] = useState([]);
     const [formData, setFormData] = useState({
         openPostId: '',
-        // email: '',
         dob: '',
         gender: '',
         candidateSignature: "candidate",
-        // aadhaarCardNumber: '',
-        // panCardNumber: '',
         source: '',
-        subSource: '',
         currentAddressState: '',
         currentAddress: '',
         currentAddressPincode: '',
@@ -31,56 +27,68 @@ const JAFComponent = ({ onDataChange }) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         const updatedValue = name === 'dob' ? new Date(value).toISOString().split('T')[0] : value;
-        
         const updatedFormData = { ...formData, [name]: updatedValue };
-        // const updatedFormData = { ...formData, [name]: value };
-        setFormData(updatedFormData); // Update local state
-        onDataChange(updatedFormData); // Send updated data to parent
-
+        setFormData(updatedFormData);
+        onDataChange(updatedFormData);
     };
 
-    const handleCurrentAddress = () => {
-        
-    }
-
+    const handleCurrentAddress = (e) => {
+        if (e.target.checked) {
+            // Copy current address to permanent address fields
+            const updatedFormData = {
+                ...formData,
+                permanentAddressState: formData.currentAddressState,
+                permanentAddress: formData.currentAddress,
+                permanentAddressPincode: formData.currentAddressPincode,
+            };
+            setFormData(updatedFormData);
+            onDataChange(updatedFormData); // Send updated data to parent
+        }
+        else {
+            // If unchecked, clear the permanent address fields
+            const updatedFormData = {
+                ...formData,
+                permanentAddressState: '',
+                permanentAddress: '',
+                permanentAddressPincode: '',
+            };
+            setFormData(updatedFormData);
+            onDataChange(updatedFormData); // Send updated data to parent
+        }
+    };
 
     const getOpenPosition = async () => {
         try {
-            const response = await getOpenPositions()
-            setOpenPositions(response.data.data)
-         } catch (error) {
-            console.log(error)
-         }
-    }
+            const response = await getOpenPositions();
+            setOpenPositions(response.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const getSource = async () => {
         try {
             const res = await getAppliedSource();
-            console.log("res===",res.data.data)
-            setAppliedSource(res.data.data)
-
+            setAppliedSource(res.data.data);
         } catch (error) {
-            console.log(error)   
+            console.log(error);
         }
-    }
+    };
 
     const getStateList = async () => {
         try {
-            const res = await axios.get("./state.json")
-            console.log("state====", res.data)
-            setStates(res.data)
+            const res = await axios.get("./state.json");
+            setStates(res.data);
         } catch (error) {
-            console.log("error", error)
+            console.log("error", error);
         }
-    }
+    };
 
-    useEffect(()=>{
-        getOpenPosition()
-        getSource()
-        getStateList()
-    },[])
-
-    console.log("formData", formData)
+    useEffect(() => {
+        getOpenPosition();
+        getSource();
+        getStateList();
+    }, []);
 
     const generalDetailsFields = [
         {
@@ -95,15 +103,6 @@ const JAFComponent = ({ onDataChange }) => {
             name: "openPostId",
             onChange: handleChange,
         },
-        // {
-        //     controlId: "floatingEmail",
-        //     label: "E-Mail ID",
-        //     type: "email",
-        //     placeholder: "E-Mail ID",
-        //     required: true,
-        //     name: "email",
-        //     onChange: handleChange,
-        // },
         {
             controlId: "floatingDob",
             label: "DOB",
@@ -125,24 +124,23 @@ const JAFComponent = ({ onDataChange }) => {
             name: "gender",
             onChange: handleChange,
         },
-        // {
-            
-        //     controlId: "floatingAadhar",
-        //     label: "Aadhar Card No",
-        //     placeholder: "Aadhar Card No",
-        //     type: "number",
-        //     required: true,
-        //     name: "aadhaarCardNumber",
-        //     onChange: handleChange,
-        // },
-        // {
-        //     controlId: "floatingPan",
-        //     label: "Pan Card No",
-        //     placeholder: "Pan Card No",
-        //     type: "text",
-        //     name: "panCardNumber",
-        //     onChange: handleChange,
-        // },
+        {            
+            controlId: "floatingAadhar",
+            label: "Aadhar Card No",
+            placeholder: "Aadhar Card No",
+            type: "number",
+            required: true,
+            name: "aadhaarCardNumber",
+            onChange: handleChange,
+        },
+        {
+            controlId: "floatingPan",
+            label: "Pan Card No",
+            placeholder: "Pan Card No",
+            type: "text",
+            name: "panCardNumber",
+            onChange: handleChange,
+        },
         {
             controlId: "floatingSource",
             label: "Job Applied Source",
@@ -164,6 +162,7 @@ const JAFComponent = ({ onDataChange }) => {
             name: "subSource",
             onChange: handleChange,
         },
+
     ];
 
     const currentAddressFields = [
@@ -237,6 +236,7 @@ const JAFComponent = ({ onDataChange }) => {
             <h1 className="mb-3">JOB APPLICATION FORM</h1>
 
             <Card className="jaf-card mb-4 Altcardd">
+              
                 <Card.Body>
                     <Form>
                         <Row className='d-flex align-items-center mb-2'>
@@ -274,10 +274,8 @@ const JAFComponent = ({ onDataChange }) => {
                                         {...field}
                                     />
                                 </Col>
-                                
                             ))}
                         </Row>
-                        
                     </Form>
                 </Card.Body>
             </Card>
@@ -292,7 +290,7 @@ const JAFComponent = ({ onDataChange }) => {
                                     <Form.Check
                                         type='checkbox'
                                         label='Same as Current Address'
-                                        onChange={handleCurrentAddress}
+                                        onChange={e => handleCurrentAddress(e)}
                                         id='permanentAddressCheck'
                                         className='text-start'
                                     />
@@ -300,40 +298,20 @@ const JAFComponent = ({ onDataChange }) => {
                             </Col>
                         </Row>
                         <hr />
-                    
-
                         <Row>
                             {permanentAddressFields.map((field, index) => (
                                 <Col md={field.type === 'textarea' ? 6 : 3} key={index}>
-                                <FloatingInput
-                                    {...field}
-                                    value={formData[field.name]} // Pass the current value from formData
-                                    onChange={handleChange} // Ensure handleChange is passed down
-                                />
+                                    <FloatingInput
+                                        {...field}
+                                        value={formData[field.name]} // Pass the current value from formData
+                                        onChange={handleChange} // Ensure handleChange is passed down
+                                    />
                                 </Col>
                             ))}
                         </Row>
-
-
-
-                        {/* <Row>
-                            <Col md={12}>
-                                <Form.Group className='declaration mb-3'>
-                                    <Form.Check
-                                        type='checkbox'
-                                        label='Permanent Address Same as above'
-                                        id='permanentAddressCheck'
-                                        className='text-start'
-                                    />
-                                </Form.Group>
-                            </Col>
-                        </Row> */}
                     </Form>
                 </Card.Body>
             </Card>
-
-            {/* <Button>Save</Button> */}
-
         </>
     );
 }

@@ -89,7 +89,7 @@ const FamilyDetail = ({ onDataChange }) => {
                   </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel controlId={`floatingLastName-${member.id}`} label="Last Name" className='mb-3'>
+                  <FloatingLabel controlId={`floatingLastName-${member.id}`} label={<><span className="label-text">lastname</span> <span className="required">*</span> </>} className='mb-3'>
                     <Form.Control 
                       type="text" 
                       onChange={(e) => handleChange(member.id, 'lastName', e.target.value)} 
@@ -98,7 +98,7 @@ const FamilyDetail = ({ onDataChange }) => {
                 </Col>
                 <Col>
                   <FloatingLabel controlId={`floatingAge-${member.id}`} className='mb-3'
-                    label={<><span className="label-text">Age</span> <span className="required">*</span></>}>
+                    label={<><span className="label-text">Age</span></>}>
                     <Form.Control 
                       type="number" 
                       onChange={(e) => handleChange(member.id, 'age', e.target.value)} 
@@ -107,7 +107,7 @@ const FamilyDetail = ({ onDataChange }) => {
                 </Col>
                 <Col>
                   <FloatingLabel controlId={`floatingOccupation-${member.id}`} className='mb-3'
-                    label={<><span className="label-text">Occupation</span> <span className="required">*</span></>}>
+                    label={<><span className="label-text">Occupation</span> </>}>
                     <Form.Control 
                       type="text" 
                       onChange={(e) => handleChange(member.id, 'occupation', e.target.value)} 
