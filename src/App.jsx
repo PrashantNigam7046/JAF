@@ -7,6 +7,7 @@ import FooterComponent from './component/FooterComponent';
 import "./App.css";
 import OtpPage from './pages/OtpPage';
 import NotFoundPage from './pages/NotFound';
+import HrFinalStatusPage from './pages/HrFinalStatusPage';
 import ApplicationFormPage from './pages/ApplicationFormPage';
 import OpsAssessmentPage from './component/ops/OpsAssessmentPage';
 import HrAssessmentPage from './pages/HrAssessmentPage';
@@ -31,6 +32,7 @@ function App() {
             {/* route list */}
           
             <Route path="/login-hr" element={<HrLoginPage />} />
+            <Route path="/hr-status" element={<HrFinalStatusPage />} />
             <Route path="/dashboard-hr" element={<HrDashboardPage />} />
             <Route path="/login-applicant" element={<LoginPage />} />
             <Route path="/otp" element={<OtpPage />} />

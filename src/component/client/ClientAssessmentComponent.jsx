@@ -38,8 +38,8 @@ const ClientAssessmentComponent = () => {
                     </Row>
                 </Col>
                 <Col className='d-flex flex-row-reverse ops-client-btn'>
-                <Button className='client-btn' variant="outline-primary">Client</Button>
-                    <Button className='ops-btn' variant="outline-primary" active>OPS</Button>
+                <Button className='client-btn' variant="outline-primary" active>Client</Button>
+                    <Button className='ops-btn' variant="outline-primary" >OPS</Button>
                 </Col>
             </Row>
             <Row className='CompetenciesRow mb-4'>
