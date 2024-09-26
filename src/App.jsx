@@ -40,7 +40,7 @@ function App() {
               <Route path="/hr-status" element={<HrFinalStatusPage />} />
               <Route path="/dashboard-hr" element={<HrDashboardPage />} />
               <Route path="/client-assessment" element={<ClientAssesmentPage />} />
-              <Route path="/hr-assessment" element={<HrAssessmentPage />} />
+              <Route path="/hr-assessment/:id" element={<HrAssessmentPage />} />
               <Route path="/ops-assessment" element={<OpsAssessmentPage />} />
             </Route>
 

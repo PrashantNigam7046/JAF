@@ -4,11 +4,11 @@ import { FaRegUserCircle, FaSort } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FiEdit, FiSearch } from "react-icons/fi";
 import { getCandidateDetailsDashboard, getCountCandidate } from '../../services/hrService.js';
-
+import { useNavigate } from 'react-router-dom';
 const DashboardHrComponent = () => {
 
     const [candidateData, setCandidateData] = useState([])
-
+    const navigate = useNavigate()
     const fetchCandidateDetails = async () => {
         try {
             const data = await getCandidateDetailsDashboard()
@@ -30,6 +30,7 @@ const DashboardHrComponent = () => {
 
     const handleCandidateData = (applicantId) => {
         console.log("applicantId", applicantId)
+        navigate(`/hr-assessment/${applicantId}`)
     }
 
     useEffect(()=>{
