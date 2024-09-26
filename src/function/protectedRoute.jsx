@@ -1,17 +1,12 @@
-// ProtectedRoute.js
+// protectedRoute.js
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, allowedRoles }) => {
-    const token = localStorage.getItem('authToken_hr');
-    const role = localStorage.getItem('roleName_admin'); // Ensure the user role is stored in localStorage
+const ProtectedRoute = ({ allowedRoles }) => {
+  const userRole = "Hr"; // Replace this with your logic to get the user's role
 
-    // Check if the user is authenticated and has the required role
-    console.log("role", role)
-    const isAuthenticated = token && allowedRoles.includes(role);
-    console.log("allowedRoles", allowedRoles.includes(role))
-
-    return isAuthenticated ? children : <Navigate to="/" />;
+  // Check if the user role is allowed
+  return allowedRoles.includes(userRole) ? <Outlet /> : <Navigate to="/login-hr" />;
 };
 
 export default ProtectedRoute;
