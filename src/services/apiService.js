@@ -1,6 +1,7 @@
 import { API_ENDPOINTS } from '../constants/endpoints';
 import { showToast } from '../utils/ToastNotification/toastNotification';
 import axiosInstance from '../config/axios.Config.js';
+import axios from 'axios';
 
 // Function to post candidate details
 export const postCandidateDetails = async (body) => {
@@ -102,4 +103,16 @@ export const postRefernceDetails = async (body) => {
     showToast(error.response.data.message, 'error');
     throw error; 
   }
+}
+
+
+// without token api to get States
+
+export const getUniversityList = async () =>{
+    try {
+      const data = await axios.get("http://universities.hipolabs.com/search?country=india")
+      return data
+    } catch (error) {
+      console.log("error", error)
+    }
 }
