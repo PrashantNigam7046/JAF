@@ -1,3 +1,10 @@
+body, 
+.Header-main,
+.footer {
+    background: #F1F1F1;
+    background: #F0F5FE;
+}
+
 .Hr_form_box {
     min-width: 320px;
     max-width: 420px;
@@ -351,7 +358,7 @@ tbody, td, tfoot, th, thead, tr{
     background: #EADDFF;
     border-color: #956fb3 !important;
 }
-::-webkit-calendar-picker-indicator {
+.appDate::-webkit-calendar-picker-indicator {
     /* filter: invert(1); */
     /* filter: invert(90) sepia(50) saturate(90) hue-rotate(240deg); */
     /* filter: invert(29%) sepia(100%) saturate(192%) hue-rotate(230deg); */
@@ -487,4 +494,7 @@ tbody, td, tfoot, th, thead, tr{
 }
 .nextButton:hover {
     background: linear-gradient(270deg, #007AFF 0%, #004999 100%);
+}
+.FinalStatusCard .card-body {
+    margin-bottom: 0 !important;
 }

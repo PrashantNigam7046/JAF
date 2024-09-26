@@ -14,7 +14,7 @@ const HrFinalStatulPage = () => {
                         <Button variant="dark" className='mb-4 backButton'><FaArrowLeft /></Button>
                         <HrFinalStatusComponent />
                         <Row>
-                            <Col className='p-0'>
+                            <Col className=''>
                                 <Button variant="dark" className='mt-3 final-submit-button'>Submit <FaCheckCircle /></Button>
                             </Col>
                         </Row>
